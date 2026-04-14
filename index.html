@@ -1430,6 +1430,170 @@
       border-color: var(--yale-light);
       background: rgba(0,53,107,0.5);
     }
+
+    /* ─── HAMBURGER + MOBILE MENU ──────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      z-index: 300;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.85);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 66px;
+      left: 0; right: 0; bottom: 0;
+      background: var(--yale);
+      z-index: 199;
+      padding: 28px 28px;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .nav-mobile-menu.open { display: flex; }
+
+    .nav-mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-mobile-links li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-mobile-link {
+      display: block;
+      padding: 18px 0;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-mobile-link:hover { color: #fff; }
+
+    /* ─── RESPONSIVE ───────────────────────── */
+    @media (max-width: 900px) {
+      /* About */
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .about-right { min-height: 280px; }
+
+      /* Alumni */
+      .alumni-inner { grid-template-columns: 1fr; gap: 52px; }
+
+      /* Coaches */
+      .coaches-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Roster: stack the two-panel layout */
+      .roster-layout { grid-template-columns: 1fr; gap: 0; }
+      .roster-featured { position: static; margin-bottom: 24px; }
+      .featured-frame { aspect-ratio: 3/1.8; max-height: 200px; }
+      .featured-img-el { object-position: top center; }
+    }
+
+    @media (max-width: 768px) {
+      /* Nav */
+      .nav-hamburger { display: flex; }
+      .nav-right { display: none; }
+      nav { padding: 14px 20px; }
+
+      /* Hero: reposition image so faces are visible on portrait phones */
+      .hero { padding: 0 20px 0; }
+      .hero-bg { background-position: center 45%; }
+
+      /* About */
+      .about { padding: 60px 20px 50px; }
+
+      /* Stats: wrap into 2-column grid */
+      .stats { flex-wrap: wrap; }
+      .stat-item { flex: 0 0 50%; }
+      .stat-item:nth-child(even) { border-right: none; }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4),
+      .stat-item:nth-child(5) { border-top: 1px solid rgba(255,255,255,0.12); }
+      .stat-item:last-child:nth-child(odd) { flex: 0 0 100%; border-right: none; }
+
+      /* Schedule */
+      .schedule { padding: 60px 20px; }
+      .schedule-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+      /* Tournament rows: hide location column, tighten grid */
+      .tournament-header {
+        grid-template-columns: 80px 1fr 70px 24px;
+        gap: 10px;
+        padding: 16px 6px;
+      }
+      .tourn-location { display: none; }
+      .game-row {
+        grid-template-columns: 56px 1fr 68px;
+        padding: 10px 6px 10px 14px;
+        gap: 10px;
+      }
+      .game-location { display: none; }
+
+      /* Roster */
+      .roster { padding: 40px 20px 60px; }
+      .roster-top-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+      /* Roster table columns: hide hometown */
+      .roster-cols,
+      .roster-row { grid-template-columns: 2fr 40px 1fr; }
+      .player-hometown { display: none; }
+      .roster-cols span:nth-child(4) { display: none; }
+
+      /* Roster grid: 2 columns */
+      .roster-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Coaches: 1 column */
+      .coaches-grid { grid-template-columns: 1fr; }
+
+      /* Alumni */
+      .alumni-section { padding: 60px 20px; }
+      .alumni-form-row { grid-template-columns: 1fr; }
+
+      /* Contact */
+      .full-section { padding: 70px 20px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Footer */
+      footer { padding: 48px 20px 28px; }
+      .footer-top { flex-direction: column; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+      /* Dark break */
+      .dark-break { height: 45vh; }
+      .dark-break-label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        bottom: 28px;
+        left: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { transform: none; }
+      .stat-item { padding: 24px 20px; }
+      .roster-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -1449,7 +1613,21 @@
       </ul>
       <a href="#contact" class="nav-contact">Contact</a>
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <ul class="nav-mobile-links">
+      <li><a href="#schedule" class="nav-mobile-link">Events</a></li>
+      <li><a href="#roster" class="nav-mobile-link">Roster</a></li>
+      <li><a href="#alumni" class="nav-mobile-link">Alumni</a></li>
+      <li><a href="#about" class="nav-mobile-link">About</a></li>
+      <li><a href="#contact" class="nav-mobile-link">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- ── HERO ──────────────────────────────────  -->
   <section class="hero">
@@ -2157,7 +2335,6 @@
       <span class="footer-copy">© Yale Men's Water Polo Club 2026 &nbsp;·&nbsp; New Haven, CT</span>
       <div class="footer-socials">
         <a href="https://www.instagram.com/yalemwaterpolo/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://groupme.com/join_group/102855327/BnFKbfsr" target="_blank" rel="noopener noreferrer">GroupMe</a>
       </div>
     </div>
   </footer>
@@ -2345,6 +2522,41 @@
     function toggleFaq(id) {
       const item = document.getElementById(id);
       item.classList.toggle('open');
+    }
+
+    // ── HAMBURGER MENU ──────────────────────────
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('nav-mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close mobile menu when a link is tapped
+    document.querySelectorAll('.nav-mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ── TOUCH SUPPORT FOR ROSTER ───────────────
+    // Add click events so players can be selected on touch devices
+    rosterRows.forEach(row => {
+      row.addEventListener('click', () => showPlayer(row));
+    });
+
+    // Update placeholder text on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      const placeholderText = document.querySelector('.featured-placeholder-text');
+      if (placeholderText) placeholderText.textContent = 'Tap a player';
+      const featuredSubEl = document.getElementById('featured-sub');
+      if (featuredSubEl && featuredSubEl.textContent === 'Hover to preview') {
+        featuredSubEl.textContent = 'Tap to preview';
+      }
     }
 
   </script>
