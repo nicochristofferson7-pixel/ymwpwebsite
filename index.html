@@ -1,0 +1,2353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yale Men's Water Polo Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yale: #00356B;
+      --yale-mid: #1a4d8a;
+      --yale-light: #286DC0;
+      --white: #ffffff;
+      --off: rgba(255,255,255,0.55);
+      --dim: rgba(255,255,255,0.15);
+      --border: rgba(255,255,255,0.09);
+      --blue-border: rgba(0,53,107,0.45);
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      scrollbar-width: none;
+    }
+    *::-webkit-scrollbar { display: none; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+    }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: var(--yale);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-logo-img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      display: block;
+    }
+
+    .nav-wordmark {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-contact {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.45);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-contact:hover {
+      border-color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ─── HERO ────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 40px 0;
+      padding-bottom: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('Photos/TeamPic.JPG');
+      background-size: cover;
+      background-position: center 82%;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.95) 0%,
+        rgba(0,0,0,0.75) 25%,
+        rgba(0,0,0,0.35) 55%,
+        rgba(0,0,0,0.15) 100%
+      );
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+
+    .hero-scroll {
+      position: relative;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-scroll::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .hero-title {
+      position: relative;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 9.5vw, 130px);
+      line-height: 0.92;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      max-width: 860px;
+      color: #fff;
+      transform: translateY(2.5vh);
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: #fff;
+    }
+
+    .hero-title .club-word {
+      display: block;
+      font-size: clamp(14px, 1.6vw, 22px);
+      letter-spacing: 0.28em;
+      color: #fff;
+      margin-top: 4px;
+    }
+
+    .hero-meta {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .hero-badge {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-left: 2px solid var(--yale-light);
+      padding-left: 12px;
+      line-height: 1.5;
+    }
+
+    /* ─── ABOUT ───────────────────────────── */
+    .about {
+      background:
+        radial-gradient(ellipse 70% 90% at 0% 50%, rgba(0,53,107,0.38) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 5% 80%, rgba(0,53,107,0.2) 0%, transparent 55%),
+        #000;
+      padding: 90px 40px 60px;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1200px;
+    }
+
+    .section-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--yale-light);
+    }
+
+    .about-text p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 18px;
+      font-weight: 300;
+    }
+
+    .about-text p strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+
+    .about-right {
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .about-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      position: absolute;
+      inset: 0;
+    }
+
+    .about-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 50%),
+        linear-gradient(to right, rgba(0,0,0,0.25) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* ─── STATS ───────────────────────────── */
+    .stats {
+      display: flex;
+      align-items: stretch;
+      background: var(--yale);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .stat-item {
+      flex: 1;
+      padding: 36px 32px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      transition: background 0.3s;
+    }
+
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(255,255,255,0.06); }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: #fff;
+      display: flex;
+      align-items: flex-start;
+      gap: 1px;
+    }
+
+    .stat-sup {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      margin-top: 4px;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    /* ─── DARK BREAK ──────────────────────── */
+    .dark-break {
+      height: 70vh;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dark-break-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 100% 80% at 50% 50%, rgba(0,53,107,0.45) 0%, transparent 70%),
+        #000;
+    }
+
+    .dark-break-text {
+      position: relative;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 14vw, 200px);
+      color: rgba(0,53,107,0.18);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      user-select: none;
+      text-align: center;
+    }
+
+    .dark-break-label {
+      position: absolute;
+      bottom: 48px;
+      left: 40px;
+      right: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .dark-break-tag {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .dark-break-cta {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      border-bottom: 1px solid var(--yale-light);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .dark-break-cta:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* ─── ROSTER ──────────────────────────── */
+    .roster {
+      background: #000;
+      padding: 60px 40px 80px;
+    }
+
+    .roster-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .roster-tabs {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .roster-tab {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      cursor: pointer;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .roster-tab.active {
+      color: #fff;
+      border-bottom-color: var(--yale-light);
+    }
+
+    .roster-tab:hover { color: rgba(255,255,255,0.7); }
+
+    .roster-season {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+    }
+
+    /* ─── ROSTER TWO-PANEL LAYOUT ─────────── */
+    .roster-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .roster-featured {
+      position: sticky;
+      top: 76px;
+    }
+
+    .featured-frame {
+      width: 100%;
+      aspect-ratio: 4/6;
+      background: rgba(0,53,107,0.12);
+      border: 1px solid rgba(0,53,107,0.4);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .featured-frame::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, rgba(0,20,50,0.65), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .featured-img-el {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: opacity 0.2s ease;
+      position: absolute;
+      inset: 0;
+    }
+
+    .featured-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .featured-placeholder svg {
+      width: 36px;
+      height: 36px;
+      opacity: 0.1;
+    }
+
+    .featured-placeholder-text {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    .featured-label {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .featured-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      color: #fff;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .featured-sub {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── CAROUSEL CONTROLS ─────────────────── */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, background 0.2s ease;
+    }
+    .carousel-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: rgba(255,255,255,0.85);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+    .carousel-btn.visible { opacity: 1; pointer-events: auto; }
+    .carousel-btn:hover { background: rgba(0,0,0,0.72); }
+    .carousel-btn:active { transform: translateY(-50%) scale(0.92); }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .carousel-dot.active {
+      background: rgba(255,255,255,0.9);
+      transform: scale(1.4);
+    }
+
+    .roster-table {
+      min-width: 0;
+    }
+
+    /* column headers — 4 cols (no photo, no position) */
+    .roster-cols {
+      display: grid;
+      grid-template-columns: 2fr 50px 130px 1fr;
+      padding: 0 8px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 0;
+      align-items: center;
+    }
+
+    .roster-cols span {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .roster-row {
+      display: grid;
+      grid-template-columns: 2fr 50px 130px 1fr;
+      align-items: center;
+      padding: 11px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      cursor: pointer;
+      transition: background 0.15s, padding-left 0.15s;
+    }
+
+    .roster-row:hover, .roster-row.active {
+      background: rgba(0,53,107,0.14);
+      padding-left: 14px;
+    }
+
+    .player-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .player-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: 0.02em;
+    }
+
+    .player-year {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    .player-pos {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    .player-hometown {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+    }
+
+    /* position badge */
+    .pos-badge {
+      display: inline-flex;
+      align-items: center;
+      height: 18px;
+      padding: 0 7px;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.45);
+    }
+
+    .pos-badge.gk {
+      background: rgba(0,53,107,0.55);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(40,109,192,0.4);
+    }
+
+    /* ─── VIEW TOGGLE ─────────────────────── */
+    .view-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .view-toggle-icon {
+      display: flex;
+      gap: 3px;
+      opacity: 0.3;
+      transition: opacity 0.2s;
+    }
+
+    .view-toggle:hover .view-toggle-icon { opacity: 0.7; }
+    .view-toggle.grid-active .view-toggle-icon { opacity: 1; }
+
+    .view-toggle-icon span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: #fff;
+    }
+
+    /* ─── ROSTER GRID VIEW ─────────────────── */
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+    }
+
+    .rc {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      background: rgba(0,53,107,0.08);
+    }
+
+    .rc-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+
+    .rc-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .rc:hover .rc-photo img { transform: scale(1.04); }
+
+    .rc-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .rc-num-badge {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: rgba(255,255,255,0.18);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .rc-info {
+      padding: 12px 14px 16px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .rc-info-num {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .rc-info-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .rc-info-year {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+      margin-top: 3px;
+      display: block;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── COACHES TABLE ───────────────────── */
+    .coaches-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 0;
+    }
+
+    .coach-card {
+      background: #000;
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+
+    .coach-card:hover { background: rgba(0,53,107,0.06); }
+
+    .coach-role {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 10px;
+    }
+
+    .coach-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: #fff;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .coach-detail {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 6px;
+    }
+
+    /* ─── FAQ ACCORDION ───────────────────── */
+    .faq-list {
+      margin-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .faq-question:hover { color: rgba(255,255,255,0.7); }
+
+    .faq-chevron {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      opacity: 0.35;
+      transition: transform 0.28s ease, opacity 0.2s;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      opacity: 0.65;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    .faq-answer-inner {
+      padding: 0 0 20px 0;
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      max-width: 620px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .contact-block-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+    }
+
+    .contact-block-value {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .contact-block-value a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact-block-value a:hover { color: #fff; }
+
+    /* ─── FULL SECTION ────────────────────── */
+    .full-section {
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,53,107,0.32) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0,53,107,0.15) 0%, transparent 60%),
+        #060d18;
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+
+    .full-section-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,53,107,0.32) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0,53,107,0.15) 0%, transparent 60%),
+        #060d18;
+      pointer-events: none;
+    }
+
+    .full-section-inner {
+      position: relative;
+      max-width: 800px;
+    }
+
+    .full-section-tag {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .full-section-tag::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--yale-light);
+    }
+
+    .full-section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 5vw, 72px);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+
+    .full-section-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+      max-width: 540px;
+      font-weight: 300;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 40px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(40,109,192,0.6);
+      padding: 14px 24px;
+      background: rgba(0,53,107,0.2);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .cta-btn:hover {
+      border-color: var(--yale-light);
+      background: rgba(0,53,107,0.4);
+    }
+
+    .cta-btn svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.6;
+    }
+
+    /* ─── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--yale);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 64px 40px 36px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 64px;
+    }
+
+    .footer-tagline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      max-width: 580px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-logo-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      color: rgba(255,255,255,0.06);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer-copy {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-socials a {
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-socials a:hover { color: rgba(255,255,255,0.9); }
+
+    /* ─── SCHEDULE ────────────────────────── */
+    .schedule {
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,53,107,0.32) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0,53,107,0.15) 0%, transparent 60%),
+        #060d18;
+      padding: 80px 40px;
+      border-top: 1px solid rgba(0,53,107,0.3);
+    }
+
+    .schedule-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .schedule-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+    }
+
+    .schedule-season {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding-bottom: 6px;
+    }
+
+    /* ─── TOURNAMENT ACCORDION ────────────── */
+    .tournament-item {
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .season-block .tournament-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .season-block {
+      margin-bottom: 40px;
+    }
+
+    .season-label-row {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 0;
+    }
+
+    .tournament-header.static {
+      cursor: default;
+    }
+
+    .tournament-header.static:hover {
+      background: none;
+      padding-left: 8px;
+    }
+
+    .tourn-tag {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 2px 6px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .tournament-header {
+      display: grid;
+      grid-template-columns: 110px 1fr 160px 110px 32px;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 8px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .tournament-header:hover {
+      background: rgba(0,53,107,0.08);
+      padding-left: 14px;
+    }
+
+    .tourn-date {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    .tourn-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+
+    .tourn-location {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    .tourn-result {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      text-align: right;
+    }
+
+    .tourn-result-w { color: rgba(180,255,180,0.75); }
+    .tourn-result-l { color: rgba(255,120,120,0.65); }
+    .tourn-result-mixed { color: rgba(255,255,255,0.6); }
+    .tourn-result-upcoming { color: rgba(255,255,255,0.2); font-size: 10px; font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 0.1em; }
+
+    .tourn-chevron {
+      width: 18px;
+      height: 18px;
+      opacity: 0.35;
+      transition: transform 0.28s ease, opacity 0.2s;
+      justify-self: end;
+      flex-shrink: 0;
+    }
+
+    .tournament-item.open .tourn-chevron {
+      transform: rotate(180deg);
+      opacity: 0.65;
+    }
+
+    .tournament-games {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+      background: rgba(0,53,107,0.04);
+      border-top: 1px solid transparent;
+    }
+
+    .tournament-item.open .tournament-games {
+      max-height: 500px;
+      border-top-color: rgba(255,255,255,0.04);
+    }
+
+    /* ─── ALUMNI WEEKEND SLIDER ───────────────── */
+    #tourn-s2.open .tournament-games {
+      max-height: 340px;
+    }
+
+    @keyframes scroll-right {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .alumni-scroll-track {
+      display: flex;
+      gap: 12px;
+      width: max-content;
+      animation: scroll-right 28s linear infinite;
+    }
+
+    .alumni-scroll-track:hover {
+      animation-play-state: paused;
+    }
+
+    .alumni-scroll-wrap {
+      overflow: hidden;
+      width: 100%;
+      mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      padding: 20px 0;
+    }
+
+    .alumni-slide-img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .alumni-slide-img:hover {
+      transform: scale(1.04);
+      filter: brightness(1.08);
+    }
+
+    .alumni-slide-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .game-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 160px 110px 32px;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 8px 12px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .game-row:last-child { border-bottom: none; }
+
+    .game-date {
+      font-size: 10px;
+      color: rgba(255,255,255,0.22);
+      font-weight: 300;
+    }
+
+    .game-opponent {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .game-location {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+
+    .game-result {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-align: right;
+    }
+
+    .result-w { color: rgba(180,255,180,0.7); }
+    .result-l { color: rgba(255,120,120,0.6); }
+    .result-upcoming { color: rgba(255,255,255,0.2); font-size: 10px; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 400; }
+
+
+    /* ─── ALUMNI ──────────────────────────────── */
+    .alumni-section {
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,53,107,0.32) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0,53,107,0.15) 0%, transparent 60%),
+        #060d18;
+      padding: 90px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .alumni-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1200px;
+    }
+
+    .alumni-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .alumni-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      max-width: 380px;
+      margin-bottom: 32px;
+    }
+
+    .alumni-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .alumni-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .form-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-input::placeholder { color: rgba(255,255,255,0.2); }
+
+    .form-input:focus {
+      border-color: var(--yale-light);
+      background: rgba(0,53,107,0.1);
+    }
+
+    .alumni-submit {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      background: rgba(0,53,107,0.3);
+      border: 1px solid rgba(40,109,192,0.5);
+      padding: 14px 24px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .alumni-submit:hover {
+      border-color: var(--yale-light);
+      background: rgba(0,53,107,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────── -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="Logos/Yale-Bulldogs-logo.png" alt="Yale" class="nav-logo-img">
+      <span class="nav-wordmark">Water Polo</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#schedule">Events</a></li>
+        <li><a href="#roster">Roster</a></li>
+        <li><a href="#alumni">Alumni</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="#contact" class="nav-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────  -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <h1 class="hero-title">
+      Yale Men's<br>
+      <em>Water Polo</em><br>
+      <span class="club-word">Club</span>
+    </h1>
+  </section>
+
+  <!-- ── STATS ─────────────────────────────────  -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-number" id="roster-count">22</div>
+      <div class="stat-label">Studs on<br>Roster</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">125</div>
+      <div class="stat-label">Years of<br>Tradition</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" id="states-count">14</div>
+      <div class="stat-label">States<br>Represented</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">20<span class="stat-sup">+</span></div>
+      <div class="stat-label">Annual<br>Matches</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">500<span class="stat-sup">+</span></div>
+      <div class="stat-label">Yorkside Tendies<br>Consumed Per Annum</div>
+    </div>
+  </div>
+
+  <!-- ── SCHEDULE ───────────────────────────────  -->
+  <section class="schedule" id="schedule">
+    <div class="schedule-header">
+      <h2 class="schedule-title">2025–26<br>Events</h2>
+      <span class="schedule-season">CWPA New England Division</span>
+    </div>
+
+    <!-- ─ Spring 2026 ─ -->
+    <div class="season-block">
+      <div class="season-label-row">Spring 2026</div>
+
+      <!-- Ivy Invitational -->
+      <div class="tournament-item" id="tourn-s3">
+        <div class="tournament-header static">
+          <span class="tourn-date">Apr 18–19, 2026</span>
+          <span class="tourn-name">Ivy Invitational</span>
+          <span class="tourn-location">New Haven, CT</span>
+          <span class="tourn-result tourn-result-upcoming">Upcoming</span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Alumni Weekend -->
+      <div class="tournament-item" id="tourn-s2">
+        <button class="tournament-header" onclick="toggleTournament('tourn-s2')">
+          <span class="tourn-date">Apr 11, 2026</span>
+          <span class="tourn-name">Alumni Weekend</span>
+          <span class="tourn-location">New Haven, CT</span>
+          <span class="tourn-result tourn-result-upcoming">See Photos</span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="alumni-scroll-wrap">
+            <div class="alumni-scroll-track">
+              <!-- original set -->
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8102.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8115.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8122.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8125.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8135.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8172.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8194.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8256.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8258.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8292.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8298.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8359.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8364.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8390.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8408.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8463.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8481.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8514.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <!-- duplicate set for seamless loop -->
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8102.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8115.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8122.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8125.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8135.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8172.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8194.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8256.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8258.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8292.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8298.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8359.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8364.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8390.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8408.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8463.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8481.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8514.JPG" alt="Alumni Weekend" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UConn Tournament -->
+      <div class="tournament-item" id="tourn-s1">
+        <button class="tournament-header" onclick="toggleTournament('tourn-s1')">
+          <span class="tourn-date">Mar 28, 2026</span>
+          <span class="tourn-name">UConn Tournament</span>
+          <span class="tourn-location">Mansfield, CT</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 1</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Mar 28</span>
+            <span class="game-opponent">UConn</span>
+            <span class="game-location">Mansfield, CT</span>
+            <span class="game-result result-w">W 13–10</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 28</span>
+            <span class="game-opponent">Wet Sox</span>
+            <span class="game-location">Mansfield, CT</span>
+            <span class="game-result result-l">L 10–17</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 29</span>
+            <span class="game-opponent">Hydras</span>
+            <span class="game-location">Mansfield, CT</span>
+            <span class="game-result result-w">W 15–14</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ Fall 2025 ─ -->
+    <div class="season-block">
+      <div class="season-label-row">Fall 2025</div>
+
+      <!-- Villanova Tournament -->
+      <div class="tournament-item" id="tourn-f1">
+        <div class="tournament-header static">
+          <span class="tourn-date">Sep 27–28, 2025</span>
+          <span class="tourn-name">Villanova Tournament</span>
+          <span class="tourn-location">Villanova, PA</span>
+          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- BU Tournament -->
+      <div class="tournament-item" id="tourn-f2">
+        <button class="tournament-header" onclick="toggleTournament('tourn-f2')">
+          <span class="tourn-date">Oct 4–5, 2025</span>
+          <span class="tourn-name">BU Tournament</span>
+          <span class="tourn-location">Boston, MA</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 4</span>
+            <span class="game-opponent">Boston College</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-w">W 10–7</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 4</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-l">L 12–18</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 5</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-w">W 10–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 5</span>
+            <span class="game-opponent">Boston University</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-l">L 8–15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yale Tournament -->
+      <div class="tournament-item" id="tourn-f3">
+        <button class="tournament-header" onclick="toggleTournament('tourn-f3')">
+          <span class="tourn-date">Oct 11–12, 2025</span>
+          <span class="tourn-name">Yale Tournament</span>
+          <span class="tourn-location">New Haven, CT</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 11</span>
+            <span class="game-opponent">Boston College</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 12–11</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 11</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 11–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 12</span>
+            <span class="game-opponent">Boston University</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-l">L 4–20</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 12</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-l">L 7–15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CWPA New England Division Championship -->
+      <div class="tournament-item" id="tourn-f4">
+        <button class="tournament-header" onclick="toggleTournament('tourn-f4')">
+          <span class="tourn-date">Oct 25–26, 2025</span>
+          <span class="tourn-name">CWPA New England Division Championship</span>
+          <span class="tourn-location">Boston, MA</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 0</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 25</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-location">Boston College</span>
+            <span class="game-result result-l">L 7–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 26</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-location">Boston College</span>
+            <span class="game-result result-l">L 14–16</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── ROSTER ─────────────────────────────────  -->
+  <section class="roster" id="roster">
+    <div class="roster-top-bar">
+      <div style="display:flex; align-items:center; gap:32px;">
+        <span class="section-label view-toggle" id="view-toggle" style="margin-bottom:0;">Overview / Roster</span>
+        <div class="roster-tabs">
+          <span class="roster-tab active" data-tab="players">Players</span>
+          <span class="roster-tab" data-tab="coaches">Coaches</span>
+        </div>
+      </div>
+      <span class="roster-season">2025–26 Season</span>
+    </div>
+
+    <!-- Players view: two-panel layout -->
+    <div id="players-view">
+      <div class="roster-layout">
+
+        <!-- Left: Featured image -->
+        <div class="roster-featured">
+          <div class="featured-frame">
+            <img class="featured-img-el" id="featured-img" src="" alt="" style="opacity:0;" />
+            <div class="featured-placeholder" id="featured-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <span class="featured-placeholder-text">Hover a player</span>
+            </div>
+            <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous photo">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-btn next" id="carousel-next" aria-label="Next photo">
+              <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+          </div>
+          <div class="featured-label">
+            <span class="featured-name" id="featured-name">—</span>
+            <span class="featured-sub" id="featured-sub">Hover to preview</span>
+          </div>
+        </div>
+
+        <!-- Right: Player table -->
+        <div class="roster-table">
+          <!-- Column headers -->
+          <div class="roster-cols">
+            <span>Name</span>
+            <span>#</span>
+            <span>Year</span>
+            <span>Hometown</span>
+          </div>
+
+          <!-- Players -->
+          <div id="players-tab">
+
+            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Sophomore" data-imgs='["Photos/GarretCurtis.JPG","SecondPhotos/GarretCurtis2.JPG"]'>
+              <span class="player-name">Garrett Curtis</span>
+              <span class="player-num">1</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">New Haven, CT</span>
+            </div>
+
+            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Junior" data-imgs='["Photos/TristenLee.JPG","SecondPhotos/TristenLee2.JPG"]'>
+              <span class="player-name">Tristen Lee</span>
+              <span class="player-num">1A</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">Tokyo, Japan</span>
+            </div>
+
+            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Junior" data-imgs='["Photos/AveryMisner.JPG","SecondPhotos/AveryMisner2.JPG"]'>
+              <span class="player-name">Avery Misner</span>
+              <span class="player-num">2</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">San Mateo, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Sophomore" data-imgs='["Photos/WalterRoyal.JPG","SecondPhotos/WalterRoyal2.JPG"]'>
+              <span class="player-name">Walter Royal</span>
+              <span class="player-num">3</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">Long Lake, MN</span>
+            </div>
+
+            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Sophomore" data-imgs='["Photos/MaxRinglestein.JPG","SecondPhotos/MaxRinglestein2.JPG"]'>
+              <span class="player-name">Max Ringelstein</span>
+              <span class="player-num">4</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">Moltonborough, NH</span>
+            </div>
+
+            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Junior" data-imgs='["Photos/MaxColomer.JPG"]'>
+              <span class="player-name">Max Colomer</span>
+              <span class="player-num">5</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">Palos Verdes, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Junior" data-imgs='["Photos/BenSibold.JPG","SecondPhotos/BenSibold2.JPG"]'>
+              <span class="player-name">Ben Sibold</span>
+              <span class="player-num">6</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">South Hero, VT</span>
+            </div>
+
+            <div class="roster-row" data-name="Ari Li" data-sub="#7 · Junior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ari+Li"]'>
+              <span class="player-name">Ari Li</span>
+              <span class="player-num">7</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">New Orleans, LA</span>
+            </div>
+
+            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Sophomore" data-imgs='["Photos/NicoChristofferson.JPG","SecondPhotos/NicoChristofferson2.JPG"]'>
+              <span class="player-name">Nico Christofferson</span>
+              <span class="player-num">8</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">McLean, VA</span>
+            </div>
+
+            <div class="roster-row" data-name="Ryan Pike" data-sub="#9 · Grad Student" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ryan+Pike"]'>
+              <span class="player-name">Ryan Pike</span>
+              <span class="player-num">9</span>
+              <span class="player-year">Grad Student</span>
+              <span class="player-hometown">Oakland, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Sophomore" data-imgs='["Photos/TeddyMeeks.JPG","SecondPhotos/TeddyMeeks2.JPG"]'>
+              <span class="player-name">Teddy Meeks</span>
+              <span class="player-num">10</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">Palo Alto, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Nick Jones" data-sub="#11 · 2L" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Nick+Jones"]'>
+              <span class="player-name">Nick Jones</span>
+              <span class="player-num">11</span>
+              <span class="player-year">2L</span>
+              <span class="player-hometown">St. Louis, MO</span>
+            </div>
+
+            <div class="roster-row" data-name="Tomas Watson" data-sub="#12 · Junior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Tomas+Watson"]'>
+              <span class="player-name">Tomas Watson</span>
+              <span class="player-num">12</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">London, UK</span>
+            </div>
+
+            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · First Year" data-imgs='["Photos/StewartRoyal.JPG","SecondPhotos/StewartRoyal2.JPG"]'>
+              <span class="player-name">Stewart Royal</span>
+              <span class="player-num">13</span>
+              <span class="player-year">First Year</span>
+              <span class="player-hometown">Orono, MN</span>
+            </div>
+
+            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Sophomore" data-imgs='["Photos/AustinGiffen.JPG","SecondPhotos/AustinGiffen2.JPG"]'>
+              <span class="player-name">Austin Giffen</span>
+              <span class="player-num">14</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">Boise, ID</span>
+            </div>
+
+            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · First Year" data-imgs='["Photos/Antonio.JPG","SecondPhotos/Antonio2.JPG"]'>
+              <span class="player-name">Antonio Giraldez Greco</span>
+              <span class="player-num">15</span>
+              <span class="player-year">First Year</span>
+              <span class="player-hometown">New Haven, CT</span>
+            </div>
+
+            <div class="roster-row" data-name="Zach Scullin" data-sub="#16 · Senior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Zach+Scullin"]'>
+              <span class="player-name">Zach Scullin</span>
+              <span class="player-num">16</span>
+              <span class="player-year">Senior</span>
+              <span class="player-hometown">Havertown, PA</span>
+            </div>
+
+            <div class="roster-row" data-name="Arthur Cornelis" data-sub="#17 · Freshman" data-imgs='["Photos/ArthurCornelius.JPG","SecondPhotos/ArthurCornelis2.JPG"]'>
+              <span class="player-name">Arthur Cornelis</span>
+              <span class="player-num">17</span>
+              <span class="player-year">Freshman</span>
+              <span class="player-hometown">Bordeaux, France</span>
+            </div>
+
+            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Sophomore" data-imgs='["Photos/EstonKallis.JPG","SecondPhotos/EstonKallis2.JPG"]'>
+              <span class="player-name">Eston Kallins</span>
+              <span class="player-num">18</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">Newport Beach, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Zikai Lian" data-sub="#19 · First Year" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Zikai+Lian"]'>
+              <span class="player-name">Zikai Lian</span>
+              <span class="player-num">19</span>
+              <span class="player-year">First Year</span>
+              <span class="player-hometown">Fremont, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · First Year" data-imgs='["Photos/MaxTroppman.JPG","SecondPhotos/MaxTroppman2.JPG"]'>
+              <span class="player-name">Max Troppman</span>
+              <span class="player-num">20</span>
+              <span class="player-year">First Year</span>
+              <span class="player-hometown">Sacramento, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Grant Tucker" data-sub="#21 · Junior" data-imgs='["Photos/GrantTucker.JPG","SecondPhotos/GrantTucker2.JPG"]'>
+              <span class="player-name">Grant Tucker</span>
+              <span class="player-num">21</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown">Jacksonville, FL</span>
+            </div>
+
+            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Freshman" data-imgs='["Photos/ThomasAdams.JPG","SecondPhotos/ThomasAdams2.JPG"]'>
+              <span class="player-name">Thomas Adams</span>
+              <span class="player-num">22</span>
+              <span class="player-year">Freshman</span>
+              <span class="player-hometown">Wilton, CT</span>
+            </div>
+
+          </div><!-- /players-tab -->
+        </div><!-- /roster-table -->
+      </div><!-- /roster-layout -->
+    </div><!-- /players-view -->
+
+    <!-- Grid view -->
+    <div id="players-grid-view" style="display:none;">
+      <div class="roster-grid" id="players-grid"></div>
+    </div>
+
+    <!-- Coaches view -->
+    <div id="coaches-view" style="display:none;">
+      <div class="coaches-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="coach-card">
+          <p class="coach-role">Head Coach</p>
+          <p class="coach-name">Doug Hausladen</p>
+          <p class="coach-detail">20th Season · Edgewood, KY</p>
+        </div>
+        <div class="coach-card">
+          <p class="coach-role">Assistant Coach</p>
+          <p class="coach-name">Noah Feingold</p>
+          <p class="coach-detail">2nd Season · Palos Verdes, CA</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── ALUMNI ───────────────────────────────  -->
+  <section class="alumni-section" id="alumni">
+    <div class="alumni-inner">
+
+      <!-- Left: intro + donate -->
+      <div>
+        <p class="section-label">Alumni Network</p>
+        <h2 class="alumni-heading">Stay<br>Connected</h2>
+        <p class="alumni-body">The Yale Men's Water Polo Club alumni network spans decades of excellence. Stay connected with your teammates, follow the current roster, and help the program continue to thrive.</p>
+        <a href="https://recreation.yale.edu/club-sports/support" target="_blank" rel="noopener noreferrer" class="cta-btn">
+          Donate to YWPC
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Right: contact form -->
+      <div>
+        <p class="section-label">Update Your Info</p>
+        <form class="alumni-form" id="alumni-form">
+          <div class="alumni-form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input class="form-input" id="f-name" type="text" placeholder="First Last" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Graduation Year</label>
+              <input class="form-input" id="f-year" type="text" placeholder="e.g. 2019" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input class="form-input" id="f-email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Current City</label>
+            <input class="form-input" id="f-location" type="text" placeholder="New York, NY" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Current Employer / Role <span style="opacity:0.4; font-weight:400;">(optional)</span></label>
+            <input class="form-input" id="f-company" type="text" placeholder="Company · Title" />
+          </div>
+          <button class="alumni-submit" id="alumni-submit-btn" type="submit">Submit</button>
+          <p id="alumni-msg" style="display:none; margin-top:12px; font-size:13px; font-weight:500;"></p>
+        </form>
+        <script>
+          document.getElementById('alumni-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('alumni-submit-btn');
+            var msg = document.getElementById('alumni-msg');
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            var payload = {
+              name:     document.getElementById('f-name').value,
+              gradYear: document.getElementById('f-year').value,
+              email:    document.getElementById('f-email').value,
+              location: document.getElementById('f-location').value,
+              company:  document.getElementById('f-company').value
+            };
+            fetch('https://script.google.com/macros/s/AKfycbzQH5k5fUVJDR8M5UgXr1rAD1xM7vQPuE0Awqq3ej6MyoyzzdwygM0V0ebuCKchAdQzlA/exec', {
+              method: 'POST',
+              body: JSON.stringify(payload)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+              msg.textContent = 'Thanks! Your info has been saved.';
+              msg.style.color = '#4ade80';
+              msg.style.display = 'block';
+              document.getElementById('alumni-form').reset();
+              btn.textContent = 'Submit';
+              btn.disabled = false;
+            })
+            .catch(function() {
+              msg.textContent = 'Something went wrong. Please try again.';
+              msg.style.color = '#f87171';
+              msg.style.display = 'block';
+              btn.textContent = 'Submit';
+              btn.disabled = false;
+            });
+          });
+        </script>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────  -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div>
+        <p class="section-label">About</p>
+        <div class="about-text">
+          <p>The <strong>Yale Men's Club Water Polo Team</strong> is the highest level of men's water polo on campus — a student-run program with a close-knit community competing in 7+ tournaments a year. We play in the New England Division of the Collegiate Water Polo Association, maintaining a varsity-level intensity and schedule during the two-month fall season, with practices three times a week during the offseason.</p>
+          <p>Whether you're a seasoned player or picking up a ball for the first time, all experience levels are welcome. When we're not in the pool, you'll find us grabbing team dinners and building the kind of brotherhood that lasts well beyond Yale. We look forward to seeing you at practice.</p>
+        </div>
+      </div>
+      <div class="about-right">
+        <img src="OtherPhotos/TeamBrunch.JPG" alt="Yale Men's Water Polo Club" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CONTACT ────────────────────────────────  -->
+  <section class="full-section" id="contact">
+    <div class="full-section-bg"></div>
+    <div class="full-section-inner">
+      <p class="full-section-tag">Get Involved</p>
+      <h2 class="full-section-heading">
+        Join Yale Men's<br>Water Polo
+      </h2>
+      <p class="full-section-body">
+        We're a tight-knit group of guys who love playing hard and having fun. We emphasize teamwork, pushing limits, and improving skills — while making time for social events and team bonding. All Yale undergraduate and graduate students who can swim are welcome, regardless of experience level.
+      </p>
+
+      <div class="contact-grid">
+        <div>
+          <p class="contact-block-label">Contact</p>
+          <p class="contact-block-value"><a href="mailto:tomas.watson@yale.edu">tomas.watson@yale.edu</a></p>
+        </div>
+        <div>
+          <p class="contact-block-label">Practice Location</p>
+          <p class="contact-block-value">Kiphuth Exhibition Pool<br>Payne Whitney Gymnasium</p>
+        </div>
+        <div>
+          <p class="contact-block-label">Fall Semester (5×/week)</p>
+          <p class="contact-block-value">
+            Mon 8:30–10:00pm · 3rd Floor Pool<br>
+            Tue &amp; Thu 8–10pm · KEP<br>
+            Sat 2–4pm · KEP<br>
+            Sun 4–6pm · KEP
+          </p>
+        </div>
+        <div>
+          <p class="contact-block-label">Spring Semester (3×/week)</p>
+          <p class="contact-block-value">
+            Tue &amp; Thu 8–10pm · KEP<br>
+            Sat 2–4pm · KEP
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-list">
+
+        <div class="faq-item" id="faq-1">
+          <button class="faq-question" onclick="toggleFaq('faq-1')">
+            Who Can Join?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">Any current Yale undergraduate or graduate student who can swim is eligible. We do not hold tryouts and do not cut anyone — we welcome both competitive players and those trying the sport for the very first time.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-2">
+          <button class="faq-question" onclick="toggleFaq('faq-2')">
+            Never Played Water Polo Before?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">No problem. The team includes players with all levels of experience — from lifelong water polo players to former swimmers discovering the sport for the first time. If you're learning from scratch, you're still welcome.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-3">
+          <button class="faq-question" onclick="toggleFaq('faq-3')">
+            When Can I Join?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">You can join at any point after completing the required club sports paperwork. The best time to start is the beginning of fall semester — preseason (two-a-day practices) runs before classes begin, and the competitive season kicks off in September. That said, you're welcome to join at any point in the year.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-4">
+          <button class="faq-question" onclick="toggleFaq('faq-4')">
+            What Is the Time Commitment?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">It's a club sport, so you have flexibility — but we do take it seriously. Fall semester is the busiest with 5 practices a week plus 3–4 tournament weekends. Spring is more relaxed at 3 practices a week. Most guys find it very manageable alongside a full course load.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-5">
+          <button class="faq-question" onclick="toggleFaq('faq-5')">
+            Is There a Varsity Team?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">There is no varsity water polo team at Yale, which makes our club team the highest competitive level available on campus. While we're open to everyone, we take competition seriously and play to win.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────  -->
+  <footer>
+    <div class="footer-bottom">
+      <span class="footer-copy">© Yale Men's Water Polo Club 2026 &nbsp;·&nbsp; New Haven, CT</span>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/yalemwaterpolo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://groupme.com/join_group/102855327/BnFKbfsr" target="_blank" rel="noopener noreferrer">GroupMe</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── VIEW TOGGLE (list ↔ grid) ───────────────
+    const viewToggle = document.getElementById('view-toggle');
+    const playersGridView = document.getElementById('players-grid-view');
+    const playersGrid = document.getElementById('players-grid');
+    let gridBuilt = false;
+    let isGridView = false;
+
+    function buildGrid() {
+      const rows = document.querySelectorAll('.roster-row');
+      rows.forEach(row => {
+        const name = row.dataset.name;
+        const imgs = JSON.parse(row.dataset.imgs || '[]');
+        const img  = imgs[0] || '';
+        const sub  = row.dataset.sub; // "#N · Year"
+        const num  = row.querySelector('.player-num').textContent;
+        const year = row.querySelector('.player-year').textContent;
+
+        const card = document.createElement('div');
+        card.className = 'rc';
+        card.innerHTML = `
+          <div class="rc-photo">
+            <img src="${img}" alt="${name}" loading="lazy" />
+            <div class="rc-photo-overlay"></div>
+            <span class="rc-num-badge">${num}</span>
+          </div>
+          <div class="rc-info">
+            <div class="rc-info-num">#${num}</div>
+            <span class="rc-info-name">${name}</span>
+            <span class="rc-info-year">${year}</span>
+          </div>`;
+        playersGrid.appendChild(card);
+      });
+      gridBuilt = true;
+    }
+
+    viewToggle.addEventListener('click', () => {
+      isGridView = !isGridView;
+      viewToggle.classList.toggle('grid-active', isGridView);
+
+      if (isGridView) {
+        if (!gridBuilt) buildGrid();
+        document.getElementById('players-view').style.display = 'none';
+        playersGridView.style.display = 'block';
+      } else {
+        document.getElementById('players-view').style.display = 'block';
+        playersGridView.style.display = 'none';
+      }
+    });
+
+    // ── TAB SWITCHING ──────────────────────────
+    const tabs = document.querySelectorAll('.roster-tab');
+    const playersView = document.getElementById('players-view');
+    const coachesView = document.getElementById('coaches-view');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        if (tab.dataset.tab === 'players') {
+          if (isGridView) {
+            if (!gridBuilt) buildGrid();
+            playersGridView.style.display = 'block';
+            playersView.style.display = 'none';
+          } else {
+            playersView.style.display = 'block';
+            playersGridView.style.display = 'none';
+          }
+          coachesView.style.display = 'none';
+        } else {
+          playersView.style.display = 'none';
+          playersGridView.style.display = 'none';
+          coachesView.style.display = 'block';
+        }
+      });
+    });
+
+    // ── ROSTER HOVER — FEATURED IMAGE + CAROUSEL ─────────
+    const rosterRows = document.querySelectorAll('.roster-row');
+    const featuredImg = document.getElementById('featured-img');
+    const featuredPlaceholder = document.getElementById('featured-placeholder');
+    const featuredName = document.getElementById('featured-name');
+    const featuredSub = document.getElementById('featured-sub');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const carouselDotsEl = document.getElementById('carousel-dots');
+
+    let currentImgs = [];
+    let currentIdx = 0;
+
+    function showCarouselImg(idx) {
+      currentIdx = idx;
+      const src = currentImgs[idx];
+
+      // Update dots
+      carouselDotsEl.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === idx);
+      });
+
+      // Fade out → swap src → fade in
+      featuredImg.style.opacity = '0';
+      setTimeout(() => {
+        featuredImg.src = src;
+        const show = () => { featuredImg.style.opacity = '1'; };
+        featuredImg.onload = show;
+        if (featuredImg.complete) show();
+      }, 160);
+    }
+
+    function showPlayer(row) {
+      rosterRows.forEach(r => r.classList.remove('active'));
+      row.classList.add('active');
+
+      const name = row.dataset.name;
+      const sub = row.dataset.sub;
+      const imgs = JSON.parse(row.dataset.imgs || '[]');
+
+      currentImgs = imgs;
+      currentIdx = 0;
+
+      featuredName.textContent = name;
+      featuredSub.textContent = sub;
+      featuredPlaceholder.style.display = 'none';
+
+      // Build dots
+      carouselDotsEl.innerHTML = '';
+      if (imgs.length > 1) {
+        imgs.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', (e) => { e.stopPropagation(); showCarouselImg(i); });
+          carouselDotsEl.appendChild(dot);
+        });
+      }
+
+      // Show/hide arrows
+      carouselPrev.classList.toggle('visible', imgs.length > 1);
+      carouselNext.classList.toggle('visible', imgs.length > 1);
+
+      showCarouselImg(0);
+    }
+
+    carouselPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentImgs.length <= 1) return;
+      showCarouselImg((currentIdx - 1 + currentImgs.length) % currentImgs.length);
+    });
+
+    carouselNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentImgs.length <= 1) return;
+      showCarouselImg((currentIdx + 1) % currentImgs.length);
+    });
+
+    rosterRows.forEach(row => {
+      row.addEventListener('mouseenter', () => showPlayer(row));
+    });
+
+    // Activate first row by default
+    if (rosterRows.length > 0) showPlayer(rosterRows[0]);
+
+    // ── TOURNAMENT ACCORDION ───────────────────
+    function toggleTournament(id) {
+      const item = document.getElementById(id);
+      item.classList.toggle('open');
+    }
+
+    // ── ROSTER COUNT ───────────────────────────
+    document.getElementById('roster-count').textContent =
+      document.querySelectorAll('.roster-row').length;
+
+    // ── STATES COUNT ───────────────────────────
+    const states = new Set(
+      [...document.querySelectorAll('.player-hometown')]
+        .map(el => el.textContent.split(',').pop().trim())
+        .filter(s => /^[A-Z]{2}$/.test(s))
+    );
+    document.getElementById('states-count').textContent = states.size;
+
+    // ── FAQ ACCORDION ──────────────────────────
+    function toggleFaq(id) {
+      const item = document.getElementById(id);
+      item.classList.toggle('open');
+    }
+
+  </script>
+
+</body>
+</html>
