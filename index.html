@@ -1080,6 +1080,136 @@
 
     .footer-socials a:hover { color: rgba(255,255,255,0.9); }
 
+    /* ─── ANNOUNCEMENTS ──────────────────── */
+    .announcements {
+      background:
+        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(0,53,107,0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 0% 100%, rgba(0,53,107,0.18) 0%, transparent 60%),
+        #060d18;
+      padding: 80px 40px;
+      border-top: 1px solid rgba(0,53,107,0.3);
+    }
+
+    .announcements-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .announcements-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+    }
+
+    .announcement-card {
+      display: grid;
+      grid-template-columns: 48% 1fr;
+      gap: 56px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: #060d18;
+      overflow: hidden;
+    }
+
+    .announcement-img-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+      background: transparent;
+    }
+
+    .announcement-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .announcement-card:hover .announcement-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .announcement-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 80%, rgba(6,13,24,0.6) 100%);
+      pointer-events: none;
+    }
+
+    .announcement-body {
+      padding: 48px 48px 48px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .announcement-tag {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--yale-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .announcement-tag::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--yale-light);
+    }
+
+    .announcement-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 4.2vw, 68px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: #fff;
+      white-space: nowrap;
+      margin-bottom: 28px;
+    }
+
+    .announcement-lead {
+      font-size: 13px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .announcement-quote {
+      border-left: 2px solid var(--yale-light);
+      padding: 12px 0 12px 20px;
+      margin: 24px 0;
+    }
+
+    .announcement-quote p {
+      font-size: 12px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.78);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .announcement-quote cite {
+      display: block;
+      margin-top: 8px;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      font-style: normal;
+    }
+
     /* ─── SCHEDULE ────────────────────────── */
     .schedule {
       background:
@@ -1488,6 +1618,20 @@
 
     /* ─── RESPONSIVE ───────────────────────── */
     @media (max-width: 900px) {
+      /* Announcements */
+      .announcement-card {
+        grid-template-columns: 1fr;
+      }
+      .announcement-img-wrap {
+        min-height: 300px;
+      }
+      .announcement-img-wrap::after {
+        background: linear-gradient(to top, rgba(6,13,24,0.7) 0%, transparent 50%);
+      }
+      .announcement-body {
+        padding: 32px 28px 36px;
+      }
+
       /* About */
       .about-inner {
         grid-template-columns: 1fr;
@@ -1606,6 +1750,7 @@
     </a>
     <div class="nav-right">
       <ul class="nav-links">
+        <li><a href="#announcements">Announcements</a></li>
         <li><a href="#schedule">Events</a></li>
         <li><a href="#roster">Roster</a></li>
         <li><a href="#alumni">Alumni</a></li>
@@ -1621,6 +1766,7 @@
   <!-- Mobile nav overlay -->
   <div class="nav-mobile-menu" id="nav-mobile-menu">
     <ul class="nav-mobile-links">
+      <li><a href="#announcements" class="nav-mobile-link">Announcements</a></li>
       <li><a href="#schedule" class="nav-mobile-link">Events</a></li>
       <li><a href="#roster" class="nav-mobile-link">Roster</a></li>
       <li><a href="#alumni" class="nav-mobile-link">Alumni</a></li>
@@ -1662,6 +1808,39 @@
       <div class="stat-label">Yorkside Tendies<br>Consumed Per Annum</div>
     </div>
   </div>
+
+  <!-- ── ANNOUNCEMENTS ────────────────────────────  -->
+  <section class="announcements" id="announcements">
+    <div class="announcements-header">
+      <h2 class="announcements-title">Announcements</h2>
+    </div>
+    <div class="announcement-card">
+      <div class="announcement-img-wrap">
+        <img src="Announcements/andrew-yang.jpg" alt="Andrew Yang" />
+      </div>
+      <div class="announcement-body">
+        <div class="announcement-tag">Recruit Announcement · 2026–27 Roster</div>
+        <div class="announcement-name">Andrew Yang</div>
+        <p class="announcement-lead">
+          The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team is proud to announce the addition of Andrew Yang to the 2026–27 roster.
+        </p>
+        <p class="announcement-lead">
+          Yang started playing water polo in 9th grade at The Lawrenceville School in New Jersey. In his sophomore year, he started playing club with CT Premier Water Polo. At Lawrenceville, he was named the Varsity Water Polo Captain and led the team to state championships for four consecutive years, along with winning the 2024 Beast of the East tournament.
+        </p>
+        <div class="announcement-quote">
+          <p>"Andrew brings a high level of play in all aspects of the game. He has a powerful, quick release shot from distance that is highly accurate. Proper defensive positioning is also a hallmark of his play."</p>
+          <cite>— George Gross, Jr. · Director of Recruiting, Yale Men's Water Polo</cite>
+        </div>
+        <p class="announcement-lead">
+          Outside the pool, Yang founded and led the Lawrenceville Learn to Swim program, teaching 135+ students essential swimming and water safety skills, raising $15,500+ in external funding, overseeing the certification of almost 30 Red Cross WSI Instructors, and establishing a partnership with Homefront to expand access to 50+ underserved youth in the Trenton community. He also led a research project, directing an original 500-person survey to investigate the relationship between socioeconomic factors and swimming proficiency among young adults.
+        </p>
+        <div class="announcement-quote">
+          <p>"I chose Yale because I wanted to join a community that is passionate about learning and leadership. I can't wait to take risks, pursue new interests, and lead new ventures."</p>
+          <cite>— Andrew Yang</cite>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── SCHEDULE ───────────────────────────────  -->
   <section class="schedule" id="schedule">
