@@ -1823,27 +1823,62 @@
     </div>
     <div class="announcement-card">
       <div class="announcement-img-wrap">
-        <img src="Announcements/andrew-yang.jpg" alt="Andrew Yang" />
+        <img src="Announcements/roshan-khanna.jpg" alt="Roshan Khanna" />
       </div>
       <div class="announcement-body">
         <div class="announcement-tag">Recruit Announcement · 2026–27 Roster</div>
-        <div class="announcement-name">Andrew Yang</div>
+        <div class="announcement-name">Roshan Khanna</div>
         <p class="announcement-lead">
-          The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team is proud to announce the addition of Andrew Yang to the 2026–27 roster.
+          The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team is proud to announce the addition of goalkeeper Roshan Khanna to the 2026–27 roster.
         </p>
         <p class="announcement-lead">
-          Yang started playing water polo in 9th grade at The Lawrenceville School in New Jersey. In his sophomore year, he started playing club with CT Premier Water Polo. At Lawrenceville, he was named the Varsity Water Polo Captain and led the team to state championships for four consecutive years, along with winning the 2024 Beast of the East tournament.
+          Khanna started playing water polo in 2019 with Outlaws Water Polo before joining San Jose Express from 2021–2025, where he served as team captain his junior year. At Valley Christian High School, he was a three-time team captain, including as varsity captain his senior year. He was named Freshman MVP and led his team to a CCS Sectionals title his junior year.
         </p>
         <div class="announcement-quote">
-          <p>"Andrew brings a high level of play in all aspects of the game. He has a powerful, quick release shot from distance that is highly accurate. Proper defensive positioning is also a hallmark of his play."</p>
-          <cite>— George Gross, Jr. · Director of Recruiting, Yale Men's Water Polo</cite>
+          <p>"Having a second experienced goalie like Roshan is a game changer for team practices and tournament play. Now all our players will get more reps in practice shooting at a quality goalie and scrimmages will operate at a higher level having good goalies in both nets."</p>
+          <cite>— Doug Hausladen · Head Coach, Yale Men's Water Polo</cite>
         </div>
         <p class="announcement-lead">
-          Outside the pool, Yang founded and led the Lawrenceville Learn to Swim program, teaching 135+ students essential swimming and water safety skills, raising $15,500+ in external funding, overseeing the certification of almost 30 Red Cross WSI Instructors, and establishing a partnership with Homefront to expand access to 50+ underserved youth in the Trenton community. He also led a research project, directing an original 500-person survey to investigate the relationship between socioeconomic factors and swimming proficiency among young adults.
+          Outside the pool, Khanna served as his school's Associate Student Body Treasurer his junior and senior years and earned multiple state and district finalist honors in DECA across all four years of high school. He won his school's prestigious venture capital pitch competition, served as the school mascot, and is a three-time recipient of the Quest Award for outstanding performance in the social sciences. He spent four years lifeguarding, rising to Director of Lifeguarding at his local pool.
         </p>
         <div class="announcement-quote">
-          <p>"I chose Yale because I wanted to join a community that is passionate about learning and leadership. I can't wait to take risks, pursue new interests, and lead new ventures."</p>
-          <cite>— Andrew Yang</cite>
+          <p>"I chose Yale for its emphasis on a liberal arts education and a tight-knit community. I'm excited to immerse myself in Yale's culture of entrepreneurial excellence since I plan to pursue a career in venture capital. I can't wait to compete with the Bulldogs water polo team at the next level and surround myself with intellectually curious people who are driven to become well-rounded members of society."</p>
+          <cite>— Roshan Khanna</cite>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <button onclick="toggleAnnouncement()" id="see-more-btn" style="display:flex; align-items:center; gap:10px; background:none; border:none; cursor:pointer; padding:0; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; transition:color 0.2s;">
+        <svg id="see-more-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;transition:transform 0.28s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+        See More
+      </button>
+      <div id="more-announcements" style="max-height:0; overflow:hidden; transition:max-height 0.5s ease;">
+        <div class="announcement-card" style="margin-top: 24px;">
+          <div class="announcement-img-wrap">
+            <img src="Announcements/andrew-yang.jpg" alt="Andrew Yang" />
+          </div>
+          <div class="announcement-body">
+            <div class="announcement-tag">Recruit Announcement · 2026–27 Roster</div>
+            <div class="announcement-name">Andrew Yang</div>
+            <p class="announcement-lead">
+              The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team is proud to announce the addition of Andrew Yang to the 2026–27 roster.
+            </p>
+            <p class="announcement-lead">
+              Yang started playing water polo in 9th grade at The Lawrenceville School in New Jersey. In his sophomore year, he started playing club with CT Premier Water Polo. At Lawrenceville, he was named the Varsity Water Polo Captain and led the team to state championships for four consecutive years, along with winning the 2024 Beast of the East tournament.
+            </p>
+            <div class="announcement-quote">
+              <p>"Andrew brings a high level of play in all aspects of the game. He has a powerful, quick release shot from distance that is highly accurate. Proper defensive positioning is also a hallmark of his play."</p>
+              <cite>— George Gross, Jr. · Director of Recruiting, Yale Men's Water Polo</cite>
+            </div>
+            <p class="announcement-lead">
+              Outside the pool, Yang founded and led the Lawrenceville Learn to Swim program, teaching 135+ students essential swimming and water safety skills, raising $15,500+ in external funding, overseeing the certification of almost 30 Red Cross WSI Instructors, and establishing a partnership with Homefront to expand access to 50+ underserved youth in the Trenton community. He also led a research project, directing an original 500-person survey to investigate the relationship between socioeconomic factors and swimming proficiency among young adults.
+            </p>
+            <div class="announcement-quote">
+              <p>"I chose Yale because I wanted to join a community that is passionate about learning and leadership. I can't wait to take risks, pursue new interests, and lead new ventures."</p>
+              <cite>— Andrew Yang</cite>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2720,6 +2755,23 @@
 
     // Activate first row by default
     if (rosterRows.length > 0) showPlayer(rosterRows[0]);
+
+    // ── ANNOUNCEMENT DROPDOWN ──────────────────
+    function toggleAnnouncement() {
+      const el = document.getElementById('more-announcements');
+      const chevron = document.getElementById('see-more-chevron');
+      const btn = document.getElementById('see-more-btn');
+      const isOpen = el.style.maxHeight !== '0px' && el.style.maxHeight !== '';
+      if (isOpen) {
+        el.style.maxHeight = '0';
+        chevron.style.transform = 'rotate(0deg)';
+        btn.style.color = 'rgba(255,255,255,0.4)';
+      } else {
+        el.style.maxHeight = el.scrollHeight + 'px';
+        chevron.style.transform = 'rotate(180deg)';
+        btn.style.color = 'rgba(255,255,255,0.75)';
+      }
+    }
 
     // ── TOURNAMENT ACCORDION ───────────────────
     function toggleTournament(id) {
