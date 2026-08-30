@@ -461,6 +461,7 @@
     .roster-featured {
       position: sticky;
       top: 76px;
+      min-width: 0;
     }
 
     .featured-frame {
@@ -540,6 +541,60 @@
       color: rgba(255,255,255,0.3);
       margin-top: 4px;
       display: block;
+    }
+
+    /* ── PLAYER BIO (under featured picture) ─── */
+    .featured-bio {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .bio-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .bio-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .bio-stat-label {
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .bio-stat-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .bio-fact {
+      font-size: 12px;
+      line-height: 1.6;
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      padding-left: 10px;
+      border-left: 2px solid var(--yale-light);
     }
 
     /* ── CAROUSEL CONTROLS ─────────────────── */
@@ -2234,6 +2289,23 @@
             <span class="featured-name" id="featured-name">—</span>
             <span class="featured-sub" id="featured-sub">Hover to preview</span>
           </div>
+          <div class="featured-bio" id="featured-bio" style="display:none;">
+            <div class="bio-stats" id="bio-stats">
+              <div class="bio-stat" id="bio-stat-height">
+                <span class="bio-stat-label">Height</span>
+                <span class="bio-stat-value" id="bio-height"></span>
+              </div>
+              <div class="bio-stat" id="bio-stat-weight">
+                <span class="bio-stat-label">Weight</span>
+                <span class="bio-stat-value" id="bio-weight"></span>
+              </div>
+            </div>
+            <div class="bio-stat" id="bio-stat-major">
+              <span class="bio-stat-label">Major</span>
+              <span class="bio-stat-value" id="bio-major"></span>
+            </div>
+            <p class="bio-fact" id="bio-fact"></p>
+          </div>
         </div>
 
         <!-- Right: Player table -->
@@ -2249,164 +2321,164 @@
           <!-- Players -->
           <div id="players-tab">
 
-            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Sophomore" data-imgs='["Photos/GarretCurtis.JPG","SecondPhotos/GarretCurtis2.JPG"]'>
+            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Junior" data-imgs='["Photos/GarretCurtis.JPG","SecondPhotos/GarretCurtis2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "180 lbs", "major": "Biomedical Engineering", "fun": "Knows very few dinosaurs"}'>
               <span class="player-name">Garrett Curtis</span>
               <span class="player-num">1</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">New Haven, CT</span>
             </div>
 
-            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Junior" data-imgs='["Photos/TristenLee.JPG","SecondPhotos/TristenLee2.JPG"]'>
+            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Senior" data-imgs='["Photos/TristenLee.JPG","SecondPhotos/TristenLee2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190 lbs", "major": "Chemical engineering", "fun": "Enjoys sweeping and mopping"}'>
               <span class="player-name">Tristen Lee</span>
               <span class="player-num">1A</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">Tokyo, Japan</span>
             </div>
 
-            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Junior" data-imgs='["Photos/AveryMisner.JPG","SecondPhotos/AveryMisner2.JPG"]'>
+            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Senior" data-imgs='["Photos/AveryMisner.JPG","SecondPhotos/AveryMisner2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "180", "major": "History", "fun": "Can snap with all fingers"}'>
               <span class="player-name">Avery Misner</span>
               <span class="player-num">2</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">San Mateo, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Sophomore" data-imgs='["Photos/WalterRoyal.JPG","SecondPhotos/WalterRoyal2.JPG"]'>
+            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Junior" data-imgs='["Photos/WalterRoyal.JPG","SecondPhotos/WalterRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "185", "major": "German Studies", "fun": "https://www.georgiaaquarium.org/webcam/california-sea-lion-cam/"}'>
               <span class="player-name">Walter Royal</span>
               <span class="player-num">3</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">Long Lake, MN</span>
             </div>
 
-            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Sophomore" data-imgs='["Photos/MaxRinglestein.JPG","SecondPhotos/MaxRinglestein2.JPG"]'>
+            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Junior" data-imgs='["Photos/MaxRinglestein.JPG","SecondPhotos/MaxRinglestein2.JPG"]' data-bio='{"height": "6&#39;1\"", "weight": "180", "major": "Econ and Data Sci", "fun": "Can tread water for 2 minutes"}'>
               <span class="player-name">Max Ringelstein</span>
               <span class="player-num">4</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">Moltonborough, NH</span>
             </div>
 
-            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Junior" data-imgs='["Photos/MaxColomer.JPG"]'>
+            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Senior" data-imgs='["Photos/MaxColomer.JPG"]' data-bio='{"height": "5&#39;10", "weight": "165", "major": "Physics", "fun": "Venmo: @maxwell-colomer"}'>
               <span class="player-name">Max Colomer</span>
               <span class="player-num">5</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">Palos Verdes, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Junior" data-imgs='["Photos/BenSibold.JPG","SecondPhotos/BenSibold2.JPG"]'>
+            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Senior" data-imgs='["Photos/BenSibold.JPG","SecondPhotos/BenSibold2.JPG"]' data-bio='{"height": "6", "weight": "180", "major": "Economics", "fun": "Friend of Joey Fern&#39;s"}'>
               <span class="player-name">Ben Sibold</span>
               <span class="player-num">6</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">South Hero, VT</span>
             </div>
 
-            <div class="roster-row" data-name="Ari Li" data-sub="#7 · Junior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ari+Li"]'>
+            <div class="roster-row" data-name="Ari Li" data-sub="#7 · Senior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ari+Li"]' data-bio='{"height": "6&#39;1\"", "weight": "200", "major": "Applied math & Econ", "fun": ""}'>
               <span class="player-name">Ari Li</span>
               <span class="player-num">7</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">New Orleans, LA</span>
             </div>
 
-            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Sophomore" data-imgs='["Photos/NicoChristofferson.JPG","SecondPhotos/NicoChristofferson2.JPG"]'>
+            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Junior" data-imgs='["Photos/NicoChristofferson.JPG","SecondPhotos/NicoChristofferson2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "…", "major": "Econ & stats", "fun": "CEO of Chesties International Corp."}'>
               <span class="player-name">Nico Christofferson</span>
               <span class="player-num">8</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">McLean, VA</span>
             </div>
 
-            <div class="roster-row" data-name="Ryan Pike" data-sub="#9 · Grad Student" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ryan+Pike"]'>
-              <span class="player-name">Ryan Pike</span>
+            <div class="roster-row" data-name="Ryan Karr" data-sub="#9 · First Year" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ryan+Karr"]' data-bio='{"height": "6&#39;1\"", "weight": "210", "major": "", "fun": ""}'>
+              <span class="player-name">Ryan Karr</span>
               <span class="player-num">9</span>
-              <span class="player-year">Grad Student</span>
-              <span class="player-hometown">Oakland, CA</span>
+              <span class="player-year">First Year</span>
+              <span class="player-hometown">Menlo Park, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Sophomore" data-imgs='["Photos/TeddyMeeks.JPG","SecondPhotos/TeddyMeeks2.JPG"]'>
+            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Junior" data-imgs='["Photos/TeddyMeeks.JPG","SecondPhotos/TeddyMeeks2.JPG"]' data-bio='{"height": "12", "weight": "195lbs", "major": "Veterinary studies", "fun": "Knows every dinosaur"}'>
               <span class="player-name">Teddy Meeks</span>
               <span class="player-num">10</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">Palo Alto, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Nick Jones" data-sub="#11 · 2L" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Nick+Jones"]'>
+            <div class="roster-row" data-name="Nick Jones" data-sub="#11 · 3L" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Nick+Jones"]' data-bio='{"height": "", "weight": "", "major": "Law student", "fun": ""}'>
               <span class="player-name">Nick Jones</span>
               <span class="player-num">11</span>
-              <span class="player-year">2L</span>
+              <span class="player-year">3L</span>
               <span class="player-hometown">St. Louis, MO</span>
             </div>
 
-            <div class="roster-row" data-name="Tomas Watson" data-sub="#12 · Junior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Tomas+Watson"]'>
+            <div class="roster-row" data-name="Tomas Watson" data-sub="#12 · Senior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Tomas+Watson"]' data-bio='{"height": "6.2", "weight": "200", "major": "Phys", "fun": ""}'>
               <span class="player-name">Tomas Watson</span>
               <span class="player-num">12</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">London, UK</span>
             </div>
 
-            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · First Year" data-imgs='["Photos/StewartRoyal.JPG","SecondPhotos/StewartRoyal2.JPG"]'>
+            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · Sophomore" data-imgs='["Photos/StewartRoyal.JPG","SecondPhotos/StewartRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190", "major": "Economics and Global Affairs", "fun": "Once won a game of connect four in three moves"}'>
               <span class="player-name">Stewart Royal</span>
               <span class="player-num">13</span>
-              <span class="player-year">First Year</span>
+              <span class="player-year">Sophomore</span>
               <span class="player-hometown">Orono, MN</span>
             </div>
 
-            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Sophomore" data-imgs='["Photos/AustinGiffen.JPG","SecondPhotos/AustinGiffen2.JPG"]'>
+            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Junior" data-imgs='["Photos/AustinGiffen.JPG","SecondPhotos/AustinGiffen2.JPG"]' data-bio='{"height": "62", "weight": "150", "major": "Electrical engineering", "fun": "Victim weight"}'>
               <span class="player-name">Austin Giffen</span>
               <span class="player-num">14</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">Boise, ID</span>
             </div>
 
-            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · First Year" data-imgs='["Photos/Antonio.JPG","SecondPhotos/Antonio2.JPG"]'>
+            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · Sophomore" data-imgs='["Photos/Antonio.JPG","SecondPhotos/Antonio2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "175", "major": "Molecular, Cellular, and Developmental Biology", "fun": "Has won at least one Fortnite game"}'>
               <span class="player-name">Antonio Giraldez Greco</span>
               <span class="player-num">15</span>
-              <span class="player-year">First Year</span>
+              <span class="player-year">Sophomore</span>
               <span class="player-hometown">New Haven, CT</span>
             </div>
 
-            <div class="roster-row" data-name="Zach Scullin" data-sub="#16 · Senior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Zach+Scullin"]'>
-              <span class="player-name">Zach Scullin</span>
+            <div class="roster-row" data-name="Kostas Andriotis" data-sub="#16 · PhD Student" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Kostas+Andriotis"]' data-bio='{"height": "5&#39;11\"", "weight": "180lbs", "major": "Evolutionary Bio & Genetics", "fun": "Can bark like a dog"}'>
+              <span class="player-name">Kostas Andriotis</span>
               <span class="player-num">16</span>
-              <span class="player-year">Senior</span>
-              <span class="player-hometown">Havertown, PA</span>
+              <span class="player-year">PhD Student</span>
+              <span class="player-hometown">Thessaloniki, Greece</span>
             </div>
 
-            <div class="roster-row" data-name="Arthur Cornelis" data-sub="#17 · Freshman" data-imgs='["Photos/ArthurCornelius.JPG","SecondPhotos/ArthurCornelis2.JPG"]'>
+            <div class="roster-row" data-name="Arthur Cornelis" data-sub="#17 · Sophomore" data-imgs='["Photos/ArthurCornelius.JPG","SecondPhotos/ArthurCornelis2.JPG"]' data-bio='{"height": "6&#39;5", "weight": "210", "major": "Math & MechE", "fun": "Can speak every language"}'>
               <span class="player-name">Arthur Cornelis</span>
               <span class="player-num">17</span>
-              <span class="player-year">Freshman</span>
+              <span class="player-year">Sophomore</span>
               <span class="player-hometown">Bordeaux, France</span>
             </div>
 
-            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Sophomore" data-imgs='["Photos/EstonKallis.JPG","SecondPhotos/EstonKallis2.JPG"]'>
+            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Junior" data-imgs='["Photos/EstonKallis.JPG","SecondPhotos/EstonKallis2.JPG"]' data-bio='{"height": "5&#39;11", "weight": "185", "major": "Economics", "fun": ""}'>
               <span class="player-name">Eston Kallins</span>
               <span class="player-num">18</span>
-              <span class="player-year">Sophomore</span>
+              <span class="player-year">Junior</span>
               <span class="player-hometown">Newport Beach, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Zikai Lian" data-sub="#19 · First Year" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Zikai+Lian"]'>
+            <div class="roster-row" data-name="Zikai Lian" data-sub="#19 · Sophomore" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Zikai+Lian"]' data-bio='{"height": "5&#39;11\"", "weight": "160", "major": "Electrical Engineering", "fun": "Sus"}'>
               <span class="player-name">Zikai Lian</span>
               <span class="player-num">19</span>
-              <span class="player-year">First Year</span>
+              <span class="player-year">Sophomore</span>
               <span class="player-hometown">Fremont, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · First Year" data-imgs='["Photos/MaxTroppman.JPG","SecondPhotos/MaxTroppman2.JPG"]'>
+            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · Sophomore" data-imgs='["Photos/MaxTroppman.JPG","SecondPhotos/MaxTroppman2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "180lbs", "major": "Mechanical Engineering", "fun": "Hugs trees at midnight"}'>
               <span class="player-name">Max Troppman</span>
               <span class="player-num">20</span>
-              <span class="player-year">First Year</span>
+              <span class="player-year">Sophomore</span>
               <span class="player-hometown">Sacramento, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Grant Tucker" data-sub="#21 · Junior" data-imgs='["Photos/GrantTucker.JPG","SecondPhotos/GrantTucker2.JPG"]'>
+            <div class="roster-row" data-name="Grant Tucker" data-sub="#21 · Senior" data-imgs='["Photos/GrantTucker.JPG","SecondPhotos/GrantTucker2.JPG"]' data-bio='{"height": "6&#39;", "weight": "180", "major": "Environmental Engineering", "fun": "Pet raccoons"}'>
               <span class="player-name">Grant Tucker</span>
               <span class="player-num">21</span>
-              <span class="player-year">Junior</span>
+              <span class="player-year">Senior</span>
               <span class="player-hometown">Jacksonville, FL</span>
             </div>
 
-            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Freshman" data-imgs='["Photos/ThomasAdams.JPG","SecondPhotos/ThomasAdams2.JPG"]'>
+            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Sophomore" data-imgs='["Photos/ThomasAdams.JPG","SecondPhotos/ThomasAdams2.JPG"]' data-bio='{"height": "5&#39;3\"", "weight": "Enough", "major": "Global Affairs", "fun": ""}'>
               <span class="player-name">Thomas Adams</span>
               <span class="player-num">22</span>
-              <span class="player-year">Freshman</span>
+              <span class="player-year">Sophomore</span>
               <span class="player-hometown">Wilton, CT</span>
             </div>
 
@@ -2733,6 +2805,14 @@
     const carouselPrev = document.getElementById('carousel-prev');
     const carouselNext = document.getElementById('carousel-next');
     const carouselDotsEl = document.getElementById('carousel-dots');
+    const featuredBio = document.getElementById('featured-bio');
+    const bioStatHeight = document.getElementById('bio-stat-height');
+    const bioStatWeight = document.getElementById('bio-stat-weight');
+    const bioStatMajor = document.getElementById('bio-stat-major');
+    const bioHeight = document.getElementById('bio-height');
+    const bioWeight = document.getElementById('bio-weight');
+    const bioMajor = document.getElementById('bio-major');
+    const bioFact = document.getElementById('bio-fact');
 
     let currentImgs = [];
     let currentIdx = 0;
@@ -2770,6 +2850,22 @@
       featuredName.textContent = name;
       featuredSub.textContent = sub;
       featuredPlaceholder.style.display = 'none';
+
+      // Bio — height, weight, major, fun fact (from roster spreadsheet)
+      const bio = JSON.parse(row.dataset.bio || 'null');
+      if (bio) {
+        bioStatHeight.style.display = bio.height ? 'flex' : 'none';
+        bioHeight.textContent = bio.height;
+        bioStatWeight.style.display = bio.weight ? 'flex' : 'none';
+        bioWeight.textContent = bio.weight;
+        bioStatMajor.style.display = bio.major ? 'flex' : 'none';
+        bioMajor.textContent = bio.major;
+        bioFact.style.display = bio.fun ? 'block' : 'none';
+        bioFact.textContent = bio.fun;
+        featuredBio.style.display = 'flex';
+      } else {
+        featuredBio.style.display = 'none';
+      }
 
       // Build dots
       carouselDotsEl.innerHTML = '';
