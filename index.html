@@ -196,14 +196,6 @@
       color: #fff;
     }
 
-    .hero-title .club-word {
-      display: block;
-      font-size: clamp(14px, 1.6vw, 22px);
-      letter-spacing: 0.28em;
-      color: #fff;
-      margin-top: 4px;
-    }
-
     .hero-meta {
       position: relative;
       display: flex;
@@ -799,6 +791,21 @@
     }
 
     .rc:hover .rc-photo img { transform: scale(1.04); }
+
+    .rc-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,53,107,0.12);
+    }
+
+    .rc-photo-placeholder svg {
+      width: 28px;
+      height: 28px;
+      opacity: 0.15;
+    }
 
     .rc-photo-overlay {
       position: absolute;
@@ -1842,8 +1849,7 @@
     <div class="hero-bg"></div>
     <h1 class="hero-title">
       Yale Men's<br>
-      <em>Water Polo</em><br>
-      <span class="club-word">Club</span>
+      <em>Water Polo</em>
     </h1>
   </section>
 
@@ -2384,10 +2390,10 @@
               <span class="player-hometown">McLean, VA</span>
             </div>
 
-            <div class="roster-row" data-name="Ryan Karr" data-sub="#9 · First Year" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ryan+Karr"]' data-bio='{"height": "6&#39;1\"", "weight": "210", "major": "", "fun": ""}'>
+            <div class="roster-row" data-name="Ryan Karr" data-sub="#9 · Freshman" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ryan+Karr"]' data-bio='{"height": "6&#39;1\"", "weight": "210", "major": "", "fun": ""}'>
               <span class="player-name">Ryan Karr</span>
               <span class="player-num">9</span>
-              <span class="player-year">First Year</span>
+              <span class="player-year">Freshman</span>
               <span class="player-hometown">Menlo Park, CA</span>
             </div>
 
@@ -2480,6 +2486,62 @@
               <span class="player-num">22</span>
               <span class="player-year">Sophomore</span>
               <span class="player-hometown">Wilton, CT</span>
+            </div>
+
+            <div class="roster-row" data-name="Ethan Ebizadeh" data-sub="#24 · Sophomore" data-imgs='[]' data-bio='{"height": "6&#39;1\"", "weight": "185lbs", "major": "Economics", "fun": "Love&#39;s the 305!!"}'>
+              <span class="player-name">Ethan Ebizadeh</span>
+              <span class="player-num">24</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown">Miami</span>
+            </div>
+
+            <div class="roster-row" data-name="Danny Robiana" data-sub="#25 · Junior" data-imgs='[]'>
+              <span class="player-name">Danny Robiana</span>
+              <span class="player-num">25</span>
+              <span class="player-year">Junior</span>
+              <span class="player-hometown"></span>
+            </div>
+
+            <div class="roster-row" data-name="Andrew Yang" data-sub="#26 · Freshman" data-imgs='[]' data-bio='{"height": "6&#39;", "weight": "170", "major": "", "fun": ""}'>
+              <span class="player-name">Andrew Yang</span>
+              <span class="player-num">26</span>
+              <span class="player-year">Freshman</span>
+              <span class="player-hometown"></span>
+            </div>
+
+            <div class="roster-row" data-name="Roshan Khanna" data-sub="#27 · Freshman" data-imgs='[]' data-bio='{"height": "5’11\"", "weight": "155", "major": "", "fun": ""}'>
+              <span class="player-name">Roshan Khanna</span>
+              <span class="player-num">27</span>
+              <span class="player-year">Freshman</span>
+              <span class="player-hometown">San Jose, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Alex Johnson" data-sub="#28 · Senior" data-imgs='[]' data-bio='{"height": "6&#39;", "weight": "170", "major": "Medicine", "fun": ""}'>
+              <span class="player-name">Alex Johnson</span>
+              <span class="player-num">28</span>
+              <span class="player-year">Senior</span>
+              <span class="player-hometown">Long Beach, CA</span>
+            </div>
+
+            <div class="roster-row" data-name="Luigi Berinde" data-sub="#29 · 1L" data-imgs='[]' data-bio='{"height": "6&#39;1", "weight": "170", "major": "Law student", "fun": "Likes planes"}'>
+              <span class="player-name">Luigi Berinde</span>
+              <span class="player-num">29</span>
+              <span class="player-year">1L</span>
+              <span class="player-hometown">Chicago, IL</span>
+            </div>
+
+            <div class="roster-row" data-name="Christian Ruiz" data-sub="#30 · Sophomore" data-imgs='[]' data-bio='{"height": "5&#39;11", "weight": "167", "major": "", "fun": ""}'>
+              <span class="player-name">Christian Ruiz</span>
+              <span class="player-num">30</span>
+              <span class="player-year">Sophomore</span>
+              <span class="player-hometown"></span>
+            </div>
+
+            <div class="roster-row" data-name="Aaron Chough" data-sub="#31" data-imgs='[]' data-bio='{"height": "6&#39;2\"", "weight": "210", "major": "SOM student", "fun": "Likes dogs"}'>
+              <span class="player-name">Aaron Chough</span>
+              <span class="player-num">31</span>
+              <span class="player-year"></span>
+              <span class="player-hometown">Cerritos, CA</span>
             </div>
 
           </div><!-- /players-tab -->
@@ -2737,11 +2799,15 @@
         const num  = row.querySelector('.player-num').textContent;
         const year = row.querySelector('.player-year').textContent;
 
+        const photoInner = img
+          ? `<img src="${img}" alt="${name}" loading="lazy" />`
+          : `<div class="rc-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>`;
+
         const card = document.createElement('div');
         card.className = 'rc';
         card.innerHTML = `
           <div class="rc-photo">
-            <img src="${img}" alt="${name}" loading="lazy" />
+            ${photoInner}
             <div class="rc-photo-overlay"></div>
             <span class="rc-num-badge">${num}</span>
           </div>
@@ -2849,7 +2915,8 @@
 
       featuredName.textContent = name;
       featuredSub.textContent = sub;
-      featuredPlaceholder.style.display = 'none';
+      featuredPlaceholder.style.display = imgs.length ? 'none' : 'flex';
+      featuredImg.style.opacity = imgs.length ? featuredImg.style.opacity : '0';
 
       // Bio — height, weight, major, fun fact (from roster spreadsheet)
       const bio = JSON.parse(row.dataset.bio || 'null');
@@ -2882,7 +2949,7 @@
       carouselPrev.classList.toggle('visible', imgs.length > 1);
       carouselNext.classList.toggle('visible', imgs.length > 1);
 
-      showCarouselImg(0);
+      if (imgs.length) showCarouselImg(0);
     }
 
     carouselPrev.addEventListener('click', (e) => {
