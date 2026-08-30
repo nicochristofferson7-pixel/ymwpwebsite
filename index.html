@@ -101,6 +101,38 @@
 
     .nav-links a:hover { color: #fff; }
 
+    /* Distinguish the Archives nav entry — it leaves the page, unlike the other same-page links */
+    .nav-archive-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.9) !important;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      padding: 6px 14px;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .nav-archive-link:hover {
+      border-color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .nav-archive-link svg {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-mobile-link.nav-archive-link {
+      display: inline-flex;
+      width: auto;
+      margin-top: 14px;
+      padding: 10px 18px;
+      font-size: 12px;
+      border-bottom: none;
+    }
+
     .nav-contact {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -1824,6 +1856,12 @@
         <li><a href="#roster">Roster</a></li>
         <li><a href="#alumni">Alumni</a></li>
         <li><a href="#about">About</a></li>
+        <li>
+          <a href="archives.html" class="nav-archive-link">
+            Archives
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </li>
       </ul>
       <a href="#contact" class="nav-contact">Contact</a>
     </div>
@@ -1841,6 +1879,12 @@
       <li><a href="#alumni" class="nav-mobile-link">Alumni</a></li>
       <li><a href="#about" class="nav-mobile-link">About</a></li>
       <li><a href="#contact" class="nav-mobile-link">Contact</a></li>
+      <li style="border-bottom: none;">
+        <a href="archives.html" class="nav-mobile-link nav-archive-link">
+          Archives
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </li>
     </ul>
   </div>
 
@@ -2000,7 +2044,7 @@
   <!-- ── SCHEDULE ───────────────────────────────  -->
   <section class="schedule" id="schedule">
     <div class="schedule-header">
-      <h2 class="schedule-title">2025–26<br>Events</h2>
+      <h2 class="schedule-title">2026–27<br>Events</h2>
       <span class="schedule-season">CWPA New England Division</span>
     </div>
 
@@ -2013,247 +2057,14 @@
       <a href="https://www.facebook.com/YaleMensWaterPolo" target="_blank" rel="noopener noreferrer" style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:#fff; text-decoration:none; border:1px solid rgba(40,109,192,0.6); padding:8px 16px; background:rgba(0,53,107,0.2); transition:border-color 0.2s, background 0.2s;" onmouseover="this.style.background='rgba(0,53,107,0.4)';this.style.borderColor='#286DC0'" onmouseout="this.style.background='rgba(0,53,107,0.2)';this.style.borderColor='rgba(40,109,192,0.6)'">Watch Live →</a>
     </div>
 
-    <!-- ─ Spring 2026 ─ -->
+    <!-- ─ Fall 2026 ─ -->
     <div class="season-block">
-      <div class="season-label-row">Spring 2026</div>
-
-      <!-- Ivy Invitational -->
-      <div class="tournament-item" id="tourn-s3">
-        <button class="tournament-header" onclick="toggleTournament('tourn-s3')">
-          <span class="tourn-date">Apr 18–19, 2026</span>
-          <span class="tourn-name">Ivy Invitational</span>
-          <span class="tourn-location">New Haven, CT</span>
-          <span class="tourn-result"><span class="tourn-result-w">W 4</span> · <span class="tourn-result-l">L 0</span></span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="game-row">
-            <span class="game-date">Apr 18 2:30pm</span>
-            <span class="game-opponent">Penn</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-w">W 16–5</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Apr 18 7:10pm</span>
-            <span class="game-opponent">Dartmouth B</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-w">W 12–8</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Apr 19 4:00pm</span>
-            <span class="game-opponent">Dartmouth A</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-w">W 14–4</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Apr 19 5:10pm</span>
-            <span class="game-opponent">Brown</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-w">W 14–10</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Alumni Weekend -->
-      <div class="tournament-item" id="tourn-s2">
-        <button class="tournament-header" onclick="toggleTournament('tourn-s2')">
-          <span class="tourn-date">Apr 11, 2026</span>
-          <span class="tourn-name">Alumni Weekend</span>
-          <span class="tourn-location">New Haven, CT</span>
-          <span class="tourn-result tourn-result-upcoming">See Photos</span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="alumni-scroll-wrap">
-            <div class="alumni-scroll-track">
-              <!-- original set -->
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8102.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8115.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8122.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8125.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8135.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8172.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8194.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8256.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8258.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8292.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8298.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8359.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8364.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8390.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8408.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8463.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8481.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8514.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <!-- duplicate set for seamless loop -->
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8102.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8115.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8122.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8125.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8135.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8172.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8194.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8256.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8258.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8292.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8298.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8359.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8364.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8390.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8408.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8463.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8481.JPG" alt="Alumni Weekend" loading="lazy"></div>
-              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8514.JPG" alt="Alumni Weekend" loading="lazy"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- UConn Tournament -->
-      <div class="tournament-item" id="tourn-s1">
-        <button class="tournament-header" onclick="toggleTournament('tourn-s1')">
-          <span class="tourn-date">Mar 28, 2026</span>
-          <span class="tourn-name">UConn Tournament</span>
-          <span class="tourn-location">Mansfield, CT</span>
-          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 1</span></span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="game-row">
-            <span class="game-date">Mar 28</span>
-            <span class="game-opponent">UConn</span>
-            <span class="game-location">Mansfield, CT</span>
-            <span class="game-result result-w">W 13–10</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Mar 28</span>
-            <span class="game-opponent">Wet Sox</span>
-            <span class="game-location">Mansfield, CT</span>
-            <span class="game-result result-l">L 10–17</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Mar 29</span>
-            <span class="game-opponent">Hydras</span>
-            <span class="game-location">Mansfield, CT</span>
-            <span class="game-result result-w">W 15–14</span>
-          </div>
-        </div>
-      </div>
+      <div class="season-label-row">Fall 2026</div>
     </div>
 
-    <!-- ─ Fall 2025 ─ -->
+    <!-- ─ Spring 2027 ─ -->
     <div class="season-block">
-      <div class="season-label-row">Fall 2025</div>
-
-      <!-- Villanova Tournament -->
-      <div class="tournament-item" id="tourn-f1">
-        <div class="tournament-header static">
-          <span class="tourn-date">Sep 27–28, 2025</span>
-          <span class="tourn-name">Villanova Tournament</span>
-          <span class="tourn-location">Villanova, PA</span>
-          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
-          <span></span>
-        </div>
-      </div>
-
-      <!-- BU Tournament -->
-      <div class="tournament-item" id="tourn-f2">
-        <button class="tournament-header" onclick="toggleTournament('tourn-f2')">
-          <span class="tourn-date">Oct 4–5, 2025</span>
-          <span class="tourn-name">BU Tournament</span>
-          <span class="tourn-location">Boston, MA</span>
-          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 2</span></span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="game-row">
-            <span class="game-date">Oct 4</span>
-            <span class="game-opponent">Boston College</span>
-            <span class="game-location">Boston, MA</span>
-            <span class="game-result result-w">W 10–7</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 4</span>
-            <span class="game-opponent">Dartmouth</span>
-            <span class="game-location">Boston, MA</span>
-            <span class="game-result result-l">L 12–18</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 5</span>
-            <span class="game-opponent">Northeastern</span>
-            <span class="game-location">Boston, MA</span>
-            <span class="game-result result-w">W 10–8</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 5</span>
-            <span class="game-opponent">Boston University</span>
-            <span class="game-location">Boston, MA</span>
-            <span class="game-result result-l">L 8–15</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Yale Tournament -->
-      <div class="tournament-item" id="tourn-f3">
-        <button class="tournament-header" onclick="toggleTournament('tourn-f3')">
-          <span class="tourn-date">Oct 11–12, 2025</span>
-          <span class="tourn-name">Yale Tournament</span>
-          <span class="tourn-location">New Haven, CT</span>
-          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 2</span></span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="game-row">
-            <span class="game-date">Oct 11</span>
-            <span class="game-opponent">Boston College</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-w">W 12–11</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 11</span>
-            <span class="game-opponent">Northeastern</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-w">W 11–8</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 12</span>
-            <span class="game-opponent">Boston University</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-l">L 4–20</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 12</span>
-            <span class="game-opponent">Dartmouth</span>
-            <span class="game-location">New Haven, CT</span>
-            <span class="game-result result-l">L 7–15</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CWPA New England Division Championship -->
-      <div class="tournament-item" id="tourn-f4">
-        <button class="tournament-header" onclick="toggleTournament('tourn-f4')">
-          <span class="tourn-date">Oct 25–26, 2025</span>
-          <span class="tourn-name">CWPA New England Division Championship</span>
-          <span class="tourn-location">Boston, MA</span>
-          <span class="tourn-result"><span class="tourn-result-w">W 0</span> · <span class="tourn-result-l">L 2</span></span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="game-row">
-            <span class="game-date">Oct 25</span>
-            <span class="game-opponent">Dartmouth</span>
-            <span class="game-location">Boston College</span>
-            <span class="game-result result-l">L 7–8</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 26</span>
-            <span class="game-opponent">Northeastern</span>
-            <span class="game-location">Boston College</span>
-            <span class="game-result result-l">L 14–16</span>
-          </div>
-        </div>
-      </div>
+      <div class="season-label-row">Spring 2027</div>
     </div>
 
   </section>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archives · Yale Men's Water Polo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yale: #00356B;
+      --yale-mid: #1a4d8a;
+      --yale-light: #286DC0;
+      --white: #ffffff;
+      --off: rgba(255,255,255,0.55);
+      --dim: rgba(255,255,255,0.15);
+      --border: rgba(255,255,255,0.09);
+      --blue-border: rgba(0,53,107,0.45);
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      scrollbar-width: none;
+    }
+    *::-webkit-scrollbar { display: none; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+    }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: var(--yale);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-logo-img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      display: block;
+    }
+
+    .nav-wordmark {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-contact {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.45);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-contact:hover {
+      border-color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.1);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      z-index: 300;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.85);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 66px;
+      left: 0; right: 0; bottom: 0;
+      background: var(--yale);
+      z-index: 199;
+      padding: 28px 28px;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .nav-mobile-menu.open { display: flex; }
+
+    .nav-mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-mobile-links li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-mobile-link {
+      display: block;
+      padding: 18px 0;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-mobile-link:hover { color: #fff; }
+    footer {
+      background: var(--yale);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 64px 40px 36px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 64px;
+    }
+
+    .footer-tagline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      max-width: 580px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-logo-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      color: rgba(255,255,255,0.06);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer-copy {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-socials a {
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-socials a:hover { color: rgba(255,255,255,0.9); }
+    .schedule {
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,53,107,0.32) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0,53,107,0.15) 0%, transparent 60%),
+        #060d18;
+      padding: 80px 40px;
+      border-top: 1px solid rgba(0,53,107,0.3);
+    }
+
+    .schedule-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .schedule-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+    }
+
+    .schedule-season {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding-bottom: 6px;
+    }
+
+    /* ─── TOURNAMENT ACCORDION ────────────── */
+    .tournament-item {
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .season-block .tournament-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .season-block {
+      margin-bottom: 40px;
+    }
+
+    .season-label-row {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 0;
+    }
+
+    .tournament-header.static {
+      cursor: default;
+    }
+
+    .tournament-header.static:hover {
+      background: none;
+      padding-left: 8px;
+    }
+
+    .tourn-tag {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 2px 6px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .tournament-header {
+      display: grid;
+      grid-template-columns: 110px 1fr 160px 110px 32px;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 8px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .tournament-header:hover {
+      background: rgba(0,53,107,0.08);
+      padding-left: 14px;
+    }
+
+    .tourn-date {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    .tourn-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+
+    .tourn-location {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    .tourn-result {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      text-align: right;
+    }
+
+    .tourn-result-w { color: rgba(180,255,180,0.75); }
+    .tourn-result-l { color: rgba(255,120,120,0.65); }
+    .tourn-result-mixed { color: rgba(255,255,255,0.6); }
+    .tourn-result-upcoming { color: rgba(255,255,255,0.2); font-size: 10px; font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 0.1em; }
+
+    .tourn-chevron {
+      width: 18px;
+      height: 18px;
+      opacity: 0.35;
+      transition: transform 0.28s ease, opacity 0.2s;
+      justify-self: end;
+      flex-shrink: 0;
+    }
+
+    .tournament-item.open .tourn-chevron {
+      transform: rotate(180deg);
+      opacity: 0.65;
+    }
+
+    .tournament-games {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+      background: rgba(0,53,107,0.04);
+      border-top: 1px solid transparent;
+    }
+
+    .tournament-item.open .tournament-games {
+      max-height: 500px;
+      border-top-color: rgba(255,255,255,0.04);
+    }
+
+    /* ─── ALUMNI WEEKEND SLIDER ───────────────── */
+    #tourn-s2.open .tournament-games {
+      max-height: 340px;
+    }
+
+    @keyframes scroll-right {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .alumni-scroll-track {
+      display: flex;
+      gap: 12px;
+      width: max-content;
+      animation: scroll-right 28s linear infinite;
+    }
+
+    .alumni-scroll-track:hover {
+      animation-play-state: paused;
+    }
+
+    .alumni-scroll-wrap {
+      overflow: hidden;
+      width: 100%;
+      mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      padding: 20px 0;
+    }
+
+    .alumni-slide-img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .alumni-slide-img:hover {
+      transform: scale(1.04);
+      filter: brightness(1.08);
+    }
+
+    .alumni-slide-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .game-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 160px 110px 32px;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 8px 12px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .game-row:last-child { border-bottom: none; }
+
+    .game-date {
+      font-size: 10px;
+      color: rgba(255,255,255,0.22);
+      font-weight: 300;
+    }
+
+    .game-opponent {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .game-location {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+
+    .game-result {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-align: right;
+    }
+
+    .result-w { color: rgba(180,255,180,0.7); }
+    .result-l { color: rgba(255,120,120,0.6); }
+    .result-upcoming { color: rgba(255,255,255,0.2); font-size: 10px; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 400; }
+
+    /* ─── ARCHIVE PAGE ────────────────────── */
+    .archive-hero {
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 0%, rgba(0,53,107,0.35) 0%, transparent 70%),
+        #060d18;
+      padding: 150px 40px 60px;
+      border-bottom: 1px solid rgba(0,53,107,0.3);
+    }
+
+    .archive-hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .archive-hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .archive-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 8vw, 96px);
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .archive-hero-sub {
+      margin-top: 16px;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.45);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .archive-list {
+      background:
+        radial-gradient(ellipse 50% 40% at 90% 0%, rgba(0,53,107,0.15) 0%, transparent 60%),
+        #060d18;
+      padding: 48px 40px 120px;
+      min-height: 40vh;
+    }
+
+    .archive-season-item {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,53,107,0.05);
+      transition: background 0.2s;
+    }
+
+    .archive-season-item + .archive-season-item {
+      margin-top: 16px;
+    }
+
+    .archive-season-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      padding: 26px 28px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .archive-season-header:hover {
+      background: rgba(0,53,107,0.14);
+    }
+
+    .archive-season-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .archive-season-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    .archive-season-meta {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .archive-chevron {
+      width: 22px;
+      height: 22px;
+      opacity: 0.4;
+      transition: transform 0.28s ease, opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .archive-season-item.open .archive-chevron {
+      transform: rotate(180deg);
+      opacity: 0.75;
+    }
+
+    .archive-season-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      padding: 0 28px;
+    }
+
+    .archive-season-item.open .archive-season-body {
+      max-height: 6000px;
+      padding: 8px 28px 32px;
+    }
+
+    /* Distinguish the Archives nav entry from same-page nav links */
+    .nav-archive-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      padding: 6px 14px;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .nav-archive-link:hover {
+      border-color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .nav-archive-link svg {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-mobile-link.nav-archive-link {
+      display: inline-flex;
+      width: auto;
+      margin-top: 14px;
+      padding: 10px 18px;
+      font-size: 12px;
+    }
+
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-right { display: none; }
+      nav { padding: 14px 20px; }
+
+      .archive-hero { padding: 110px 20px 40px; }
+      .archive-list { padding: 32px 20px 80px; }
+      .archive-season-header { padding: 20px 18px; }
+      .archive-season-body { padding: 0 18px; }
+      .archive-season-item.open .archive-season-body { padding: 6px 18px 24px; }
+
+      .tournament-header {
+        grid-template-columns: 80px 1fr 70px 24px;
+        gap: 10px;
+        padding: 16px 6px;
+      }
+      .tourn-location { display: none; }
+      .game-row {
+        grid-template-columns: 56px 1fr 68px;
+        padding: 10px 6px 10px 14px;
+        gap: 10px;
+      }
+      .game-location { display: none; }
+
+      footer { padding: 48px 20px 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="Logos/Yale-Bulldogs-logo.png" alt="Yale" class="nav-logo-img">
+      <span class="nav-wordmark">Water Polo</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#announcements">Announcements</a></li>
+        <li><a href="index.html#schedule">Events</a></li>
+        <li><a href="index.html#roster">Roster</a></li>
+        <li><a href="index.html#alumni">Alumni</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li>
+          <a href="archives.html" class="nav-archive-link">
+            Archives
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </li>
+      </ul>
+      <a href="index.html#contact" class="nav-contact">Contact</a>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#announcements" class="nav-mobile-link">Announcements</a></li>
+      <li><a href="index.html#schedule" class="nav-mobile-link">Events</a></li>
+      <li><a href="index.html#roster" class="nav-mobile-link">Roster</a></li>
+      <li><a href="index.html#alumni" class="nav-mobile-link">Alumni</a></li>
+      <li><a href="index.html#about" class="nav-mobile-link">About</a></li>
+      <li><a href="index.html#contact" class="nav-mobile-link">Contact</a></li>
+      <li style="border-bottom: none;">
+        <a href="archives.html" class="nav-mobile-link nav-archive-link">
+          Archives
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── ARCHIVE HERO ────────────────────────── -->
+  <section class="archive-hero">
+    <span class="archive-hero-eyebrow">Yale Men's Water Polo</span>
+    <h1 class="archive-hero-title">Archives</h1>
+    <p class="archive-hero-sub">Past seasons, tournament results, and event history.</p>
+  </section>
+
+  <!-- ── ARCHIVE LIST ────────────────────────── -->
+  <section class="archive-list">
+
+    <div class="archive-season-item" id="archive-2025-26">
+      <button class="archive-season-header" onclick="toggleTournament('archive-2025-26')">
+        <span class="archive-season-heading">
+          <span class="archive-season-label">2025–26</span>
+          <span class="archive-season-meta">CWPA New England Division</span>
+        </span>
+        <svg class="archive-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="archive-season-body">
+    <!-- ─ Spring 2026 ─ -->
+    <div class="season-block">
+      <div class="season-label-row">Spring 2026</div>
+
+      <!-- Ivy Invitational -->
+      <div class="tournament-item" id="tourn-s3">
+        <button class="tournament-header" onclick="toggleTournament('tourn-s3')">
+          <span class="tourn-date">Apr 18–19, 2026</span>
+          <span class="tourn-name">Ivy Invitational</span>
+          <span class="tourn-location">New Haven, CT</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 4</span> · <span class="tourn-result-l">L 0</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Apr 18 2:30pm</span>
+            <span class="game-opponent">Penn</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 16–5</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 18 7:10pm</span>
+            <span class="game-opponent">Dartmouth B</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 12–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 19 4:00pm</span>
+            <span class="game-opponent">Dartmouth A</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 14–4</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Apr 19 5:10pm</span>
+            <span class="game-opponent">Brown</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 14–10</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alumni Weekend -->
+      <div class="tournament-item" id="tourn-s2">
+        <button class="tournament-header" onclick="toggleTournament('tourn-s2')">
+          <span class="tourn-date">Apr 11, 2026</span>
+          <span class="tourn-name">Alumni Weekend</span>
+          <span class="tourn-location">New Haven, CT</span>
+          <span class="tourn-result tourn-result-upcoming">See Photos</span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="alumni-scroll-wrap">
+            <div class="alumni-scroll-track">
+              <!-- original set -->
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8102.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8115.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8122.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8125.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8135.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8172.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8194.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8256.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8258.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8292.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8298.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8359.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8364.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8390.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8408.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8463.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8481.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8514.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <!-- duplicate set for seamless loop -->
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8102.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8115.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8122.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8125.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8135.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8172.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8194.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8256.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8258.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8292.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8298.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8359.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8364.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8390.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8408.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8463.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8481.JPG" alt="Alumni Weekend" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/AlumniWeekend/R02A8514.JPG" alt="Alumni Weekend" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UConn Tournament -->
+      <div class="tournament-item" id="tourn-s1">
+        <button class="tournament-header" onclick="toggleTournament('tourn-s1')">
+          <span class="tourn-date">Mar 28, 2026</span>
+          <span class="tourn-name">UConn Tournament</span>
+          <span class="tourn-location">Mansfield, CT</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 1</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Mar 28</span>
+            <span class="game-opponent">UConn</span>
+            <span class="game-location">Mansfield, CT</span>
+            <span class="game-result result-w">W 13–10</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 28</span>
+            <span class="game-opponent">Wet Sox</span>
+            <span class="game-location">Mansfield, CT</span>
+            <span class="game-result result-l">L 10–17</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Mar 29</span>
+            <span class="game-opponent">Hydras</span>
+            <span class="game-location">Mansfield, CT</span>
+            <span class="game-result result-w">W 15–14</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ Fall 2025 ─ -->
+    <div class="season-block">
+      <div class="season-label-row">Fall 2025</div>
+
+      <!-- Villanova Tournament -->
+      <div class="tournament-item" id="tourn-f1">
+        <div class="tournament-header static">
+          <span class="tourn-date">Sep 27–28, 2025</span>
+          <span class="tourn-name">Villanova Tournament</span>
+          <span class="tourn-location">Villanova, PA</span>
+          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- BU Tournament -->
+      <div class="tournament-item" id="tourn-f2">
+        <button class="tournament-header" onclick="toggleTournament('tourn-f2')">
+          <span class="tourn-date">Oct 4–5, 2025</span>
+          <span class="tourn-name">BU Tournament</span>
+          <span class="tourn-location">Boston, MA</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 4</span>
+            <span class="game-opponent">Boston College</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-w">W 10–7</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 4</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-l">L 12–18</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 5</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-w">W 10–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 5</span>
+            <span class="game-opponent">Boston University</span>
+            <span class="game-location">Boston, MA</span>
+            <span class="game-result result-l">L 8–15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yale Tournament -->
+      <div class="tournament-item" id="tourn-f3">
+        <button class="tournament-header" onclick="toggleTournament('tourn-f3')">
+          <span class="tourn-date">Oct 11–12, 2025</span>
+          <span class="tourn-name">Yale Tournament</span>
+          <span class="tourn-location">New Haven, CT</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 2</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 11</span>
+            <span class="game-opponent">Boston College</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 12–11</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 11</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-w">W 11–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 12</span>
+            <span class="game-opponent">Boston University</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-l">L 4–20</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 12</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-location">New Haven, CT</span>
+            <span class="game-result result-l">L 7–15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CWPA New England Division Championship -->
+      <div class="tournament-item" id="tourn-f4">
+        <button class="tournament-header" onclick="toggleTournament('tourn-f4')">
+          <span class="tourn-date">Oct 25–26, 2025</span>
+          <span class="tourn-name">CWPA New England Division Championship</span>
+          <span class="tourn-location">Boston, MA</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 0</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 25</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-location">Boston College</span>
+            <span class="game-result result-l">L 7–8</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 26</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-location">Boston College</span>
+            <span class="game-result result-l">L 14–16</span>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ──────────────────────────────── -->
+  <footer>
+    <div class="footer-bottom">
+      <span class="footer-copy">© Yale Men's Water Polo Club 2026 &nbsp;·&nbsp; New Haven, CT</span>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/yalemwaterpolo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── TOURNAMENT / ARCHIVE ACCORDION ─────────
+    function toggleTournament(id) {
+      const item = document.getElementById(id);
+      item.classList.toggle('open');
+    }
+
+    // ── HAMBURGER MENU ──────────────────────────
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('nav-mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.nav-mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>
