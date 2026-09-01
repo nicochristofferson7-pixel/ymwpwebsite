@@ -1468,6 +1468,10 @@
       max-height: 340px;
     }
 
+    #tourn-fa1.open .tournament-games {
+      max-height: 340px;
+    }
+
     @keyframes scroll-right {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -1477,7 +1481,7 @@
       display: flex;
       gap: 12px;
       width: max-content;
-      animation: scroll-right 28s linear infinite;
+      animation: scroll-right 56s linear infinite;
     }
 
     .alumni-scroll-track:hover {
@@ -1512,6 +1516,70 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      cursor: zoom-in;
+    }
+
+    /* ─── PHOTO LIGHTBOX ───────────────────── */
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,8,20,0.92);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 32px;
+    }
+
+    .photo-lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .photo-lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      transform: scale(0.94);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-lightbox.open img {
+      transform: scale(1);
+    }
+
+    .photo-lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .photo-lightbox-close:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.5);
+      transform: rotate(90deg);
+    }
+
+    .photo-lightbox-close svg {
+      width: 16px;
+      height: 16px;
     }
 
     .game-row {
@@ -2063,12 +2131,104 @@
 
       <!-- Preseason Training Trip -->
       <div class="tournament-item" id="tourn-fa1">
-        <div class="tournament-header static">
+        <button class="tournament-header" onclick="toggleTournament('tourn-fa1')">
           <span class="tourn-date">Aug 26–29, 2026</span>
           <span class="tourn-name">Preseason Training Trip</span>
           <span class="tourn-location">Moultonborough, NH</span>
-          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
-          <span></span>
+          <span class="tourn-result tourn-result-upcoming">See Photos</span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="alumni-scroll-wrap">
+            <div class="alumni-scroll-track">
+              <!-- original set -->
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/1EF99BD0-2371-40DC-B097-578E990476AC.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/280DAFD7-3B53-4720-A9E5-AA0517F7BA3A.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/30CF90B2-35F8-425B-8D75-710111F185D4.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/33F23702-948B-492D-9799-FDC04BAEEB91.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/543154BB-6BF8-4BE0-B71D-2AF0D56B648C.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/78D8F382-C1A8-4713-A1DE-1A1A60303C09.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/C6350552-8141-457D-BEE1-736EA4C460D0.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/C83D4C6F-ACDA-4CC2-9B9C-09C93471D16D.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/C8CF82FD-2184-4A80-93CF-89AC26096608.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/E44480AA-261A-44A1-A5E0-8B018B3DD64D.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/F6C8BB0D-AEA6-456F-A5AF-D2B5F7DF563D.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2228.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2229.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2230.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2231.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2232.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2233.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2235.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2236.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2237.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2238.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2241.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2243.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2244.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2245.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2246.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2247.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2248.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2249.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2250.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2251.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2252.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2253.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2255.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2259.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2261.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2262.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2263.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2264.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2265.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2267.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_6864.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <!-- duplicate set for seamless loop -->
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/1EF99BD0-2371-40DC-B097-578E990476AC.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/280DAFD7-3B53-4720-A9E5-AA0517F7BA3A.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/30CF90B2-35F8-425B-8D75-710111F185D4.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/33F23702-948B-492D-9799-FDC04BAEEB91.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/543154BB-6BF8-4BE0-B71D-2AF0D56B648C.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/78D8F382-C1A8-4713-A1DE-1A1A60303C09.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/C6350552-8141-457D-BEE1-736EA4C460D0.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/C83D4C6F-ACDA-4CC2-9B9C-09C93471D16D.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/C8CF82FD-2184-4A80-93CF-89AC26096608.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/E44480AA-261A-44A1-A5E0-8B018B3DD64D.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/F6C8BB0D-AEA6-456F-A5AF-D2B5F7DF563D.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2228.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2229.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2230.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2231.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2232.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2233.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2235.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2236.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2237.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2238.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2241.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2243.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2244.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2245.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2246.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2247.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2248.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2249.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2250.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2251.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2252.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2253.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2255.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2259.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2261.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2262.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2263.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2264.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2265.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_2267.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+              <div class="alumni-slide-img"><img src="OtherPhotos/PreseasonTrainingTrip/IMG_6864.JPG" alt="Preseason Training Trip" loading="lazy"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2929,6 +3089,37 @@
       }
     }
 
+  </script>
+
+  <!-- ── PHOTO LIGHTBOX ─────────────────────────  -->
+  <div class="photo-lightbox" id="photo-lightbox" onclick="closeLightbox(event)">
+    <button class="photo-lightbox-close" aria-label="Close" onclick="closeLightbox(event)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="photo-lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    // ── PHOTO LIGHTBOX ──────────────────────────
+    const lightbox = document.getElementById('photo-lightbox');
+    const lightboxImg = document.getElementById('photo-lightbox-img');
+
+    document.querySelectorAll('.alumni-slide-img img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    function closeLightbox(e) {
+      if (e.target === lightboxImg) return;
+      lightbox.classList.remove('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
   </script>
 
 </body>
