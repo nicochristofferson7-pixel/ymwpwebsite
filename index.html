@@ -1307,6 +1307,81 @@
       font-style: normal;
     }
 
+    /* ─── ANNOUNCEMENT DROPDOWNS ─────────── */
+    .announcement-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .announcement-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .announcement-toggle {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      padding: 26px 8px;
+      transition: background 0.15s;
+    }
+
+    .announcement-toggle:hover {
+      background: rgba(0,53,107,0.08);
+      padding-left: 14px;
+    }
+
+    .announcement-toggle-left {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .announcement-toggle-tag {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yale-light);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .announcement-toggle-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .announcement-chevron {
+      width: 18px;
+      height: 18px;
+      opacity: 0.35;
+      transition: transform 0.28s ease, opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .announcement-item.open .announcement-chevron {
+      transform: rotate(180deg);
+      opacity: 0.65;
+    }
+
+    .announcement-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .announcement-content .announcement-card {
+      margin: 0 0 32px;
+    }
+
     /* ─── SCHEDULE ────────────────────────── */
     .schedule {
       background:
@@ -1584,7 +1659,7 @@
 
     .game-row {
       display: grid;
-      grid-template-columns: 110px 1fr 160px 110px 32px;
+      grid-template-columns: 110px 1fr 210px 110px 32px;
       align-items: center;
       gap: 16px;
       padding: 12px 8px 12px 28px;
@@ -1607,10 +1682,18 @@
       text-transform: uppercase;
     }
 
-    .game-location {
+    .game-quarters {
       font-size: 10px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.32);
       font-weight: 300;
+      letter-spacing: 0.02em;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .game-quarters b {
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
     }
 
     .game-result {
@@ -1800,6 +1883,16 @@
       .announcement-body {
         padding: 32px 28px 36px;
       }
+      .announcement-toggle {
+        align-items: center;
+      }
+      .announcement-toggle-left {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .announcement-toggle-tag {
+        display: none;
+      }
 
       /* About */
       .about-inner {
@@ -1855,11 +1948,11 @@
       }
       .tourn-location { display: none; }
       .game-row {
-        grid-template-columns: 56px 1fr 68px;
+        grid-template-columns: 56px 1fr 68px 24px;
         padding: 10px 6px 10px 14px;
         gap: 10px;
       }
-      .game-location { display: none; }
+      .game-quarters { display: none; }
 
       /* Roster */
       .roster { padding: 40px 20px 60px; }
@@ -1994,40 +2087,54 @@
     <div class="announcements-header">
       <h2 class="announcements-title">Announcements</h2>
     </div>
-    <div class="announcement-card">
-      <div class="announcement-img-wrap">
-        <img src="Announcements/luigi-berinde.jpg" alt="Luigi Berinde" />
-      </div>
-      <div class="announcement-body">
-        <div class="announcement-tag">Recruit Announcement · 2026–27 Roster</div>
-        <div class="announcement-name">Luigi Berinde</div>
-        <p class="announcement-lead">
-          The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team is proud to announce the addition of Luigi Berinde to the 2026–27 roster.
-        </p>
-        <p class="announcement-lead">
-          Berinde was a 4-year varsity starter at Amundsen High School and captain for his last 2 years. He also played on the Chicago Parks District (CPD) club team from the age of 12 to 16, attending the Junior Olympics. After transferring to Cornell, he quickly became a starter for his final three years and served as president of the team during his junior and senior year — helping fundraise over $26,000 for the team each year.
-        </p>
-        <div class="announcement-quote">
-          <p>"Luigi brings a different level of maturity being a graduate student. Having attended Cornell, he is well aware of what it takes to carry academics and athletics at an Ivy League school. In the water, he is very quick and has an accurate, quick release shot which will definitely help on the offensive side of the ball."</p>
-          <cite>— George Gross, Jr. · Director of Recruiting, Yale Men's Water Polo</cite>
+    <div class="announcement-item" id="ann-berinde">
+      <button class="announcement-toggle" onclick="toggleAnnouncementItem('ann-berinde')">
+        <div class="announcement-toggle-left">
+          <span class="announcement-toggle-tag">Recruit Announcement · 2026–27 Roster</span>
+          <span class="announcement-toggle-name">Luigi Berinde</span>
         </div>
-        <p class="announcement-lead">
-          Outside the pool, Berinde graduated magna cum laude from Cornell with a B.A. in Physics. He spent two years on the Student Assembly, worked as an Undergraduate Teaching Assistant for introductory physics, and tutored students across multiple levels. Professionally, he worked as a law clerk assisting with major civil rights cases and spent seven years with the Evanston Fire Department — the last three as a Coordinator overseeing 150+ staff members across six beaches.
-        </p>
-        <div class="announcement-quote">
-          <p>"I chose Yale because it felt like the place where everything important to me aligned. The way Yale approaches law — asking not just what it is, but why it exists, what it assumes, and whether those foundations hold — is the same way I learned to think through physics, and exactly the kind of questions I wanted to pursue in law school. I'm looking forward to engaging with the Yale community, both in the classroom and with the water polo team in the pool."</p>
-          <cite>— Luigi Berinde</cite>
+        <svg class="announcement-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="announcement-content">
+        <div class="announcement-card">
+          <div class="announcement-img-wrap">
+            <img src="Announcements/luigi-berinde.jpg" alt="Luigi Berinde" />
+          </div>
+          <div class="announcement-body">
+            <div class="announcement-tag">Recruit Announcement · 2026–27 Roster</div>
+            <div class="announcement-name">Luigi Berinde</div>
+            <p class="announcement-lead">
+              The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team is proud to announce the addition of Luigi Berinde to the 2026–27 roster.
+            </p>
+            <p class="announcement-lead">
+              Berinde was a 4-year varsity starter at Amundsen High School and captain for his last 2 years. He also played on the Chicago Parks District (CPD) club team from the age of 12 to 16, attending the Junior Olympics. After transferring to Cornell, he quickly became a starter for his final three years and served as president of the team during his junior and senior year — helping fundraise over $26,000 for the team each year.
+            </p>
+            <div class="announcement-quote">
+              <p>"Luigi brings a different level of maturity being a graduate student. Having attended Cornell, he is well aware of what it takes to carry academics and athletics at an Ivy League school. In the water, he is very quick and has an accurate, quick release shot which will definitely help on the offensive side of the ball."</p>
+              <cite>— George Gross, Jr. · Director of Recruiting, Yale Men's Water Polo</cite>
+            </div>
+            <p class="announcement-lead">
+              Outside the pool, Berinde graduated magna cum laude from Cornell with a B.A. in Physics. He spent two years on the Student Assembly, worked as an Undergraduate Teaching Assistant for introductory physics, and tutored students across multiple levels. Professionally, he worked as a law clerk assisting with major civil rights cases and spent seven years with the Evanston Fire Department — the last three as a Coordinator overseeing 150+ staff members across six beaches.
+            </p>
+            <div class="announcement-quote">
+              <p>"I chose Yale because it felt like the place where everything important to me aligned. The way Yale approaches law — asking not just what it is, but why it exists, what it assumes, and whether those foundations hold — is the same way I learned to think through physics, and exactly the kind of questions I wanted to pursue in law school. I'm looking forward to engaging with the Yale community, both in the classroom and with the water polo team in the pool."</p>
+              <cite>— Luigi Berinde</cite>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="margin-top: 48px;">
-      <button onclick="toggleAnnouncement()" id="see-more-btn" style="display:flex; align-items:center; gap:10px; background:none; border:none; cursor:pointer; padding:0; color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; transition:color 0.2s;">
-        <svg id="see-more-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;transition:transform 0.28s ease;"><polyline points="6 9 12 15 18 9"/></svg>
-        See More
+    <div class="announcement-item" id="ann-karr">
+      <button class="announcement-toggle" onclick="toggleAnnouncementItem('ann-karr')">
+        <div class="announcement-toggle-left">
+          <span class="announcement-toggle-tag">Recruit Announcement · 2026–27 Roster</span>
+          <span class="announcement-toggle-name">Ryan Karr</span>
+        </div>
+        <svg class="announcement-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div id="more-announcements" style="max-height:0; overflow:hidden; transition:max-height 0.5s ease;">
-        <div class="announcement-card" style="margin-top: 24px;">
+      <div class="announcement-content">
+        <div class="announcement-card">
           <div class="announcement-img-wrap">
             <img src="Announcements/ryan-karr.jpg" alt="Ryan Karr" />
           </div>
@@ -2053,7 +2160,19 @@
             </div>
           </div>
         </div>
-        <div class="announcement-card" style="margin-top: 24px;">
+      </div>
+    </div>
+
+    <div class="announcement-item" id="ann-yang">
+      <button class="announcement-toggle" onclick="toggleAnnouncementItem('ann-yang')">
+        <div class="announcement-toggle-left">
+          <span class="announcement-toggle-tag">Recruit Announcement · 2026–27 Roster</span>
+          <span class="announcement-toggle-name">Andrew Yang</span>
+        </div>
+        <svg class="announcement-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="announcement-content">
+        <div class="announcement-card">
           <div class="announcement-img-wrap">
             <img src="Announcements/andrew-yang.jpg" alt="Andrew Yang" />
           </div>
@@ -2079,7 +2198,19 @@
             </div>
           </div>
         </div>
-        <div class="announcement-card" style="margin-top: 24px;">
+      </div>
+    </div>
+
+    <div class="announcement-item" id="ann-khanna">
+      <button class="announcement-toggle" onclick="toggleAnnouncementItem('ann-khanna')">
+        <div class="announcement-toggle-left">
+          <span class="announcement-toggle-tag">Recruit Announcement · 2026–27 Roster</span>
+          <span class="announcement-toggle-name">Roshan Khanna</span>
+        </div>
+        <svg class="announcement-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="announcement-content">
+        <div class="announcement-card">
           <div class="announcement-img-wrap">
             <img src="Announcements/roshan-khanna.jpg" alt="Roshan Khanna" />
           </div>
@@ -2234,23 +2365,61 @@
 
       <!-- W&J Tournament -->
       <div class="tournament-item" id="tourn-fa2">
-        <div class="tournament-header static">
+        <button class="tournament-header" onclick="toggleTournament('tourn-fa2')">
           <span class="tourn-date">Sep 5–6, 2026</span>
           <span class="tourn-name">W&amp;J Tournament</span>
           <span class="tourn-location">Pittsburgh, PA</span>
-          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
-          <span></span>
+          <span class="tourn-result"><span class="tourn-result-w">W 1</span> · <span class="tourn-result-l">L 2</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Sep 5</span>
+            <span class="game-opponent">Pitt Masters</span>
+            <span class="game-quarters">Q1 <b>2–2</b> · Q2 <b>7–7</b> · Q3 <b>8–12</b></span>
+            <span class="game-result result-l">L 13–17</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 5</span>
+            <span class="game-opponent">Washington &amp; Jefferson</span>
+            <span class="game-quarters">Q1 <b>4–2</b> · Q2 <b>9–7</b> · Q3 <b>15–11</b></span>
+            <span class="game-result result-w">W 19–15</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 6</span>
+            <span class="game-opponent">Michigan State</span>
+            <span class="game-quarters">Q1 <b>4–4</b> · Q2 <b>7–7</b> · Q3 <b>9–10</b></span>
+            <span class="game-result result-l">L 10–12</span>
+          </div>
         </div>
       </div>
 
       <!-- Yale CWPA Tournament -->
       <div class="tournament-item" id="tourn-fa3">
-        <div class="tournament-header static">
+        <button class="tournament-header" onclick="toggleTournament('tourn-fa3')">
           <span class="tourn-date">Sep 19–20, 2026</span>
           <span class="tourn-name">Yale CWPA Tournament</span>
           <span class="tourn-location">New Haven, CT</span>
           <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
-          <span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Sep 19 1:40pm</span>
+            <span class="game-opponent">Boston University</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 19 4:00pm</span>
+            <span class="game-opponent">Northeastern</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 20 10:10am</span>
+            <span class="game-opponent">Boston College</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Sep 20 12:30pm</span>
+            <span class="game-opponent">Dartmouth</span>
+          </div>
         </div>
       </div>
 
@@ -2998,19 +3167,16 @@
     if (rosterRows.length > 0) showPlayer(rosterRows[0]);
 
     // ── ANNOUNCEMENT DROPDOWN ──────────────────
-    function toggleAnnouncement() {
-      const el = document.getElementById('more-announcements');
-      const chevron = document.getElementById('see-more-chevron');
-      const btn = document.getElementById('see-more-btn');
-      const isOpen = el.style.maxHeight !== '0px' && el.style.maxHeight !== '';
+    function toggleAnnouncementItem(id) {
+      const item = document.getElementById(id);
+      const content = item.querySelector('.announcement-content');
+      const isOpen = item.classList.contains('open');
       if (isOpen) {
-        el.style.maxHeight = '0';
-        chevron.style.transform = 'rotate(0deg)';
-        btn.style.color = 'rgba(255,255,255,0.4)';
+        item.classList.remove('open');
+        content.style.maxHeight = '0';
       } else {
-        el.style.maxHeight = el.scrollHeight + 'px';
-        chevron.style.transform = 'rotate(180deg)';
-        btn.style.color = 'rgba(255,255,255,0.75)';
+        item.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
       }
     }
 
