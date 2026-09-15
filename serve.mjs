@@ -22,10 +22,10 @@ const mime = {
 };
 
 createServer(async (req, res) => {
-  let urlPath = req.url.split('?')[0];
+  let urlPath = decodeURIComponent(req.url.split('?')[0]);
   if (urlPath === '/') urlPath = '/index.html';
   const filePath = join(__dirname, urlPath);
-  const ext = extname(filePath);
+  const ext = extname(filePath).toLowerCase();
   const contentType = mime[ext] || 'text/plain';
 
   try {

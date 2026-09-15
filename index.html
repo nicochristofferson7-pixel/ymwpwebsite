@@ -166,7 +166,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('Photos/TeamPic.JPG');
+      background-image: url('Roster%20Photos/TeamPic.JPG');
       background-size: cover;
       background-position: center 82%;
     }
@@ -1232,6 +1232,19 @@
       transform: scale(1.03);
     }
 
+    .announcement-img-wrap.compact {
+      min-height: 480px;
+    }
+
+    .announcement-img-wrap.compact img {
+      width: calc(100% - 112px);
+      left: 56px;
+      right: 56px;
+      top: 60px;
+      bottom: 60px;
+      height: calc(100% - 120px);
+    }
+
     .announcement-img-wrap::after {
       content: '';
       position: absolute;
@@ -1272,7 +1285,39 @@
       letter-spacing: 0.02em;
       color: #fff;
       white-space: nowrap;
+      overflow-wrap: break-word;
       margin-bottom: 28px;
+    }
+
+    /* Headline-style announcements (recaps): long titles that must wrap,
+       with a narrower image column so the copy starts further left. */
+    .announcement-card.wide-text {
+      grid-template-columns: 34% 1fr;
+      gap: 40px;
+    }
+
+    .announcement-card.wide-text .announcement-body {
+      padding: 48px 48px 48px 0;
+    }
+
+    .announcement-card.wide-text .announcement-name {
+      white-space: normal;
+      font-size: clamp(28px, 2.6vw, 46px);
+      line-height: 1.04;
+    }
+
+    /* Let the photo hug its own aspect ratio at the top of the card instead
+       of floating in the middle of a tall, mostly empty column. */
+    .announcement-card.wide-text .announcement-img-wrap.compact {
+      align-self: start;
+      min-height: 0;
+      padding: 52px 0 0 56px;
+    }
+
+    .announcement-card.wide-text .announcement-img-wrap.compact img {
+      position: static;
+      width: 100%;
+      height: auto;
     }
 
     .announcement-lead {
@@ -1867,8 +1912,10 @@
     /* ─── RESPONSIVE ───────────────────────── */
     @media (max-width: 900px) {
       /* Announcements */
-      .announcement-card {
+      .announcement-card,
+      .announcement-card.wide-text {
         grid-template-columns: 1fr;
+        gap: 0;
       }
       .announcement-img-wrap {
         min-height: 300px;
@@ -1876,6 +1923,23 @@
       .announcement-img-wrap img {
         left: 0;
         width: 100%;
+      }
+      .announcement-img-wrap.compact {
+        min-height: 240px;
+      }
+      .announcement-img-wrap.compact img {
+        left: 24px;
+        right: 24px;
+        top: 24px;
+        bottom: 24px;
+        width: calc(100% - 48px);
+        height: calc(100% - 48px);
+      }
+      .announcement-card.wide-text .announcement-body {
+        padding: 32px 28px 36px;
+      }
+      .announcement-card.wide-text .announcement-img-wrap.compact {
+        padding: 28px 28px 0;
       }
       .announcement-img-wrap::after {
         background: linear-gradient(to top, rgba(6,13,24,0.7) 0%, transparent 50%);
@@ -2087,6 +2151,79 @@
     <div class="announcements-header">
       <h2 class="announcements-title">Announcements</h2>
     </div>
+    <div class="announcement-item" id="ann-wj-tournament">
+      <button class="announcement-toggle" onclick="toggleAnnouncementItem('ann-wj-tournament')">
+        <div class="announcement-toggle-left">
+          <span class="announcement-toggle-tag">Tournament Recap · Fall 2026</span>
+          <span class="announcement-toggle-name">Bulldogs Notch Historic Win at W&amp;J Invitational</span>
+        </div>
+        <svg class="announcement-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="announcement-content">
+        <div class="announcement-card wide-text">
+          <div class="announcement-img-wrap compact">
+            <img src="Announcements/wj-tournament.jpg" alt="Yale vs. Washington & Jefferson water polo action" />
+          </div>
+          <div class="announcement-body">
+            <div class="announcement-tag">Tournament Recap · Fall 2026</div>
+            <div class="announcement-name">Bulldogs Notch Historic Win in Opening Tournament</div>
+            <p class="announcement-lead">
+              The <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Yale University Bulldogs</strong> men's water polo team opened the 2026 fall competition season with its annual trip to the Washington &amp; Jefferson University Invitational.
+            </p>
+            <p class="announcement-lead">
+              Yale played three games over the weekend — two on Saturday against Pittsburgh Masters and W&amp;J, followed by a Sunday morning matchup with Michigan State.
+            </p>
+            <p class="announcement-lead">
+              <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Game 1 — Yale 13, Pittsburgh Masters 17</strong><br>
+              In the opener, the Elis went toe-to-toe with the older Masters players right from the swim-off, ending the first quarter tied 2-2. The back-and-forth continued in the second quarter, with each team scoring five times to enter the extended break tied 7-7.
+            </p>
+            <p class="announcement-lead">
+              The third quarter proved to be Yale's undoing. Pittsburgh scored five times while Yale managed just once, creating a 12-8 deficit entering the final frame. Both teams scored five times in the fourth, with Pittsburgh taking the opener 17-13.
+            </p>
+            <p class="announcement-lead">
+              Yale's two rookie field players accounted for more than half of the Bulldogs' goals. Californian Ryan Karr fired home five goals, while Lawrenceville's Andrew Yang added two. Senior Tomas Watson opened his final season with a hat trick, while sophomore Antonio Greco scored twice. Junior Teddy Meeks added the other marker.
+            </p>
+            <p class="announcement-lead">
+              Local sophomore Garrett Curtis shared the goaltending duties with rookie Californian Roshan Khanna. Curtis registered four saves and three steals, while Khanna made three saves and stole two passes. The pair shared the cage throughout the weekend.
+            </p>
+            <p class="announcement-lead">
+              <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Game 2 — Yale 19, Washington &amp; Jefferson College 15 🏆</strong><br>
+              The second game Saturday was against the host Washington &amp; Jefferson Presidents — a Division III program the Bulldogs had beaten once since becoming a club sport, ending a drought of nearly two decades.
+            </p>
+            <p class="announcement-lead">
+              With one game under their belts, the Elis came out with a coordinated attack and jumped to an early 2-0 lead. The Presidents tied things up before Yale scored twice more to finish the opening quarter ahead 4-2.
+            </p>
+            <p class="announcement-lead">
+              The teams traded goals throughout the second period, leaving the Bulldogs with a 9-7 halftime advantage. Yale's strong first half appeared to rattle the W&amp;J players, and the Elis took advantage, roaring out to a six-goal lead before settling for a 15-11 advantage heading into the final quarter.
+            </p>
+            <p class="announcement-lead">
+              The teams again traded goals, and Yale came away with a 19-15 victory — a historic win over the Presidents, the first since the 2008 season.
+            </p>
+            <p class="announcement-lead">
+              Karr again led the way with five goals, matched by Watson. Greco added four, while Aaron Chasn and Yang each scored twice. Meeks added one.
+            </p>
+            <p class="announcement-lead">
+              <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Game 3 — Yale 10, Michigan State Spartans 12</strong><br>
+              Last up on the weekend trip was a Sunday morning date with Michigan State. Hausladen used the game to spread out playing time among his charges, providing valuable early-season experience and reps.
+            </p>
+            <p class="announcement-lead">
+              The teams battled to a 4-4 first-quarter draw and a 7-7 tie at halftime. The Spartans then gained a one-goal advantage, 10-9, heading into the fourth quarter.
+            </p>
+            <p class="announcement-lead">
+              Karr tied things up a minute and a half into the final frame, but the Elis' defense surrendered two late goals and Michigan State came away with a 12-10 victory.
+            </p>
+            <p class="announcement-lead">
+              Karr once again paced the attack with five goals. Greco and Watson each tallied twice, while Nico Christofferson added a single.
+            </p>
+            <p class="announcement-lead">
+              <strong style="color:rgba(255,255,255,0.85);font-weight:500;">Next Up: Home Tournament Against New England Rivals</strong><br>
+              The Bulldogs will now begin preparations for their first league tournament, which will take place September 19–20 at Yale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="announcement-item" id="ann-berinde">
       <button class="announcement-toggle" onclick="toggleAnnouncementItem('ann-berinde')">
         <div class="announcement-toggle-left">
@@ -2522,63 +2659,63 @@
           <!-- Players -->
           <div id="players-tab">
 
-            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Junior" data-imgs='["Photos/GarretCurtis.JPG","SecondPhotos/GarretCurtis2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "180 lbs", "major": "Biomedical Engineering", "fun": "Knows very few dinosaurs"}'>
+            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Junior" data-imgs='["Roster%20Photos/GarretCurtis.JPG","SecondPhotos/GarretCurtis2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "180 lbs", "major": "Biomedical Engineering", "fun": "Knows very few dinosaurs"}'>
               <span class="player-name">Garrett Curtis</span>
               <span class="player-num">1</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">New Haven, CT</span>
             </div>
 
-            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Senior" data-imgs='["Photos/TristenLee.JPG","SecondPhotos/TristenLee2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190 lbs", "major": "Chemical engineering", "fun": "Enjoys sweeping and mopping"}'>
+            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Senior" data-imgs='["Roster%20Photos/TristenLee.JPG","SecondPhotos/TristenLee2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190 lbs", "major": "Chemical engineering", "fun": "Enjoys sweeping and mopping"}'>
               <span class="player-name">Tristen Lee</span>
               <span class="player-num">1A</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">Tokyo, Japan</span>
             </div>
 
-            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Senior" data-imgs='["Photos/AveryMisner.JPG","SecondPhotos/AveryMisner2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "180", "major": "History", "fun": "Can snap with all fingers"}'>
+            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Senior" data-imgs='["Roster%20Photos/AveryMisner.JPG","SecondPhotos/AveryMisner2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "180", "major": "History", "fun": "Can snap with all fingers"}'>
               <span class="player-name">Avery Misner</span>
               <span class="player-num">2</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">San Mateo, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Junior" data-imgs='["Photos/WalterRoyal.JPG","SecondPhotos/WalterRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "185", "major": "German Studies", "fun": "https://www.georgiaaquarium.org/webcam/california-sea-lion-cam/"}'>
+            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Junior" data-imgs='["Roster%20Photos/WalterRoyal.JPG","SecondPhotos/WalterRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "185", "major": "German Studies", "fun": "https://www.georgiaaquarium.org/webcam/california-sea-lion-cam/"}'>
               <span class="player-name">Walter Royal</span>
               <span class="player-num">3</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">Long Lake, MN</span>
             </div>
 
-            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Junior" data-imgs='["Photos/MaxRinglestein.JPG","SecondPhotos/MaxRinglestein2.JPG"]' data-bio='{"height": "6&#39;1\"", "weight": "180", "major": "Econ and Data Sci", "fun": "Can tread water for 2 minutes"}'>
+            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Junior" data-imgs='["Roster%20Photos/MaxRinglestein.JPG","SecondPhotos/MaxRinglestein2.JPG"]' data-bio='{"height": "6&#39;1\"", "weight": "180", "major": "Econ and Data Sci", "fun": "Can tread water for 2 minutes"}'>
               <span class="player-name">Max Ringelstein</span>
               <span class="player-num">4</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">Moltonborough, NH</span>
             </div>
 
-            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Senior" data-imgs='["Photos/MaxColomer.JPG"]' data-bio='{"height": "5&#39;10", "weight": "165", "major": "Physics", "fun": "Venmo: @maxwell-colomer"}'>
+            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Senior" data-imgs='["Roster%20Photos/MaxColomer.JPG"]' data-bio='{"height": "5&#39;10", "weight": "165", "major": "Physics", "fun": "Venmo: @maxwell-colomer"}'>
               <span class="player-name">Max Colomer</span>
               <span class="player-num">5</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">Palos Verdes, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Senior" data-imgs='["Photos/BenSibold.JPG","SecondPhotos/BenSibold2.JPG"]' data-bio='{"height": "6", "weight": "180", "major": "Economics", "fun": "Friend of Joey Fern&#39;s"}'>
+            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Senior" data-imgs='["Roster%20Photos/BenSibold.JPG","SecondPhotos/BenSibold2.JPG"]' data-bio='{"height": "6", "weight": "180", "major": "Economics", "fun": "Friend of Joey Fern&#39;s"}'>
               <span class="player-name">Ben Sibold</span>
               <span class="player-num">6</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">South Hero, VT</span>
             </div>
 
-            <div class="roster-row" data-name="Ari Li" data-sub="#7 · Senior" data-imgs='["https://placehold.co/240x360/00356B/ffffff?text=Ari+Li"]' data-bio='{"height": "6&#39;1\"", "weight": "200", "major": "Applied math & Econ", "fun": ""}'>
+            <div class="roster-row" data-name="Ari Li" data-sub="#7 · Senior" data-imgs='["Roster%20Photos/New%20Photos/Ari%20Li.jpg","Roster%20Photos/New%20Photos/Ari%20Li%202.jpg"]' data-bio='{"height": "6&#39;1\"", "weight": "200", "major": "Applied math & Econ", "fun": ""}'>
               <span class="player-name">Ari Li</span>
               <span class="player-num">7</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">New Orleans, LA</span>
             </div>
 
-            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Junior" data-imgs='["Photos/NicoChristofferson.JPG","SecondPhotos/NicoChristofferson2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "…", "major": "Econ & stats", "fun": "CEO of Chesties International Corp."}'>
+            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Junior" data-imgs='["Roster%20Photos/NicoChristofferson.JPG","SecondPhotos/NicoChristofferson2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "…", "major": "Econ & stats", "fun": "CEO of Chesties International Corp."}'>
               <span class="player-name">Nico Christofferson</span>
               <span class="player-num">8</span>
               <span class="player-year">Junior</span>
@@ -2592,7 +2729,7 @@
               <span class="player-hometown">Menlo Park, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Junior" data-imgs='["Photos/TeddyMeeks.JPG","SecondPhotos/TeddyMeeks2.JPG"]' data-bio='{"height": "12", "weight": "195lbs", "major": "Veterinary studies", "fun": "Knows every dinosaur"}'>
+            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Junior" data-imgs='["Roster%20Photos/New%20Photos/Teddy%20Meeks.jpg","SecondPhotos/TeddyMeeks2.JPG"]' data-bio='{"height": "12", "weight": "195lbs", "major": "Veterinary studies", "fun": "Knows every dinosaur"}'>
               <span class="player-name">Teddy Meeks</span>
               <span class="player-num">10</span>
               <span class="player-year">Junior</span>
@@ -2613,21 +2750,21 @@
               <span class="player-hometown">London, UK</span>
             </div>
 
-            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · Sophomore" data-imgs='["Photos/StewartRoyal.JPG","SecondPhotos/StewartRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190", "major": "Economics and Global Affairs", "fun": "Once won a game of connect four in three moves"}'>
+            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · Sophomore" data-imgs='["Roster%20Photos/StewartRoyal.JPG","SecondPhotos/StewartRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190", "major": "Economics and Global Affairs", "fun": "Once won a game of connect four in three moves"}'>
               <span class="player-name">Stewart Royal</span>
               <span class="player-num">13</span>
               <span class="player-year">Sophomore</span>
               <span class="player-hometown">Orono, MN</span>
             </div>
 
-            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Junior" data-imgs='["Photos/AustinGiffen.JPG","SecondPhotos/AustinGiffen2.JPG"]' data-bio='{"height": "62", "weight": "150", "major": "Electrical engineering", "fun": "Victim weight"}'>
+            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Junior" data-imgs='["Roster%20Photos/AustinGiffen.JPG","SecondPhotos/AustinGiffen2.JPG"]' data-bio='{"height": "62", "weight": "150", "major": "Electrical engineering", "fun": "Victim weight"}'>
               <span class="player-name">Austin Giffen</span>
               <span class="player-num">14</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">Boise, ID</span>
             </div>
 
-            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · Sophomore" data-imgs='["Photos/Antonio.JPG","SecondPhotos/Antonio2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "175", "major": "Molecular, Cellular, and Developmental Biology", "fun": "Has won at least one Fortnite game"}'>
+            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · Sophomore" data-imgs='["Roster%20Photos/Antonio.JPG","SecondPhotos/Antonio2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "175", "major": "Molecular, Cellular, and Developmental Biology", "fun": "Has won at least one Fortnite game"}'>
               <span class="player-name">Antonio Giraldez Greco</span>
               <span class="player-num">15</span>
               <span class="player-year">Sophomore</span>
@@ -2641,14 +2778,14 @@
               <span class="player-hometown">Thessaloniki, Greece</span>
             </div>
 
-            <div class="roster-row" data-name="Arthur Cornelis" data-sub="#17 · Sophomore" data-imgs='["Photos/ArthurCornelius.JPG","SecondPhotos/ArthurCornelis2.JPG"]' data-bio='{"height": "6&#39;5", "weight": "210", "major": "Math & MechE", "fun": "Can speak every language"}'>
+            <div class="roster-row" data-name="Arthur Cornelis" data-sub="#17 · Sophomore" data-imgs='["Roster%20Photos/New%20Photos/Arthur%20Cornelis.jpg","Roster%20Photos/New%20Photos/Arthur%20Cornelis%202.jpg"]' data-bio='{"height": "6&#39;5", "weight": "210", "major": "Math & MechE", "fun": "Can speak every language"}'>
               <span class="player-name">Arthur Cornelis</span>
               <span class="player-num">17</span>
               <span class="player-year">Sophomore</span>
               <span class="player-hometown">Bordeaux, France</span>
             </div>
 
-            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Junior" data-imgs='["Photos/EstonKallis.JPG","SecondPhotos/EstonKallis2.JPG"]' data-bio='{"height": "5&#39;11", "weight": "185", "major": "Economics", "fun": ""}'>
+            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Junior" data-imgs='["Roster%20Photos/New%20Photos/Eston%20Kallins.jpg","SecondPhotos/EstonKallis2.JPG"]' data-bio='{"height": "5&#39;11", "weight": "185", "major": "Economics", "fun": ""}'>
               <span class="player-name">Eston Kallins</span>
               <span class="player-num">18</span>
               <span class="player-year">Junior</span>
@@ -2662,21 +2799,21 @@
               <span class="player-hometown">Fremont, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · Sophomore" data-imgs='["Photos/MaxTroppman.JPG","SecondPhotos/MaxTroppman2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "180lbs", "major": "Mechanical Engineering", "fun": "Hugs trees at midnight"}'>
+            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · Sophomore" data-imgs='["Roster%20Photos/MaxTroppman.JPG","SecondPhotos/MaxTroppman2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "180lbs", "major": "Mechanical Engineering", "fun": "Hugs trees at midnight"}'>
               <span class="player-name">Max Troppman</span>
               <span class="player-num">20</span>
               <span class="player-year">Sophomore</span>
               <span class="player-hometown">Sacramento, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Grant Tucker" data-sub="#21 · Senior" data-imgs='["Photos/GrantTucker.JPG","SecondPhotos/GrantTucker2.JPG"]' data-bio='{"height": "6&#39;", "weight": "180", "major": "Environmental Engineering", "fun": "Pet raccoons"}'>
+            <div class="roster-row" data-name="Grant Tucker" data-sub="#21 · Senior" data-imgs='["Roster%20Photos/New%20Photos/Grant%20Tucker.jpg","Roster%20Photos/New%20Photos/Grant%20Tucker%202.jpg"]' data-bio='{"height": "6&#39;", "weight": "180", "major": "Environmental Engineering", "fun": "Pet raccoons"}'>
               <span class="player-name">Grant Tucker</span>
               <span class="player-num">21</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">Jacksonville, FL</span>
             </div>
 
-            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Sophomore" data-imgs='["Photos/ThomasAdams.JPG","SecondPhotos/ThomasAdams2.JPG"]' data-bio='{"height": "5&#39;3\"", "weight": "Enough", "major": "Global Affairs", "fun": ""}'>
+            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Sophomore" data-imgs='["Roster%20Photos/ThomasAdams.JPG","SecondPhotos/ThomasAdams2.JPG"]' data-bio='{"height": "5&#39;3\"", "weight": "Enough", "major": "Global Affairs", "fun": ""}'>
               <span class="player-name">Thomas Adams</span>
               <span class="player-num">22</span>
               <span class="player-year">Sophomore</span>
@@ -3178,6 +3315,23 @@
         item.classList.add('open');
         content.style.maxHeight = content.scrollHeight + 'px';
       }
+    }
+
+    // Re-measure open announcements if their content's height changes after
+    // the fact (image finishes loading, fonts swap in, viewport resizes) so
+    // text never gets clipped by a stale max-height.
+    function refreshOpenAnnouncements() {
+      document.querySelectorAll('.announcement-item.open .announcement-content').forEach(content => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      });
+    }
+    document.querySelectorAll('.announcement-content img').forEach(img => {
+      if (img.complete) return;
+      img.addEventListener('load', refreshOpenAnnouncements);
+    });
+    window.addEventListener('resize', refreshOpenAnnouncements);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(refreshOpenAnnouncements);
     }
 
     // ── TOURNAMENT ACCORDION ───────────────────
