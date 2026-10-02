@@ -190,7 +190,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('Roster%20Photos/TeamPic.JPG');
+      background-image: url('Roster%20Photos/2025-26%20FirstPhotos/TeamPic.JPG');
       background-size: cover;
       background-position: center 82%;
     }
@@ -2551,7 +2551,7 @@
         <span style="width:8px; height:8px; border-radius:50%; background:#f87171; display:inline-block; box-shadow:0 0 6px rgba(248,113,113,0.7);"></span>
         <span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.75); font-weight:500;">Livestream</span>
       </div>
-      <a href="https://www.facebook.com/YaleMensWaterPolo" target="_blank" rel="noopener noreferrer" style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:#fff; text-decoration:none; border:1px solid rgba(40,109,192,0.6); padding:8px 16px; background:rgba(0,53,107,0.2); transition:border-color 0.2s, background 0.2s;" onmouseover="this.style.background='rgba(0,53,107,0.4)';this.style.borderColor='#286DC0'" onmouseout="this.style.background='rgba(0,53,107,0.2)';this.style.borderColor='rgba(40,109,192,0.6)'">Watch Live →</a>
+      <a href="https://cwpatv.com/event/newengland-1026" target="_blank" rel="noopener noreferrer" style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:#fff; text-decoration:none; border:1px solid rgba(40,109,192,0.6); padding:8px 16px; background:rgba(0,53,107,0.2); transition:border-color 0.2s, background 0.2s;" onmouseover="this.style.background='rgba(0,53,107,0.4)';this.style.borderColor='#286DC0'" onmouseout="this.style.background='rgba(0,53,107,0.2)';this.style.borderColor='rgba(40,109,192,0.6)'">Watch Live →</a>
     </div>
 
     <!-- ─ Fall 2026 ─ -->
@@ -2731,12 +2731,38 @@
 
       <!-- BU CWPA Tournament -->
       <div class="tournament-item" id="tourn-fa4">
-        <div class="tournament-header static">
+        <button class="tournament-header" onclick="toggleTournament('tourn-fa4')">
           <span class="tourn-date">Oct 3–4, 2026</span>
           <span class="tourn-name">BU CWPA Tournament</span>
           <span class="tourn-location">Boston, MA</span>
-          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
-          <span></span>
+          <span class="tourn-result tourn-result-upcoming">Upcoming</span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 3 1:30pm</span>
+            <span class="game-opponent">Dartmouth</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-upcoming">Upcoming</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 3 3:50pm</span>
+            <span class="game-opponent">Boston University</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-upcoming">Upcoming</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 3 6:10pm</span>
+            <span class="game-opponent">Northeastern</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-upcoming">Upcoming</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 4 2:40pm</span>
+            <span class="game-opponent">Boston College</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-upcoming">Upcoming</span>
+          </div>
         </div>
       </div>
 
@@ -2839,49 +2865,49 @@
           <!-- Players -->
           <div id="players-tab">
 
-            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Junior" data-imgs='["Roster%20Photos/GarretCurtis.JPG","SecondPhotos/GarretCurtis2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "180 lbs", "major": "Biomedical Engineering", "fun": "Knows very few dinosaurs"}'>
+            <div class="roster-row" data-name="Garrett Curtis" data-sub="#1 · Junior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/GarretCurtis.JPG","Roster%20Photos/SecondPhotos/GarretCurtis2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "180 lbs", "major": "Biomedical Engineering", "fun": "Knows very few dinosaurs"}'>
               <span class="player-name">Garrett Curtis</span>
               <span class="player-num">1</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">New Haven, CT</span>
             </div>
 
-            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Senior" data-imgs='["Roster%20Photos/TristenLee.JPG","SecondPhotos/TristenLee2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190 lbs", "major": "Chemical engineering", "fun": "Enjoys sweeping and mopping"}'>
+            <div class="roster-row" data-name="Tristen Lee" data-sub="#1A · Senior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/TristenLee.JPG","Roster%20Photos/SecondPhotos/TristenLee2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190 lbs", "major": "Chemical engineering", "fun": "Enjoys sweeping and mopping"}'>
               <span class="player-name">Tristen Lee</span>
               <span class="player-num">1A</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">Tokyo, Japan</span>
             </div>
 
-            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Senior" data-imgs='["Roster%20Photos/AveryMisner.JPG","SecondPhotos/AveryMisner2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "180", "major": "History", "fun": "Can snap with all fingers"}'>
+            <div class="roster-row" data-name="Avery Misner" data-sub="#2 · Senior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/AveryMisner.JPG","Roster%20Photos/SecondPhotos/AveryMisner2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "180", "major": "History", "fun": "Can snap with all fingers"}'>
               <span class="player-name">Avery Misner</span>
               <span class="player-num">2</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">San Mateo, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Junior" data-imgs='["Roster%20Photos/WalterRoyal.JPG","SecondPhotos/WalterRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "185", "major": "German Studies", "fun": "https://www.georgiaaquarium.org/webcam/california-sea-lion-cam/"}'>
+            <div class="roster-row" data-name="Walter Royal" data-sub="#3 · Junior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/WalterRoyal.JPG","Roster%20Photos/SecondPhotos/WalterRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "185", "major": "German Studies", "fun": "https://www.georgiaaquarium.org/webcam/california-sea-lion-cam/"}'>
               <span class="player-name">Walter Royal</span>
               <span class="player-num">3</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">Long Lake, MN</span>
             </div>
 
-            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Junior" data-imgs='["Roster%20Photos/MaxRinglestein.JPG","SecondPhotos/MaxRinglestein2.JPG"]' data-bio='{"height": "6&#39;1\"", "weight": "180", "major": "Econ and Data Sci", "fun": "Can tread water for 2 minutes"}'>
+            <div class="roster-row" data-name="Max Ringelstein" data-sub="#4 · Junior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/MaxRinglestein.JPG","Roster%20Photos/SecondPhotos/MaxRinglestein2.JPG"]' data-bio='{"height": "6&#39;1\"", "weight": "180", "major": "Econ and Data Sci", "fun": "Can tread water for 2 minutes"}'>
               <span class="player-name">Max Ringelstein</span>
               <span class="player-num">4</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">Moltonborough, NH</span>
             </div>
 
-            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Senior" data-imgs='["Roster%20Photos/MaxColomer.JPG"]' data-bio='{"height": "5&#39;10", "weight": "165", "major": "Physics", "fun": "Venmo: @maxwell-colomer"}'>
+            <div class="roster-row" data-name="Max Colomer" data-sub="#5 · Senior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/MaxColomer.JPG"]' data-bio='{"height": "5&#39;10", "weight": "165", "major": "Physics", "fun": "Venmo: @maxwell-colomer"}'>
               <span class="player-name">Max Colomer</span>
               <span class="player-num">5</span>
               <span class="player-year">Senior</span>
               <span class="player-hometown">Palos Verdes, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Senior" data-imgs='["Roster%20Photos/BenSibold.JPG","SecondPhotos/BenSibold2.JPG"]' data-bio='{"height": "6", "weight": "180", "major": "Economics", "fun": "Friend of Joey Fern&#39;s"}'>
+            <div class="roster-row" data-name="Ben Sibold" data-sub="#6 · Senior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/BenSibold.JPG","Roster%20Photos/SecondPhotos/BenSibold2.JPG"]' data-bio='{"height": "6", "weight": "180", "major": "Economics", "fun": "Friend of Joey Fern&#39;s"}'>
               <span class="player-name">Ben Sibold</span>
               <span class="player-num">6</span>
               <span class="player-year">Senior</span>
@@ -2895,7 +2921,7 @@
               <span class="player-hometown">New Orleans, LA</span>
             </div>
 
-            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Junior" data-imgs='["Roster%20Photos/NicoChristofferson.JPG","SecondPhotos/NicoChristofferson2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "…", "major": "Econ & stats", "fun": "CEO of Chesties International Corp."}'>
+            <div class="roster-row" data-name="Nico Christofferson" data-sub="#8 · Junior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/NicoChristofferson.JPG","Roster%20Photos/SecondPhotos/NicoChristofferson2.JPG"]' data-bio='{"height": "6&#39;2\"", "weight": "…", "major": "Econ & stats", "fun": "CEO of Chesties International Corp."}'>
               <span class="player-name">Nico Christofferson</span>
               <span class="player-num">8</span>
               <span class="player-year">Junior</span>
@@ -2909,7 +2935,7 @@
               <span class="player-hometown">Menlo Park, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Junior" data-imgs='["Roster%20Photos/New%20Photos/Teddy%20Meeks.jpg","SecondPhotos/TeddyMeeks2.JPG"]' data-bio='{"height": "12", "weight": "195lbs", "major": "Veterinary studies", "fun": "Knows every dinosaur"}'>
+            <div class="roster-row" data-name="Teddy Meeks" data-sub="#10 · Junior" data-imgs='["Roster%20Photos/New%20Photos/Teddy%20Meeks.jpg","Roster%20Photos/SecondPhotos/TeddyMeeks2.JPG"]' data-bio='{"height": "12", "weight": "195lbs", "major": "Veterinary studies", "fun": "Knows every dinosaur"}'>
               <span class="player-name">Teddy Meeks</span>
               <span class="player-num">10</span>
               <span class="player-year">Junior</span>
@@ -2930,21 +2956,21 @@
               <span class="player-hometown">London, UK</span>
             </div>
 
-            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · Sophomore" data-imgs='["Roster%20Photos/StewartRoyal.JPG","SecondPhotos/StewartRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190", "major": "Economics and Global Affairs", "fun": "Once won a game of connect four in three moves"}'>
+            <div class="roster-row" data-name="Stewart Royal" data-sub="#13 · Sophomore" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/StewartRoyal.JPG","Roster%20Photos/SecondPhotos/StewartRoyal2.JPG"]' data-bio='{"height": "6&#39;0\"", "weight": "190", "major": "Economics and Global Affairs", "fun": "Once won a game of connect four in three moves"}'>
               <span class="player-name">Stewart Royal</span>
               <span class="player-num">13</span>
               <span class="player-year">Sophomore</span>
               <span class="player-hometown">Orono, MN</span>
             </div>
 
-            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Junior" data-imgs='["Roster%20Photos/AustinGiffen.JPG","SecondPhotos/AustinGiffen2.JPG"]' data-bio='{"height": "62", "weight": "150", "major": "Electrical engineering", "fun": "Victim weight"}'>
+            <div class="roster-row" data-name="Austin Giffen" data-sub="#14 · Junior" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/AustinGiffen.JPG","Roster%20Photos/SecondPhotos/AustinGiffen2.JPG"]' data-bio='{"height": "62", "weight": "150", "major": "Electrical engineering", "fun": "Victim weight"}'>
               <span class="player-name">Austin Giffen</span>
               <span class="player-num">14</span>
               <span class="player-year">Junior</span>
               <span class="player-hometown">Boise, ID</span>
             </div>
 
-            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · Sophomore" data-imgs='["Roster%20Photos/Antonio.JPG","SecondPhotos/Antonio2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "175", "major": "Molecular, Cellular, and Developmental Biology", "fun": "Has won at least one Fortnite game"}'>
+            <div class="roster-row" data-name="Antonio Giraldez Greco" data-sub="#15 · Sophomore" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/Antonio.JPG","Roster%20Photos/SecondPhotos/Antonio2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "175", "major": "Molecular, Cellular, and Developmental Biology", "fun": "Has won at least one Fortnite game"}'>
               <span class="player-name">Antonio Giraldez Greco</span>
               <span class="player-num">15</span>
               <span class="player-year">Sophomore</span>
@@ -2965,7 +2991,7 @@
               <span class="player-hometown">Bordeaux, France</span>
             </div>
 
-            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Junior" data-imgs='["Roster%20Photos/New%20Photos/Eston%20Kallins.jpg","SecondPhotos/EstonKallis2.JPG"]' data-bio='{"height": "5&#39;11", "weight": "185", "major": "Economics", "fun": ""}'>
+            <div class="roster-row" data-name="Eston Kallins" data-sub="#18 · Junior" data-imgs='["Roster%20Photos/New%20Photos/Eston%20Kallins.jpg","Roster%20Photos/SecondPhotos/EstonKallis2.JPG"]' data-bio='{"height": "5&#39;11", "weight": "185", "major": "Economics", "fun": ""}'>
               <span class="player-name">Eston Kallins</span>
               <span class="player-num">18</span>
               <span class="player-year">Junior</span>
@@ -2979,7 +3005,7 @@
               <span class="player-hometown">Fremont, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · Sophomore" data-imgs='["Roster%20Photos/MaxTroppman.JPG","SecondPhotos/MaxTroppman2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "180lbs", "major": "Mechanical Engineering", "fun": "Hugs trees at midnight"}'>
+            <div class="roster-row" data-name="Max Troppman" data-sub="#20 · Sophomore" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/MaxTroppman.JPG","Roster%20Photos/SecondPhotos/MaxTroppman2.JPG"]' data-bio='{"height": "5&#39;9", "weight": "180lbs", "major": "Mechanical Engineering", "fun": "Hugs trees at midnight"}'>
               <span class="player-name">Max Troppman</span>
               <span class="player-num">20</span>
               <span class="player-year">Sophomore</span>
@@ -2993,7 +3019,7 @@
               <span class="player-hometown">Jacksonville, FL</span>
             </div>
 
-            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Sophomore" data-imgs='["Roster%20Photos/ThomasAdams.JPG","SecondPhotos/ThomasAdams2.JPG"]' data-bio='{"height": "5&#39;3\"", "weight": "Enough", "major": "Global Affairs", "fun": ""}'>
+            <div class="roster-row" data-name="Thomas Adams" data-sub="#22 · Sophomore" data-imgs='["Roster%20Photos/2025-26%20FirstPhotos/ThomasAdams.JPG","Roster%20Photos/SecondPhotos/ThomasAdams2.JPG"]' data-bio='{"height": "5&#39;3\"", "weight": "Enough", "major": "Global Affairs", "fun": ""}'>
               <span class="player-name">Thomas Adams</span>
               <span class="player-num">22</span>
               <span class="player-year">Sophomore</span>
@@ -3028,25 +3054,11 @@
               <span class="player-hometown">San Jose, CA</span>
             </div>
 
-            <div class="roster-row" data-name="Alex Johnson" data-sub="#28 · Senior" data-imgs='[]' data-bio='{"height": "6&#39;", "weight": "170", "major": "Medicine", "fun": ""}'>
-              <span class="player-name">Alex Johnson</span>
-              <span class="player-num">28</span>
-              <span class="player-year">Senior</span>
-              <span class="player-hometown">Long Beach, CA</span>
-            </div>
-
             <div class="roster-row" data-name="Luigi Berinde" data-sub="#29 · 1L" data-imgs='[]' data-bio='{"height": "6&#39;1", "weight": "170", "major": "Law student", "fun": "Likes planes"}'>
               <span class="player-name">Luigi Berinde</span>
               <span class="player-num">29</span>
               <span class="player-year">1L</span>
               <span class="player-hometown">Chicago, IL</span>
-            </div>
-
-            <div class="roster-row" data-name="Christian Ruiz" data-sub="#30 · Sophomore" data-imgs='[]' data-bio='{"height": "5&#39;11", "weight": "167", "major": "", "fun": ""}'>
-              <span class="player-name">Christian Ruiz</span>
-              <span class="player-num">30</span>
-              <span class="player-year">Sophomore</span>
-              <span class="player-hometown"></span>
             </div>
 
             <div class="roster-row" data-name="Aaron Chough" data-sub="#31 · SY" data-imgs='[]' data-bio='{"height": "6&#39;2\"", "weight": "210", "major": "SOM student", "fun": "Likes dogs"}'>
