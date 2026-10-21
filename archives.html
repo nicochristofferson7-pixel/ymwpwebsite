@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Archives · Yale Men's Water Polo</title>
+  <meta name="description" content="Past seasons, tournament results and event history for Yale Men's Water Polo." />
+  <meta name="theme-color" content="#00356B" />
+  <link rel="canonical" href="https://yalemenswaterpolo.com/archives.html" />
+  <link rel="icon" type="image/png" href="Logos/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Archives · Yale Men's Water Polo" />
+  <meta property="og:description" content="Past seasons, tournament results and event history." />
+  <meta property="og:url" content="https://yalemenswaterpolo.com/archives.html" />
+  <meta property="og:image" content="https://yalemenswaterpolo.com/Roster%20Photos/2025-26%20FirstPhotos/TeamPic.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -705,6 +714,20 @@
       .nav-wordmark { display: block; }
     }
 
+
+    /* ─── Site audit update (Oct 2026): readability + touch ─── */
+    html { scroll-padding-top: 72px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #7fb2ea; outline-offset: 2px; }
+    .schedule-season, .season-label-row, .tourn-date, .game-date, .game-location,
+    .archive-hero-eyebrow, .archive-season-meta { color: rgba(255,255,255,0.64); }
+    .tourn-location, .tourn-tag, .footer-copy, .footer-socials a, .archive-hero-sub { color: rgba(255,255,255,0.68); }
+    @media (max-width: 900px) {
+      .nav-hamburger { min-width: 44px; min-height: 44px; padding: 0; margin: -3px -9px -3px 0; align-items: center; }
+      .footer-socials a { display: inline-block; padding: 12px 0; }
+      .nav-mobile-link.nav-archive-link { margin: 14px 0 6px; line-height: 1.2; }
+      .nav-mobile-links li:last-child { padding-bottom: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
@@ -719,9 +742,7 @@
       <ul class="nav-links">
         <li><a href="index.html#schedule">Events</a></li>
         <li><a href="index.html#roster">Roster</a></li>
-        <li><a href="index.html#alumni">Alumni</a></li>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#prospective-players">Recruits</a></li>
         <li>
           <a href="archives.html" class="nav-archive-link">
             Archives
@@ -731,7 +752,7 @@
       </ul>
       <a href="index.html#contact" class="nav-contact">Contact</a>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -741,9 +762,7 @@
     <ul class="nav-mobile-links">
       <li><a href="index.html#schedule" class="nav-mobile-link">Events</a></li>
       <li><a href="index.html#roster" class="nav-mobile-link">Roster</a></li>
-      <li><a href="index.html#alumni" class="nav-mobile-link">Alumni</a></li>
       <li><a href="index.html#about" class="nav-mobile-link">About</a></li>
-      <li><a href="index.html#prospective-players" class="nav-mobile-link">Recruits</a></li>
       <li><a href="index.html#contact" class="nav-mobile-link">Contact</a></li>
       <li style="border-bottom: none;">
         <a href="archives.html" class="nav-mobile-link nav-archive-link">
@@ -1045,6 +1064,8 @@
       hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open');
       document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      hamburger.setAttribute('aria-expanded', mobileMenu.classList.contains('open') ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
     });
 
     document.querySelectorAll('.nav-mobile-link').forEach(link => {

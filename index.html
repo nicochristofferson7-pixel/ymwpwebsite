@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yale Men's Water Polo Club</title>
+  <meta name="description" content="Yale Men's Water Polo Club: schedule and results, roster, recruiting information and alumni updates for the highest level of men's water polo at Yale. All experience levels welcome." />
+  <meta name="theme-color" content="#00356B" />
+  <link rel="canonical" href="https://yalemenswaterpolo.com/" />
+  <link rel="icon" type="image/png" href="Logos/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yale Men's Water Polo Club" />
+  <meta property="og:title" content="Yale Men's Water Polo Club" />
+  <meta property="og:description" content="Schedule and results, roster, recruiting and alumni updates for Yale Men's Water Polo." />
+  <meta property="og:url" content="https://yalemenswaterpolo.com/" />
+  <meta property="og:image" content="https://yalemenswaterpolo.com/Roster%20Photos/2025-26%20FirstPhotos/TeamPic.JPG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" as="image" href="Roster%20Photos/2025-26%20FirstPhotos/TeamPic.JPG" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -1780,14 +1793,6 @@
 
 
     /* ─── ALUMNI ──────────────────────────────── */
-    .alumni-section {
-      background:
-        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,53,107,0.32) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(0,53,107,0.15) 0%, transparent 60%),
-        #060d18;
-      padding: 90px 40px;
-      border-top: 1px solid var(--border);
-    }
 
     .alumni-inner {
       display: grid;
@@ -1881,13 +1886,6 @@
     }
 
     /* ─── PROSPECTIVE PLAYERS ─────────────── */
-    .recruit-section {
-      background:
-        radial-gradient(ellipse 70% 50% at 85% 0%, rgba(0,53,107,0.20) 0%, transparent 65%),
-        #040910;
-      padding: 90px 40px;
-      border-top: 1px solid var(--border);
-    }
 
     .recruit-inner { max-width: 1200px; }
 
@@ -2183,11 +2181,9 @@
       .coaches-grid { grid-template-columns: 1fr; }
 
       /* Alumni */
-      .alumni-section { padding: 60px 20px; }
       .alumni-form-row { grid-template-columns: 1fr; }
 
       /* Prospective players */
-      .recruit-section { padding: 60px 20px; }
       .recruit-grid,
       .recruit-grid.two { grid-template-columns: 1fr; }
       .recruit-ap { grid-template-columns: 2fr 1fr; }
@@ -2227,9 +2223,125 @@
       .nav-hamburger { display: flex; }
       .nav-wordmark { display: block; }
     }
+    /* ═══════════════════════════════════════════════════════════
+       SITE AUDIT UPDATE (Oct 2026)
+       Appended after the original rules so it wins the cascade.
+       Original state is preserved on branch pre-audit-archive-2026-10-21.
+       ═══════════════════════════════════════════════════════════ */
+
+    /* ─── Anchors, skip link, focus ───────── */
+    html { scroll-padding-top: 72px; }
+    .skip-link {
+      position: absolute; left: 12px; top: -80px; z-index: 500;
+      background: #fff; color: var(--yale); padding: 10px 16px;
+      font-size: 13px; font-weight: 600; text-decoration: none;
+    }
+    .skip-link:focus { top: 12px; }
+    a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+      outline: 2px solid #7fb2ea; outline-offset: 2px;
+    }
+
+    /* ─── Contact area now holds Join + Recruits + Alumni ─── */
+    .contact-wrap { position: relative; max-width: 1200px; }
+    .contact-sub {
+      margin-top: 96px;
+      padding-top: 80px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .season-empty {
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.62); padding: 18px 8px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-bg { background-color: #0b1d36; }
+
+    /* ─── Readability: contrast + minimum sizes ─── */
+    .hero-scroll, .hero-badge { color: rgba(255,255,255,0.68); }
+    .section-label, .contact-block-label, .full-section-tag, .form-label,
+    .schedule-season, .bio-stat-label, .roster-cols span, .featured-sub,
+    .roster-tab, .tourn-date, .season-label-row, .game-date, .rc-info-num {
+      color: rgba(255,255,255,0.64);
+    }
+    .roster-season, .player-year, .player-hometown, .tourn-location,
+    .game-quarters, .coach-detail, .coach-role, .rc-info-year, .footer-copy,
+    .footer-socials a, .recruit-note, .tourn-tag, .announcement-quote cite,
+    .tourn-result-upcoming, .pos-badge, .player-pos {
+      color: rgba(255,255,255,0.68);
+    }
+    .player-num { color: rgba(255,255,255,0.5); }
+    .featured-placeholder-text { color: rgba(255,255,255,0.55); }
+    .stat-label { color: rgba(255,255,255,0.74); }
+    .announcement-toggle-tag, .announcement-tag, .recruit-legend { color: #7fb2ea; }
+    .section-label, .contact-block-label, .full-section-tag, .form-label,
+    .recruit-legend, .stat-label, .bio-stat-label, .featured-placeholder-text,
+    .announcement-toggle-tag, .announcement-tag, .roster-cols span {
+      font-size: 11px;
+    }
+    .tourn-result-upcoming, .roster-tab, .roster-season, .featured-sub { font-size: 11px; }
+    .footer-copy { font-size: 12px; }
+    .form-input { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.3); }
+    .form-input::placeholder { color: rgba(255,255,255,0.45); }
+
+    /* ─── Scroll-in text (opacity + transform only) ─── */
+    .js .reveal {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* ─── Mobile + touch ──────────────────── */
+    @media (max-width: 900px) {
+      /* Roster: a compact card that stays pinned under the nav so a tap
+         on a player is always visible, even deep in the list */
+      .roster-featured {
+        position: sticky; top: 67px; z-index: 20;
+        display: grid; grid-template-columns: 84px 1fr; column-gap: 14px;
+        align-items: start;
+        background: #000; padding: 12px 0; margin: 0 0 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+      }
+      .featured-frame { grid-row: 1 / span 2; width: 84px; aspect-ratio: 3 / 4; max-height: none; }
+      .featured-img-el { object-position: center top; }
+      .featured-label { margin: 0; padding: 0; border: 0; align-self: end; }
+      .featured-name { font-size: 22px; }
+      .featured-bio { grid-column: 2; margin: 6px 0 0; padding: 0; border: 0; gap: 4px; }
+      .featured-bio .bio-stats { gap: 14px; }
+      .bio-fact, .featured-placeholder-text { display: none; }
+      .carousel-btn, .carousel-dots { display: none !important; }
+
+      /* Tap targets (44px) without growing the layout */
+      .nav-hamburger { min-width: 44px; min-height: 44px; padding: 0; margin: -3px -9px -3px 0; align-items: center; }
+      .roster-tab { padding: 12px 4px; margin: -8px 0; }
+      .contact-block-value a { display: inline-block; padding: 10px 0; margin: -10px 0; }
+      .footer-socials a { display: inline-block; padding: 12px 0; }
+      /* the original rule removed this pill's bottom border, leaving it open */
+      .nav-mobile-link.nav-archive-link { margin: 14px 0 6px; line-height: 1.2; border-bottom: 1px solid rgba(255,255,255,0.4); }
+      .nav-mobile-links li:last-child { padding-bottom: 8px; }
+    }
+    .tourn-result { white-space: nowrap; }
+    @media (max-width: 768px) {
+      .tournament-header { grid-template-columns: 80px 1fr 86px 24px; }
+      .contact-sub { margin-top: 64px; padding-top: 56px; }
+      .roster { padding-top: 40px; }
+    }
+
+    /* ─── Respect reduced-motion settings ─── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .alumni-scroll-track { animation: none !important; }
+      .alumni-scroll-wrap { overflow-x: auto; }
+    }
+
   </style>
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- ── NAV ─────────────────────────────────── -->
   <nav>
@@ -2241,9 +2353,7 @@
       <ul class="nav-links">
         <li><a href="#schedule">Events</a></li>
         <li><a href="#roster">Roster</a></li>
-        <li><a href="#alumni">Alumni</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#prospective-players">Recruits</a></li>
         <li>
           <a href="archives.html" class="nav-archive-link">
             Archives
@@ -2253,7 +2363,7 @@
       </ul>
       <a href="#contact" class="nav-contact">Contact</a>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -2263,9 +2373,7 @@
     <ul class="nav-mobile-links">
       <li><a href="#schedule" class="nav-mobile-link">Events</a></li>
       <li><a href="#roster" class="nav-mobile-link">Roster</a></li>
-      <li><a href="#alumni" class="nav-mobile-link">Alumni</a></li>
       <li><a href="#about" class="nav-mobile-link">About</a></li>
-      <li><a href="#prospective-players" class="nav-mobile-link">Recruits</a></li>
       <li><a href="#contact" class="nav-mobile-link">Contact</a></li>
       <li style="border-bottom: none;">
         <a href="archives.html" class="nav-mobile-link nav-archive-link">
@@ -2275,6 +2383,8 @@
       </li>
     </ul>
   </div>
+
+  <main id="main">
 
   <!-- ── HERO ──────────────────────────────────  -->
   <section class="hero">
@@ -2548,19 +2658,79 @@
     </div>
 
     <!-- ─ Livestream Banner ─ -->
-    <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 8px; margin-bottom:24px; border:1px solid rgba(40,109,192,0.35); background:rgba(0,53,107,0.12);">
+    <div id="livestream-banner" style="display:flex; align-items:center; justify-content:space-between; padding:16px 8px; margin-bottom:24px; border:1px solid rgba(40,109,192,0.35); background:rgba(0,53,107,0.12);">
       <div style="display:flex; align-items:center; gap:12px;">
         <span style="width:8px; height:8px; border-radius:50%; background:#f87171; display:inline-block; box-shadow:0 0 6px rgba(248,113,113,0.7);"></span>
         <span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.75); font-weight:500;">Livestream</span>
       </div>
       <a href="https://www.facebook.com/YaleMensWaterPolo/" target="_blank" rel="noopener noreferrer" style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:#fff; text-decoration:none; border:1px solid rgba(40,109,192,0.6); padding:8px 16px; background:rgba(0,53,107,0.2); transition:border-color 0.2s, background 0.2s;" onmouseover="this.style.background='rgba(0,53,107,0.4)';this.style.borderColor='#286DC0'" onmouseout="this.style.background='rgba(0,53,107,0.2)';this.style.borderColor='rgba(40,109,192,0.6)'">Watch Live →</a>
     </div>
+    <script>
+      // Livestream banner shows only from the day before a tournament through its last day.
+      // To add a weekend, add a [firstDayShown, lastDay] pair (YYYY-MM-DD, Eastern time).
+      (function () {
+        var windows = [['2026-10-02','2026-10-04'], ['2026-10-09','2026-10-11'], ['2026-10-25','2026-10-27']];
+        var today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+        var live = windows.some(function (w) { return today >= w[0] && today <= w[1]; });
+        if (!live) document.getElementById('livestream-banner').style.display = 'none';
+      })();
+    </script>
 
     <!-- ─ Fall 2026 ─ -->
     <div class="season-block">
       <div class="season-label-row">Fall 2026</div>
 
-      <!-- BU CWPA Tournament -->
+      <!-- CWPA Championship -->
+      <div class="tournament-item" id="tourn-fa6">
+        <div class="tournament-header static">
+          <span class="tourn-date">Oct 26–27, 2026</span>
+          <span class="tourn-name">CWPA Championship</span>
+          <span class="tourn-location">Boston, MA</span>
+          <span class="tourn-result tourn-result-upcoming">Upcoming</span>
+          <span></span>
+        </div>
+      </div>
+
+<!-- Villanova University Orphan Invite -->
+      <div class="tournament-item" id="tourn-fa5">
+        <button class="tournament-header" onclick="toggleTournament('tourn-fa5')">
+          <span class="tourn-date">Oct 10–11, 2026</span>
+          <span class="tourn-name">Villanova University Orphan Invite</span>
+          <span class="tourn-location">Villanova, PA</span>
+          <span class="tourn-result"><span class="tourn-result-w">W 3</span> · <span class="tourn-result-l">L 1</span></span>
+          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="tournament-games">
+          <div class="game-row">
+            <span class="game-date">Oct 10 3:50pm</span>
+            <span class="game-opponent">Georgetown</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-w">Win</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 10 6:00pm</span>
+            <span class="game-opponent">Villanova</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-w">Win</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 11 9:00am</span>
+            <span class="game-opponent">Franklins</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-w">Win</span>
+          </div>
+          <div class="game-row">
+            <span class="game-date">Oct 11 11:10am</span>
+            <span class="game-opponent">Bronx Water Polo Club</span>
+            <span class="game-quarters"></span>
+            <span class="game-result result-l">Loss</span>
+          </div>
+        </div>
+      </div>
+
+      
+
+<!-- BU CWPA Tournament -->
       <div class="tournament-item" id="tourn-fa4">
         <button class="tournament-header" onclick="toggleTournament('tourn-fa4')">
           <span class="tourn-date">Oct 3–4, 2026</span>
@@ -2597,7 +2767,9 @@
         </div>
       </div>
 
-      <!-- Yale CWPA Tournament -->
+      
+
+<!-- Yale CWPA Tournament -->
       <div class="tournament-item" id="tourn-fa3">
         <button class="tournament-header" onclick="toggleTournament('tourn-fa3')">
           <span class="tourn-date">Sep 19–20, 2026</span>
@@ -2634,7 +2806,9 @@
         </div>
       </div>
 
-      <!-- W&J Tournament -->
+      
+
+<!-- W&J Tournament -->
       <div class="tournament-item" id="tourn-fa2">
         <button class="tournament-header" onclick="toggleTournament('tourn-fa2')">
           <span class="tourn-date">Sep 5–6, 2026</span>
@@ -2665,7 +2839,9 @@
         </div>
       </div>
 
-      <!-- Preseason Training Trip -->
+      
+
+<!-- Preseason Training Trip -->
       <div class="tournament-item" id="tourn-fa1">
         <button class="tournament-header" onclick="toggleTournament('tourn-fa1')">
           <span class="tourn-date">Aug 26–29, 2026</span>
@@ -2768,58 +2944,13 @@
         </div>
       </div>
 
-      <!-- Villanova University Orphan Invite -->
-      <div class="tournament-item" id="tourn-fa5">
-        <button class="tournament-header" onclick="toggleTournament('tourn-fa5')">
-          <span class="tourn-date">Oct 10–11, 2026</span>
-          <span class="tourn-name">Villanova University Orphan Invite</span>
-          <span class="tourn-location">Villanova, PA</span>
-          <span class="tourn-result tourn-result-upcoming">Upcoming</span>
-          <svg class="tourn-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="tournament-games">
-          <div class="game-row">
-            <span class="game-date">Oct 10 3:50pm</span>
-            <span class="game-opponent">Georgetown</span>
-            <span class="game-quarters"></span>
-            <span class="game-result result-upcoming">Upcoming</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 10 6:00pm</span>
-            <span class="game-opponent">Villanova</span>
-            <span class="game-quarters"></span>
-            <span class="game-result result-upcoming">Upcoming</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 11 9:00am</span>
-            <span class="game-opponent">Franklins</span>
-            <span class="game-quarters"></span>
-            <span class="game-result result-upcoming">Upcoming</span>
-          </div>
-          <div class="game-row">
-            <span class="game-date">Oct 11 11:10am</span>
-            <span class="game-opponent">Bronx Water Polo Club</span>
-            <span class="game-quarters"></span>
-            <span class="game-result result-upcoming">Upcoming</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CWPA Championship -->
-      <div class="tournament-item" id="tourn-fa6">
-        <div class="tournament-header static">
-          <span class="tourn-date">Oct 26–27, 2026</span>
-          <span class="tourn-name">CWPA Championship</span>
-          <span class="tourn-location">Boston, MA</span>
-          <span class="tourn-result"><span class="tourn-result-mixed">—</span></span>
-          <span></span>
-        </div>
-      </div>
+      
     </div>
 
     <!-- ─ Spring 2027 ─ -->
     <div class="season-block">
       <div class="season-label-row">Spring 2027</div>
+      <p class="season-empty">Schedule coming soon.</p>
     </div>
 
   </section>
@@ -3109,91 +3240,6 @@
 
   </section>
 
-  <!-- ── ALUMNI ───────────────────────────────  -->
-  <section class="alumni-section" id="alumni">
-    <div class="alumni-inner">
-
-      <!-- Left: intro + donate -->
-      <div>
-        <p class="section-label">Alumni Network</p>
-        <h2 class="alumni-heading">Stay<br>Connected</h2>
-        <p class="alumni-body">The Yale Men's Water Polo Club alumni network spans decades of excellence. Stay connected with your teammates, follow the current roster, and help the program continue to thrive.</p>
-        <a href="https://recreation.yale.edu/club-sports/support" target="_blank" rel="noopener noreferrer" class="cta-btn">
-          Donate to YWPC
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- Right: contact form -->
-      <div>
-        <p class="section-label">Update Your Info</p>
-        <form class="alumni-form" id="alumni-form">
-          <div class="alumni-form-row">
-            <div class="form-group">
-              <label class="form-label">Full Name</label>
-              <input class="form-input" id="f-name" type="text" placeholder="First Last" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Graduation Year</label>
-              <input class="form-input" id="f-year" type="text" placeholder="e.g. 2019" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input class="form-input" id="f-email" type="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Current City</label>
-            <input class="form-input" id="f-location" type="text" placeholder="New York, NY" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Current Employer / Role <span style="opacity:0.4; font-weight:400;">(optional)</span></label>
-            <input class="form-input" id="f-company" type="text" placeholder="Company · Title" />
-          </div>
-          <button class="alumni-submit" id="alumni-submit-btn" type="submit">Submit</button>
-          <p id="alumni-msg" style="display:none; margin-top:12px; font-size:13px; font-weight:500;"></p>
-        </form>
-        <script>
-          document.getElementById('alumni-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var btn = document.getElementById('alumni-submit-btn');
-            var msg = document.getElementById('alumni-msg');
-            btn.disabled = true;
-            btn.textContent = 'Sending…';
-            var payload = {
-              name:     document.getElementById('f-name').value,
-              gradYear: document.getElementById('f-year').value,
-              email:    document.getElementById('f-email').value,
-              location: document.getElementById('f-location').value,
-              company:  document.getElementById('f-company').value
-            };
-            fetch('https://script.google.com/macros/s/AKfycbzQH5k5fUVJDR8M5UgXr1rAD1xM7vQPuE0Awqq3ej6MyoyzzdwygM0V0ebuCKchAdQzlA/exec', {
-              method: 'POST',
-              body: JSON.stringify(payload)
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-              msg.textContent = 'Thanks! Your info has been saved.';
-              msg.style.color = '#4ade80';
-              msg.style.display = 'block';
-              document.getElementById('alumni-form').reset();
-              btn.textContent = 'Submit';
-              btn.disabled = false;
-            })
-            .catch(function() {
-              msg.textContent = 'Something went wrong. Please try again.';
-              msg.style.color = '#f87171';
-              msg.style.display = 'block';
-              btn.textContent = 'Submit';
-              btn.disabled = false;
-            });
-          });
-        </script>
-      </div>
-
-    </div>
-  </section>
-
   <!-- ── ABOUT ─────────────────────────────────  -->
   <section class="about" id="about">
     <div class="about-inner">
@@ -3211,8 +3257,105 @@
   </section>
 
 
-  <!-- ── PROSPECTIVE PLAYERS ────────────────────  -->
-  <section class="recruit-section" id="prospective-players">
+  <!-- ── CONTACT ────────────────────────────────  -->
+  <section class="full-section" id="contact">
+    <div class="full-section-bg"></div>
+    <div class="contact-wrap">
+    <div class="full-section-inner">
+      <p class="full-section-tag">Get Involved</p>
+      <h2 class="full-section-heading">
+        Join Yale Men's<br>Water Polo
+      </h2>
+      <p class="full-section-body">
+        We're a tight-knit group of guys who love playing hard and having fun. We emphasize teamwork, pushing limits, and improving skills — while making time for social events and team bonding. All Yale undergraduate and graduate students who can swim are welcome, regardless of experience level.
+      </p>
+
+      <div class="contact-grid">
+        <div>
+          <p class="contact-block-label">Contact</p>
+          <p class="contact-block-value"><a href="mailto:tomas.watson@yale.edu">tomas.watson@yale.edu</a></p>
+        </div>
+        <div>
+          <p class="contact-block-label">Practice Location</p>
+          <p class="contact-block-value">Kiphuth Exhibition Pool<br>Payne Whitney Gymnasium</p>
+        </div>
+        <div>
+          <p class="contact-block-label">Fall Semester (5×/week)</p>
+          <p class="contact-block-value">
+            Mon 8:30–10:00pm · 3rd Floor Pool<br>
+            Tue &amp; Thu 8–10pm · KEP<br>
+            Sat 2–4pm · KEP<br>
+            Sun 4–6pm · KEP
+          </p>
+        </div>
+        <div>
+          <p class="contact-block-label">Spring Semester (3×/week)</p>
+          <p class="contact-block-value">
+            Tue &amp; Thu 8–10pm · KEP<br>
+            Sat 2–4pm · KEP
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-list">
+
+        <div class="faq-item" id="faq-1">
+          <button class="faq-question" onclick="toggleFaq('faq-1')">
+            Who Can Join?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">Any current Yale undergraduate or graduate student who can swim is eligible. We do not hold tryouts and do not cut anyone — we welcome both competitive players and those trying the sport for the very first time.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-2">
+          <button class="faq-question" onclick="toggleFaq('faq-2')">
+            Never Played Water Polo Before?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">No problem. The team includes players with all levels of experience — from lifelong water polo players to former swimmers discovering the sport for the first time. If you're learning from scratch, you're still welcome.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-3">
+          <button class="faq-question" onclick="toggleFaq('faq-3')">
+            When Can I Join?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">You can join at any point after completing the required club sports paperwork. The best time to start is the beginning of fall semester — preseason (two-a-day practices) runs before classes begin, and the competitive season kicks off in September. That said, you're welcome to join at any point in the year.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-4">
+          <button class="faq-question" onclick="toggleFaq('faq-4')">
+            What Is the Time Commitment?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">It's a club sport, so you have flexibility — but we do take it seriously. Fall semester is the busiest with 5 practices a week plus 3–4 tournament weekends. Spring is more relaxed at 3 practices a week. Most guys find it very manageable alongside a full course load.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-5">
+          <button class="faq-question" onclick="toggleFaq('faq-5')">
+            Is There a Varsity Team?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer-inner">There is no varsity water polo team at Yale, which makes our club team the highest competitive level available on campus. While we're open to everyone, we take competition seriously and play to win.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  <!-- Prospective players (inside Contact) -->
+  <div class="contact-sub" id="prospective-players">
     <div class="recruit-inner">
 
       <div class="recruit-head">
@@ -3445,105 +3588,97 @@
       </script>
 
     </div>
-  </section>
+  </div>
 
+  <!-- Alumni (inside Contact) -->
+  <div class="contact-sub" id="alumni">
+    <div class="alumni-inner">
 
-  <!-- ── CONTACT ────────────────────────────────  -->
-  <section class="full-section" id="contact">
-    <div class="full-section-bg"></div>
-    <div class="full-section-inner">
-      <p class="full-section-tag">Get Involved</p>
-      <h2 class="full-section-heading">
-        Join Yale Men's<br>Water Polo
-      </h2>
-      <p class="full-section-body">
-        We're a tight-knit group of guys who love playing hard and having fun. We emphasize teamwork, pushing limits, and improving skills — while making time for social events and team bonding. All Yale undergraduate and graduate students who can swim are welcome, regardless of experience level.
-      </p>
-
-      <div class="contact-grid">
-        <div>
-          <p class="contact-block-label">Contact</p>
-          <p class="contact-block-value"><a href="mailto:tomas.watson@yale.edu">tomas.watson@yale.edu</a></p>
-        </div>
-        <div>
-          <p class="contact-block-label">Practice Location</p>
-          <p class="contact-block-value">Kiphuth Exhibition Pool<br>Payne Whitney Gymnasium</p>
-        </div>
-        <div>
-          <p class="contact-block-label">Fall Semester (5×/week)</p>
-          <p class="contact-block-value">
-            Mon 8:30–10:00pm · 3rd Floor Pool<br>
-            Tue &amp; Thu 8–10pm · KEP<br>
-            Sat 2–4pm · KEP<br>
-            Sun 4–6pm · KEP
-          </p>
-        </div>
-        <div>
-          <p class="contact-block-label">Spring Semester (3×/week)</p>
-          <p class="contact-block-value">
-            Tue &amp; Thu 8–10pm · KEP<br>
-            Sat 2–4pm · KEP
-          </p>
-        </div>
+      <!-- Left: intro + donate -->
+      <div>
+        <p class="section-label">Alumni Network</p>
+        <h2 class="alumni-heading">Stay<br>Connected</h2>
+        <p class="alumni-body">The Yale Men's Water Polo Club alumni network spans decades of excellence. Stay connected with your teammates, follow the current roster, and help the program continue to thrive.</p>
+        <a href="https://recreation.yale.edu/club-sports/support" target="_blank" rel="noopener noreferrer" class="cta-btn">
+          Donate to YWPC
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
 
-      <!-- FAQ -->
-      <div class="faq-list">
-
-        <div class="faq-item" id="faq-1">
-          <button class="faq-question" onclick="toggleFaq('faq-1')">
-            Who Can Join?
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Any current Yale undergraduate or graduate student who can swim is eligible. We do not hold tryouts and do not cut anyone — we welcome both competitive players and those trying the sport for the very first time.</p>
+      <!-- Right: contact form -->
+      <div>
+        <p class="section-label">Update Your Info</p>
+        <form class="alumni-form" id="alumni-form">
+          <div class="alumni-form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Full Name</label>
+              <input class="form-input" id="f-name" type="text" placeholder="First Last" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-year">Graduation Year</label>
+              <input class="form-input" id="f-year" type="text" placeholder="e.g. 2019" required />
+            </div>
           </div>
-        </div>
-
-        <div class="faq-item" id="faq-2">
-          <button class="faq-question" onclick="toggleFaq('faq-2')">
-            Never Played Water Polo Before?
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">No problem. The team includes players with all levels of experience — from lifelong water polo players to former swimmers discovering the sport for the first time. If you're learning from scratch, you're still welcome.</p>
+          <div class="form-group">
+            <label class="form-label" for="f-email">Email Address</label>
+            <input class="form-input" id="f-email" type="email" placeholder="you@example.com" required />
           </div>
-        </div>
-
-        <div class="faq-item" id="faq-3">
-          <button class="faq-question" onclick="toggleFaq('faq-3')">
-            When Can I Join?
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">You can join at any point after completing the required club sports paperwork. The best time to start is the beginning of fall semester — preseason (two-a-day practices) runs before classes begin, and the competitive season kicks off in September. That said, you're welcome to join at any point in the year.</p>
+          <div class="form-group">
+            <label class="form-label" for="f-location">Current City</label>
+            <input class="form-input" id="f-location" type="text" placeholder="New York, NY" required />
           </div>
-        </div>
-
-        <div class="faq-item" id="faq-4">
-          <button class="faq-question" onclick="toggleFaq('faq-4')">
-            What Is the Time Commitment?
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">It's a club sport, so you have flexibility — but we do take it seriously. Fall semester is the busiest with 5 practices a week plus 3–4 tournament weekends. Spring is more relaxed at 3 practices a week. Most guys find it very manageable alongside a full course load.</p>
+          <div class="form-group">
+            <label class="form-label" for="f-company">Current Employer / Role <span style="opacity:0.75; font-weight:400;">(optional)</span></label>
+            <input class="form-input" id="f-company" type="text" placeholder="Company · Title" />
           </div>
-        </div>
-
-        <div class="faq-item" id="faq-5">
-          <button class="faq-question" onclick="toggleFaq('faq-5')">
-            Is There a Varsity Team?
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">There is no varsity water polo team at Yale, which makes our club team the highest competitive level available on campus. While we're open to everyone, we take competition seriously and play to win.</p>
-          </div>
-        </div>
-
+          <button class="alumni-submit" id="alumni-submit-btn" type="submit">Submit</button>
+          <p id="alumni-msg" style="display:none; margin-top:12px; font-size:13px; font-weight:500;"></p>
+        </form>
+        <script>
+          document.getElementById('alumni-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('alumni-submit-btn');
+            var msg = document.getElementById('alumni-msg');
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            var payload = {
+              name:     document.getElementById('f-name').value,
+              gradYear: document.getElementById('f-year').value,
+              email:    document.getElementById('f-email').value,
+              location: document.getElementById('f-location').value,
+              company:  document.getElementById('f-company').value
+            };
+            fetch('https://script.google.com/macros/s/AKfycbzQH5k5fUVJDR8M5UgXr1rAD1xM7vQPuE0Awqq3ej6MyoyzzdwygM0V0ebuCKchAdQzlA/exec', {
+              method: 'POST',
+              body: JSON.stringify(payload)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+              msg.textContent = 'Thanks! Your info has been saved.';
+              msg.style.color = '#4ade80';
+              msg.style.display = 'block';
+              document.getElementById('alumni-form').reset();
+              btn.textContent = 'Submit';
+              btn.disabled = false;
+            })
+            .catch(function() {
+              msg.textContent = 'Something went wrong. Please try again.';
+              msg.style.color = '#f87171';
+              msg.style.display = 'block';
+              btn.textContent = 'Submit';
+              btn.disabled = false;
+            });
+          });
+        </script>
       </div>
 
     </div>
+  </div>
+    </div>
+
   </section>
+
+  </main>
 
   <!-- ── FOOTER ─────────────────────────────────  -->
   <footer>
@@ -3670,6 +3805,7 @@
       featuredImg.style.opacity = '0';
       setTimeout(() => {
         featuredImg.src = src;
+        featuredImg.alt = featuredName.textContent;
         const show = () => { featuredImg.style.opacity = '1'; };
         featuredImg.onload = show;
         if (featuredImg.complete) show();
@@ -3688,7 +3824,9 @@
       currentIdx = 0;
 
       featuredName.textContent = name;
-      featuredSub.textContent = sub;
+      const hometown = (row.querySelector('.player-hometown') || {}).textContent;
+      featuredSub.textContent = (hometown && hometown.trim() && window.matchMedia('(max-width: 900px)').matches)
+        ? sub + ' · ' + hometown.trim() : sub;
       featuredPlaceholder.style.display = imgs.length ? 'none' : 'flex';
       featuredImg.style.opacity = imgs.length ? featuredImg.style.opacity : '0';
 
@@ -3824,6 +3962,82 @@
       });
     });
 
+    // ── ACCESSIBILITY: keyboard + screen-reader state ───────────
+    rosterRows.forEach(row => {
+      row.setAttribute('role', 'button');
+      row.tabIndex = 0;
+      row.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showPlayer(row); }
+      });
+      row.addEventListener('focus', () => showPlayer(row));
+    });
+    [viewToggle, ...tabs].forEach(el => {
+      el.setAttribute('role', 'button');
+      el.tabIndex = 0;
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
+    // Disclosure buttons report open/closed. Their inline onclick runs first,
+    // so by the time this listener fires the "open" class is already updated.
+    document.querySelectorAll('.faq-question, .announcement-toggle, button.tournament-header').forEach(btn => {
+      const item = btn.closest('.faq-item, .announcement-item, .tournament-item');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', () => {
+        btn.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+      });
+    });
+    function syncMenuState() {
+      const open = mobileMenu.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    hamburger.addEventListener('click', syncMenuState);
+    document.querySelectorAll('.nav-mobile-link').forEach(l => l.addEventListener('click', syncMenuState));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        hamburger.click();
+        hamburger.focus();
+      }
+    });
+
+    // ── SCROLL-IN TEXT ─────────────────────────────────────────
+    // Text fades up once as it scrolls into view. Skipped entirely for
+    // visitors who prefer reduced motion, and content is fully visible
+    // if JavaScript or IntersectionObserver is unavailable.
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) return;
+      var targets = [
+        '.announcements-title', '.schedule-title', '.full-section-heading', '.alumni-heading', '.recruit-heading',
+        '.section-label:not(.view-toggle)', '.full-section-tag',
+        '.about-text p', '.full-section-body', '.alumni-body', '.recruit-body',
+        '.stat-item', '.contact-grid > div', '.faq-item', '.announcement-item',
+        '.season-label-row', '.tournament-item', '.roster-row',
+        '.recruit-fieldset', '.recruit-foot', '.alumni-form', '.cta-btn'
+      ].join(',');
+      var els = Array.prototype.slice.call(document.querySelectorAll(targets));
+      els.forEach(function (el) { el.classList.add('reveal'); });
+      var io = new IntersectionObserver(function (entries) {
+        var shown = entries.filter(function (e) { return e.isIntersecting; }).sort(function (a, b) {
+          return a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left;
+        });
+        shown.forEach(function (entry, i) {
+          var el = entry.target;
+          var delay = Math.min(i, 6) * 70;
+          el.style.setProperty('--reveal-delay', delay + 'ms');
+          requestAnimationFrame(function () { el.classList.add('is-visible'); });
+          io.unobserve(el);
+          // Hand the element back to its normal styles once it has settled.
+          setTimeout(function () {
+            el.classList.remove('reveal', 'is-visible');
+            el.style.removeProperty('--reveal-delay');
+          }, delay + 1000);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
     // ── TOUCH SUPPORT FOR ROSTER ───────────────
     // Add click events so players can be selected on touch devices
     rosterRows.forEach(row => {
@@ -3847,7 +4061,7 @@
     <button class="photo-lightbox-close" aria-label="Close" onclick="closeLightbox(event)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <img id="photo-lightbox-img" src="" alt="">
+    <img id="photo-lightbox-img" alt="">
   </div>
 
   <script>
