@@ -2337,6 +2337,38 @@
       .alumni-scroll-wrap { overflow-x: auto; }
     }
 
+
+    /* Contact: links to the Recruits and Alumni pages */
+    .contact-links { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .contact-link-card {
+      display: flex; flex-direction: column; gap: 12px;
+      padding: 32px; text-decoration: none; color: #fff;
+      border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);
+      transition: background .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .contact-link-card:hover, .contact-link-card:focus-visible {
+      background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.45); transform: translateY(-2px);
+    }
+    .contact-link-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; letter-spacing: 0.02em; }
+    .contact-link-text { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.78); }
+    .contact-link-go { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #7fb2ea; margin-top: 6px; }
+    @media (max-width: 768px) {
+      .contact-links { grid-template-columns: 1fr; gap: 16px; }
+      .contact-link-card { padding: 24px 20px; }
+      .contact-link-title { font-size: 34px; }
+    }
+
+    /* Mobile hero: show the whole team photo (3:2) instead of a narrow crop */
+    @media (max-width: 768px) {
+      .hero { height: auto; min-height: 0; justify-content: flex-start; padding: 60px 0 28px; }
+      .hero-bg {
+        position: relative; inset: auto; width: 100%;
+        aspect-ratio: 3 / 2;
+        background-size: cover; background-position: center;
+      }
+      .hero-bg::before { background: linear-gradient(to top, rgba(6,13,24,0.55) 0%, rgba(6,13,24,0) 35%); }
+      .hero-title { transform: none; padding: 24px 20px 0; font-size: clamp(52px, 17vw, 84px); }
+    }
   </style>
 </head>
 <body>
@@ -2354,6 +2386,8 @@
         <li><a href="#schedule">Events</a></li>
         <li><a href="#roster">Roster</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="recruits.html">Recruits</a></li>
+        <li><a href="alumni.html">Alumni</a></li>
         <li>
           <a href="archives.html" class="nav-archive-link">
             Archives
@@ -2374,6 +2408,8 @@
       <li><a href="#schedule" class="nav-mobile-link">Events</a></li>
       <li><a href="#roster" class="nav-mobile-link">Roster</a></li>
       <li><a href="#about" class="nav-mobile-link">About</a></li>
+      <li><a href="recruits.html" class="nav-mobile-link">Recruits</a></li>
+      <li><a href="alumni.html" class="nav-mobile-link">Alumni</a></li>
       <li><a href="#contact" class="nav-mobile-link">Contact</a></li>
       <li style="border-bottom: none;">
         <a href="archives.html" class="nav-mobile-link nav-archive-link">
@@ -3354,325 +3390,20 @@
 
     </div>
 
-  <!-- Prospective players (inside Contact) -->
-  <div class="contact-sub" id="prospective-players">
-    <div class="recruit-inner">
-
-      <div class="recruit-head">
-        <div>
-          <p class="section-label">Prospective Players</p>
-          <h2 class="recruit-heading">Recruit<br>Information Form</h2>
-        </div>
-        <p class="recruit-body">If you're a high school player thinking about Yale, send us your information. The form goes straight to our head coach and director of recruiting, and they'll follow up from there.</p>
-      </div>
-
-      <form class="recruit-form" id="recruit-form">
-
-        <div class="recruit-fieldset" role="group" aria-labelledby="grp-player">
-          <p class="recruit-legend" id="grp-player">Player</p>
-          <div class="recruit-grid">
-            <div class="form-group">
-              <label class="form-label" for="r-name">Name</label>
-              <input class="form-input" id="r-name" type="text" placeholder="First Last" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-gradyear">HS Graduation Year</label>
-              <input class="form-input" id="r-gradyear" type="text" inputmode="numeric" placeholder="e.g. 2027" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-city">Home City</label>
-              <input class="form-input" id="r-city" type="text" placeholder="City, State" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-email">Email</label>
-              <input class="form-input" id="r-email" type="email" placeholder="you@example.com" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-phone">Cell Phone</label>
-              <input class="form-input" id="r-phone" type="tel" placeholder="(555) 555-5555" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-height">Height</label>
-              <input class="form-input" id="r-height" type="text" placeholder="6'1&quot;" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-weight">Weight</label>
-              <input class="form-input" id="r-weight" type="text" placeholder="185 lbs" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-hand">Shooting Hand</label>
-              <select class="form-input" id="r-hand" required>
-                <option value="" disabled selected>Select</option>
-                <option>Right</option>
-                <option>Left</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-position">Position</label>
-              <input class="form-input" id="r-position" type="text" placeholder="Utility, Center, Driver…" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-swim">100 Swim Time</label>
-              <input class="form-input" id="r-swim" type="text" placeholder="e.g. 51.8" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-years">Years Playing Water Polo</label>
-              <input class="form-input" id="r-years" type="text" inputmode="numeric" placeholder="e.g. 6" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-hs">High School</label>
-              <input class="form-input" id="r-hs" type="text" placeholder="School name" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-club">Club</label>
-              <input class="form-input" id="r-club" type="text" placeholder="Club team" />
-            </div>
-          </div>
-        </div>
-
-        <div class="recruit-fieldset" role="group" aria-labelledby="grp-academics">
-          <p class="recruit-legend" id="grp-academics">Academics</p>
-          <div class="recruit-grid">
-            <div class="form-group">
-              <label class="form-label" for="r-gpa">GPA</label>
-              <input class="form-input" id="r-gpa" type="text" placeholder="e.g. 3.9" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-sat">SAT <span style="opacity:0.5; letter-spacing:0.1em;">(optional)</span></label>
-              <input class="form-input" id="r-sat" type="text" inputmode="numeric" placeholder="e.g. 1520" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="r-act">ACT <span style="opacity:0.5; letter-spacing:0.1em;">(optional)</span></label>
-              <input class="form-input" id="r-act" type="text" inputmode="numeric" placeholder="e.g. 34" />
-            </div>
-          </div>
-
-          <div class="recruit-grid two" style="margin-top: 20px;">
-            <div class="recruit-ap">
-              <div class="form-group">
-                <label class="form-label" for="r-ap1">AP Course #1</label>
-                <input class="form-input" id="r-ap1" type="text" placeholder="Course" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="r-ap1s">Score</label>
-                <input class="form-input" id="r-ap1s" type="text" inputmode="numeric" placeholder="1–5" />
-              </div>
-            </div>
-            <div class="recruit-ap">
-              <div class="form-group">
-                <label class="form-label" for="r-ap2">AP Course #2</label>
-                <input class="form-input" id="r-ap2" type="text" placeholder="Course" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="r-ap2s">Score</label>
-                <input class="form-input" id="r-ap2s" type="text" inputmode="numeric" placeholder="1–5" />
-              </div>
-            </div>
-            <div class="recruit-ap">
-              <div class="form-group">
-                <label class="form-label" for="r-ap3">AP Course #3</label>
-                <input class="form-input" id="r-ap3" type="text" placeholder="Course" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="r-ap3s">Score</label>
-                <input class="form-input" id="r-ap3s" type="text" inputmode="numeric" placeholder="1–5" />
-              </div>
-            </div>
-            <div class="recruit-ap">
-              <div class="form-group">
-                <label class="form-label" for="r-ap4">AP Course #4</label>
-                <input class="form-input" id="r-ap4" type="text" placeholder="Course" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="r-ap4s">Score</label>
-                <input class="form-input" id="r-ap4s" type="text" inputmode="numeric" placeholder="1–5" />
-              </div>
-            </div>
-          </div>
-
-          <div class="recruit-grid two" style="margin-top: 20px;">
-            <div class="form-group">
-              <label class="form-label" for="r-major">Intended Major</label>
-              <input class="form-input" id="r-major" type="text" placeholder="e.g. Economics" required />
-            </div>
-          </div>
-        </div>
-
-        <div class="recruit-foot">
-          <button class="alumni-submit" id="recruit-submit-btn" type="submit" style="margin-top:0;">Send to Coaches</button>
-          <p class="recruit-note">Your responses go to Doug Hausladen and George Gross. Expect a reply by email.</p>
-        </div>
-        <p id="recruit-msg" style="display:none; font-size:13px; font-weight:500;"></p>
-
-      </form>
-
-      <script>
-        (function () {
-          var form = document.getElementById('recruit-form');
-          // Responses are emailed to the head coach, with the director of recruiting cc'd.
-          var ENDPOINT = 'https://formsubmit.co/ajax/douglas.hausladen@gmail.com';
-          var CC = 'george.gross.sm.74@aya.yale.edu';
-
-          // Order here is the order the coaches read in the email.
-          var FIELDS = [
-            ['Name', 'r-name'],
-            ['HS Graduation Year', 'r-gradyear'],
-            ['Home City', 'r-city'],
-            ['Email', 'r-email'],
-            ['Cell Phone', 'r-phone'],
-            ['Height', 'r-height'],
-            ['Weight', 'r-weight'],
-            ['Shooting Hand', 'r-hand'],
-            ['Position', 'r-position'],
-            ['100 Swim Time', 'r-swim'],
-            ['Years Playing Water Polo', 'r-years'],
-            ['High School', 'r-hs'],
-            ['Club', 'r-club'],
-            ['GPA', 'r-gpa'],
-            ['SAT', 'r-sat'],
-            ['ACT', 'r-act'],
-            ['AP Course #1', 'r-ap1'],
-            ['AP Course #1 Score', 'r-ap1s'],
-            ['AP Course #2', 'r-ap2'],
-            ['AP Course #2 Score', 'r-ap2s'],
-            ['AP Course #3', 'r-ap3'],
-            ['AP Course #3 Score', 'r-ap3s'],
-            ['AP Course #4', 'r-ap4'],
-            ['AP Course #4 Score', 'r-ap4s'],
-            ['Intended Major', 'r-major']
-          ];
-
-          form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var btn = document.getElementById('recruit-submit-btn');
-            var msg = document.getElementById('recruit-msg');
-            btn.disabled = true;
-            btn.textContent = 'Sending…';
-
-            var payload = {};
-            FIELDS.forEach(function (f) {
-              var v = document.getElementById(f[1]).value.trim();
-              payload[f[0]] = v === '' ? '—' : v;
-            });
-            payload._subject = 'Prospective Recruit — ' + payload['Name'] + " ('" + String(payload['HS Graduation Year']).slice(-2) + ')';
-            payload._template = 'table';
-            payload._cc = CC;
-            payload._captcha = 'false';
-
-            fetch(ENDPOINT, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: JSON.stringify(payload)
-            })
-              .then(function (res) {
-                if (!res.ok) throw new Error('Request failed');
-                return res.json();
-              })
-              .then(function () {
-                msg.textContent = 'Thanks — your information is on its way to the coaches.';
-                msg.style.color = '#4ade80';
-                msg.style.display = 'block';
-                form.reset();
-                btn.textContent = 'Send to Coaches';
-                btn.disabled = false;
-              })
-              .catch(function () {
-                msg.textContent = 'Something went wrong. Please try again, or email tomas.watson@yale.edu.';
-                msg.style.color = '#f87171';
-                msg.style.display = 'block';
-                btn.textContent = 'Send to Coaches';
-                btn.disabled = false;
-              });
-          });
-        })();
-      </script>
-
-    </div>
-  </div>
-
-  <!-- Alumni (inside Contact) -->
-  <div class="contact-sub" id="alumni">
-    <div class="alumni-inner">
-
-      <!-- Left: intro + donate -->
-      <div>
-        <p class="section-label">Alumni Network</p>
-        <h2 class="alumni-heading">Stay<br>Connected</h2>
-        <p class="alumni-body">The Yale Men's Water Polo Club alumni network spans decades of excellence. Stay connected with your teammates, follow the current roster, and help the program continue to thrive.</p>
-        <a href="https://recreation.yale.edu/club-sports/support" target="_blank" rel="noopener noreferrer" class="cta-btn">
-          Donate to YWPC
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- Right: contact form -->
-      <div>
-        <p class="section-label">Update Your Info</p>
-        <form class="alumni-form" id="alumni-form">
-          <div class="alumni-form-row">
-            <div class="form-group">
-              <label class="form-label" for="f-name">Full Name</label>
-              <input class="form-input" id="f-name" type="text" placeholder="First Last" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="f-year">Graduation Year</label>
-              <input class="form-input" id="f-year" type="text" placeholder="e.g. 2019" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-email">Email Address</label>
-            <input class="form-input" id="f-email" type="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-location">Current City</label>
-            <input class="form-input" id="f-location" type="text" placeholder="New York, NY" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-company">Current Employer / Role <span style="opacity:0.75; font-weight:400;">(optional)</span></label>
-            <input class="form-input" id="f-company" type="text" placeholder="Company · Title" />
-          </div>
-          <button class="alumni-submit" id="alumni-submit-btn" type="submit">Submit</button>
-          <p id="alumni-msg" style="display:none; margin-top:12px; font-size:13px; font-weight:500;"></p>
-        </form>
-        <script>
-          document.getElementById('alumni-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var btn = document.getElementById('alumni-submit-btn');
-            var msg = document.getElementById('alumni-msg');
-            btn.disabled = true;
-            btn.textContent = 'Sending…';
-            var payload = {
-              name:     document.getElementById('f-name').value,
-              gradYear: document.getElementById('f-year').value,
-              email:    document.getElementById('f-email').value,
-              location: document.getElementById('f-location').value,
-              company:  document.getElementById('f-company').value
-            };
-            fetch('https://script.google.com/macros/s/AKfycbzQH5k5fUVJDR8M5UgXr1rAD1xM7vQPuE0Awqq3ej6MyoyzzdwygM0V0ebuCKchAdQzlA/exec', {
-              method: 'POST',
-              body: JSON.stringify(payload)
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-              msg.textContent = 'Thanks! Your info has been saved.';
-              msg.style.color = '#4ade80';
-              msg.style.display = 'block';
-              document.getElementById('alumni-form').reset();
-              btn.textContent = 'Submit';
-              btn.disabled = false;
-            })
-            .catch(function() {
-              msg.textContent = 'Something went wrong. Please try again.';
-              msg.style.color = '#f87171';
-              msg.style.display = 'block';
-              btn.textContent = 'Submit';
-              btn.disabled = false;
-            });
-          });
-        </script>
-      </div>
-
-    </div>
+  <!-- More ways to get involved (own pages) -->
+  <div class="contact-sub contact-links">
+    <a class="contact-link-card" href="recruits.html">
+      <span class="section-label">Prospective Players</span>
+      <span class="contact-link-title">Recruit Information Form</span>
+      <span class="contact-link-text">High school player thinking about Yale? Send the coaches your information.</span>
+      <span class="contact-link-go">Go to recruiting &rarr;</span>
+    </a>
+    <a class="contact-link-card" href="alumni.html">
+      <span class="section-label">Alumni Network</span>
+      <span class="contact-link-title">Stay Connected</span>
+      <span class="contact-link-text">Update your info, follow the program and support the club.</span>
+      <span class="contact-link-go">Go to alumni &rarr;</span>
+    </a>
   </div>
     </div>
 
