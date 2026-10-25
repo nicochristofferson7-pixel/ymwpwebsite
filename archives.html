@@ -729,30 +729,41 @@
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
+  <link rel="stylesheet" href="site.css" />
 </head>
 <body>
 
   <!-- ── NAV ─────────────────────────────────── -->
-  <nav>
+    <nav aria-label="Main">
     <a href="index.html" class="nav-logo">
       <img src="Logos/Yale-Bulldogs-logo.png" alt="Yale" class="nav-logo-img">
       <span class="nav-wordmark">Water Polo</span>
     </a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html#schedule">Events</a></li>
-        <li><a href="index.html#roster">Roster</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="recruits.html">Recruits</a></li>
-        <li><a href="alumni.html">Alumni</a></li>
-        <li>
-          <a href="archives.html" class="nav-archive-link">
-            Archives
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-menu is-current">
+          <a href="about.html">About<svg class="menu-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <ul class="submenu">
+            <li><a href="about.html">Our Mission</a></li>
+            <li><a href="about.html#faqs">FAQs</a></li>
+            <li><a href="archives.html" aria-current="page">History &amp; Archives</a></li>
+            <li><a href="contact.html#practice">Practice Times</a></li>
+          </ul>
         </li>
+        <li class="has-menu">
+          <a href="roster.html">Team<svg class="menu-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <ul class="submenu">
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="roster.html#coaches">Coaches</a></li>
+            <li><a href="recruits.html">Recruits</a></li>
+            <li><a href="alumni.html">Alumni</a></li>
+          </ul>
+        </li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="news.html">News</a></li>
       </ul>
-      <a href="index.html#contact" class="nav-contact">Contact</a>
+      <a href="contact.html" class="nav-contact">Get Involved</a>
     </div>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
       <span></span><span></span><span></span>
@@ -762,18 +773,21 @@
   <!-- Mobile nav overlay -->
   <div class="nav-mobile-menu" id="nav-mobile-menu">
     <ul class="nav-mobile-links">
-      <li><a href="index.html#schedule" class="nav-mobile-link">Events</a></li>
-      <li><a href="index.html#roster" class="nav-mobile-link">Roster</a></li>
-      <li><a href="index.html#about" class="nav-mobile-link">About</a></li>
-      <li><a href="recruits.html" class="nav-mobile-link">Recruits</a></li>
-      <li><a href="alumni.html" class="nav-mobile-link">Alumni</a></li>
-      <li><a href="index.html#contact" class="nav-mobile-link">Contact</a></li>
-      <li style="border-bottom: none;">
-        <a href="archives.html" class="nav-mobile-link nav-archive-link">
-          Archives
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </li>
+      <li><a href="index.html" class="nav-mobile-link">Home</a></li>
+      <li class="nav-mobile-group">About</li>
+      <li><a href="about.html" class="nav-mobile-link nav-mobile-sub">Our Mission</a></li>
+      <li><a href="about.html#faqs" class="nav-mobile-link nav-mobile-sub">FAQs</a></li>
+      <li><a href="archives.html" class="nav-mobile-link nav-mobile-sub" aria-current="page">History &amp; Archives</a></li>
+      <li><a href="contact.html#practice" class="nav-mobile-link nav-mobile-sub">Practice Times</a></li>
+      <li class="nav-mobile-group">Team</li>
+      <li><a href="roster.html" class="nav-mobile-link nav-mobile-sub">Roster</a></li>
+      <li><a href="roster.html#coaches" class="nav-mobile-link nav-mobile-sub">Coaches</a></li>
+      <li><a href="recruits.html" class="nav-mobile-link nav-mobile-sub">Recruits</a></li>
+      <li><a href="alumni.html" class="nav-mobile-link nav-mobile-sub">Alumni</a></li>
+      <li class="nav-mobile-group">Season</li>
+      <li><a href="schedule.html" class="nav-mobile-link nav-mobile-sub">Schedule</a></li>
+      <li><a href="news.html" class="nav-mobile-link nav-mobile-sub">News</a></li>
+      <li style="border-bottom: none;"><a href="contact.html" class="nav-mobile-link nav-mobile-cta">Get Involved</a></li>
     </ul>
   </div>
 
@@ -1044,11 +1058,46 @@
   </section>
 
   <!-- ── FOOTER ──────────────────────────────── -->
-  <footer>
+    <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <img src="Logos/Yale-Bulldogs-logo.png" alt="" class="footer-logo">
+        <p class="footer-name">Yale Men's Water Polo</p>
+        <p class="footer-line">Club team, CWPA New England Division.<br>Kiphuth Exhibition Pool, New Haven, CT.</p>
+        <a class="footer-mail" href="mailto:tomas.watson@yale.edu">tomas.watson@yale.edu</a>
+      </div>
+      <div>
+        <p class="footer-head">About</p>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="about.html#faqs">FAQs</a></li>
+          <li><a href="archives.html">History &amp; Archives</a></li>
+          <li><a href="contact.html#practice">Practice Times</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-head">Team</p>
+        <ul class="footer-links">
+          <li><a href="roster.html">Roster</a></li>
+          <li><a href="roster.html#coaches">Coaches</a></li>
+          <li><a href="recruits.html">Recruits</a></li>
+          <li><a href="alumni.html">Alumni</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-head">Season</p>
+        <ul class="footer-links">
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Get Involved</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="footer-bottom">
       <span class="footer-copy">© Yale Men's Water Polo Club 2026 &nbsp;·&nbsp; New Haven, CT</span>
       <div class="footer-socials">
         <a href="https://www.instagram.com/yalemwaterpolo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/YaleMensWaterPolo/" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
   </footer>
