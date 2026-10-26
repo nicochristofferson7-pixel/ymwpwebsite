@@ -212,3 +212,9 @@
 }
 
 .next-up .cta-btn { margin-top: 28px; }
+
+/* Announcements with more than one photo */
+.announcement-card.wide-text .announcement-img-wrap.compact img + img { margin-top: 16px; }
+#ann-champs .announcement-body { justify-content: flex-start; padding-top: 52px; }
+@media (max-width: 768px) { #ann-champs .announcement-body { padding-top: 0; } }
+@media (max-width: 768px) { #ann-champs .announcement-img-wrap.compact { padding-bottom: 24px; } }
