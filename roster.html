@@ -420,6 +420,13 @@
     let gridBuilt = false;
     let isGridView = false;
 
+    // Landscape photos that need a custom crop in the 3:4 grid cards.
+    const GRID_IMG_POS = { 'Max%20Colomer%202.jpg': '29% top' };
+    function gridImgPos(src) {
+      const key = Object.keys(GRID_IMG_POS).find(k => src.endsWith(k));
+      return key ? GRID_IMG_POS[key] : '';
+    }
+
     function buildGrid() {
       const rows = document.querySelectorAll('.roster-row');
       rows.forEach(row => {
@@ -449,6 +456,33 @@
             <span class="rc-info-name">${name}</span>
             <span class="rc-info-year">${year}</span>
           </div>`;
+        if (imgs.length > 1 && name !== 'Aaron Chough') {
+          const photo = card.querySelector('.rc-photo');
+          const el = photo.querySelector('img');
+          const dots = document.createElement('div');
+          dots.className = 'rc-dots';
+          dots.innerHTML = imgs.map((_, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('');
+          photo.appendChild(dots);
+          imgs.slice(1).forEach(src => { new Image().src = src; });
+          photo.classList.add('rc-photo-swappable');
+          photo.tabIndex = 0;
+          photo.setAttribute('role', 'button');
+          photo.setAttribute('aria-label', `Show next photo of ${name}`);
+          let idx = 0;
+          const next = () => {
+            idx = (idx + 1) % imgs.length;
+            el.src = imgs[idx];
+            el.style.objectPosition = gridImgPos(imgs[idx]);
+            dots.querySelectorAll('i').forEach((d, i) => d.classList.toggle('on', i === idx));
+            if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              el.animate([{ opacity: 0.2 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' });
+            }
+          };
+          photo.addEventListener('click', next);
+          photo.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next(); }
+          });
+        }
         playersGrid.appendChild(card);
       });
       gridBuilt = true;

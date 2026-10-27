@@ -837,7 +837,32 @@
       transition: transform 0.4s ease;
     }
 
-    .rc:hover .rc-photo img { transform: scale(1.04); }
+    @media (hover: hover) {
+      .rc:hover .rc-photo img { transform: scale(1.04); }
+    }
+
+    .rc-photo-swappable { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .rc-photo-swappable:focus-visible { outline: 2px solid var(--yale-light); outline-offset: -2px; }
+
+    .rc-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .rc-dots i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .rc-dots i.on { background: #fff; }
 
     .rc-photo-placeholder {
       width: 100%;
