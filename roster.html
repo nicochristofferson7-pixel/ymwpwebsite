@@ -430,7 +430,9 @@
         const num  = row.querySelector('.player-num').textContent;
         const year = row.querySelector('.player-year').textContent;
 
-        const photoInner = img
+        const photoInner = name === 'Aaron Chough'
+          ? `<div class="rc-photo-name"><span>${name}</span></div>`
+          : img
           ? `<img src="${img}" alt="${name}" loading="lazy" />`
           : `<div class="rc-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>`;
 
@@ -637,6 +639,9 @@
         featuredSubEl.textContent = 'Tap to preview';
       }
     }
+
+    // Open on the photo grid; the toggle switches back to the list.
+    viewToggle.click();
 
     // roster.html#coaches opens the coaches tab.
     if (location.hash === '#coaches') {
