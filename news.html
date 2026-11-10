@@ -439,8 +439,45 @@
     (function () {
       var id = location.hash.slice(1);
       if (!id || !document.getElementById(id)) return;
-      toggleAnnouncementItem(id);
+      if (!document.getElementById(id).classList.contains('open')) toggleAnnouncementItem(id);
       document.getElementById(id).scrollIntoView({ block: 'center' });
+    })();
+
+    // ── PHOTO LIGHTBOX ─────────────────────────
+    (function () {
+      var box = document.createElement('div');
+      box.className = 'lightbox';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-label', 'Enlarged photo');
+      box.innerHTML = '<button class="lightbox-close" type="button" aria-label="Close photo">&times;</button><img alt="">';
+      document.body.appendChild(box);
+      var big = box.querySelector('img');
+      var lastFocus = null;
+      function open(src, alt) {
+        lastFocus = document.activeElement;
+        big.src = src; big.alt = alt || '';
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        box.querySelector('button').focus();
+      }
+      function close() {
+        box.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+      box.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('open')) close();
+      });
+      document.querySelectorAll('.announcement-img-wrap img').forEach(function (img) {
+        img.tabIndex = 0;
+        img.setAttribute('role', 'button');
+        img.addEventListener('click', function () { open(img.currentSrc || img.src, img.alt); });
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img.currentSrc || img.src, img.alt); }
+        });
+      });
     })();
   </script>
 
