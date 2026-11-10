@@ -127,6 +127,8 @@
 .next-up-games { list-style: none; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); }
 .next-up-games li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
 .next-up-games span { color: rgba(255,255,255,0.65); }
+.next-up-games b .tourn-result-w { color: #4ade80; }
+.next-up-games b .tourn-result-l { color: #f87171; }
 .home-result-list { list-style: none; }
 .home-result { display: grid; grid-template-columns: 120px 1fr auto; gap: 16px; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .home-result:first-child { padding-top: 0; }
